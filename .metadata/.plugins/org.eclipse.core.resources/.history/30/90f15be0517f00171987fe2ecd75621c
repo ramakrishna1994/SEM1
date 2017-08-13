@@ -1,0 +1,27 @@
+#include <stdlib.h>
+#include <unistd.h>
+
+int main (void) {
+    int fd[2];
+
+    pipe(fd);
+
+    if (fork()) {
+        // Child process
+        dup2(fd[0], 0); // wc reads from the pipe
+        close(fd[0]);
+        close(fd[1]);
+        execlp("wc", "wc", "-l", NULL);
+    } else if(fork()){
+        // Parent process
+        dup2(fd[1], 1); // grep writes to the pipe
+        close(fd[0]);
+        close(fd[1]);
+        execlp("ls", "ls", NULL);
+    }
+    else
+    {
+    	printf("12");
+    }
+    exit(EXIT_FAILURE);
+}

@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main()
+{
+	int sockfd,portno;
+	char buf[256],ip[32];
+	printf("Enter the IP address of Server:");
+	scanf("%s",ip);
+	printf("Enter the port:");
+	scanf("%d",portno);
+}

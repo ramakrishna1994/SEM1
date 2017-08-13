@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	int sockfd;
+	char buf[256];
+	struct sockaddr_in serveraddr;
+
+	memset(&serveraddr,'\0',sizeof(serveraddr));
+
+}

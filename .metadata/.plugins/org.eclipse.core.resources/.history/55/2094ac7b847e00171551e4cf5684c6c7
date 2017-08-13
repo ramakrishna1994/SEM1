@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	int sockfd,portno;
+	char buf[256];
+	struct sockaddr_in serveraddr;
+	printf("Enter Port No for server to run :");
+	scanf("%d",portno);
+	memset(&serveraddr,'\0',sizeof(serveraddr));
+
+}

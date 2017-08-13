@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <stdlib.h>
+int main()
+{
+	int sockfd,portno;
+	char buf[256];
+	struct sockaddr_in serveraddr;
+	printf("Enter Port No for server to run :");
+	scanf("%d",portno);
+	sockfd = socket(AF_INET,SOCK_DGRAM,0);
+	if(sockfd < 0)
+	{
+		printf("Error in Opening socket");
+		exit(1);
+	}
+	memset(&serveraddr,'\0',sizeof(serveraddr));
+
+}

@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+int main()
+{
+	int key = 1234;
+	char *shm = shmget(key,27,IPC_CREAT | 0666);
+}

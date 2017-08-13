@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main()
+{
+	struct message
+	{
+		long type;
+		char msgbuf[256];
+	} msg;
+}

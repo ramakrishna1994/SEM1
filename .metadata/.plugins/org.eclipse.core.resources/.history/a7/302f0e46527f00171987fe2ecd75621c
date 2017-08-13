@@ -1,0 +1,28 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+
+int main (void) {
+    int fd[2];
+
+    pipe(fd);
+
+    if (fork()) {
+        // Child 1 process
+        dup2(fd[0], 0); // wc reads from the pipe
+        close(fd[0]);
+        close(fd[1]);
+        execlp("wc", "wc", "-l", NULL);
+    } else if(fork()){
+        // child 2  process
+        dup2(fd[1], 1); // ls writes to the pipe
+        close(fd[0]);
+        close(fd[1]);
+        execlp("ls", "ls", NULL);
+    }
+    else
+    {
+    	//printf("\nCommands Completed!!Hurrah\n");
+    }
+    exit(EXIT_FAILURE);
+}
