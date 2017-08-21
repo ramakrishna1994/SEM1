@@ -24,18 +24,35 @@ int main()
 	}
 	memset(&mcast,'\0',sizeof(mcast));
 	mcast.sin_family = AF_INET;
-	mcast.sin_addr.s_addr = htonl(INADDR_ANY);;
+	mcast.sin_addr.s_addr = inet_addr(INADDR_ANY);;
 	mcast.sin_port = htons(portno);
 	unsigned int addrlen = sizeof(mcast);
 	mreq.imr_multiaddr.s_addr = inet_addr(mip);
 	mreq.imr_interface.s_addr = htonl(INADDR_ANY);
 
 
-  if (bind(sockfd, (struct sockaddr *) &mcast, sizeof(mcast)) < 0) {
-	 perror("bind");
-	 exit(1);
-  }
+	/*
+	 * SO_REUSEADDR sets the address to be reused if the same application
+	 * is run multiple times in the same machine.
+	 */
+	int reuseaddress = 1;
+	if(setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, (char *)&reuseaddress, sizeof(reuseaddress)) < 0)
+	{
+		perror("Setting address for reuse failed");
+		close(sockfd);
+		exit(1);
+	}
+	printf("Address Reuse set successfully\n");
 
+	if (bind(sockfd, (struct sockaddr *) &mcast, sizeof(mcast)) < 0) {
+		perror("bind");
+		exit(1);
+	}
+
+	/*
+	 * Registering ourselves with the multicast group with any interface and
+	 * IP_ADD_MEMBERSHIP flag.
+	 */
 	if(setsockopt(sockfd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&mreq,sizeof(mreq))<0)
 	{
 		perror("Setting Socket Options failed ");
@@ -50,7 +67,7 @@ int main()
 			close(sockfd);
 			exit(1);
 		}
-		printf("%s\n",buf);
+		puts(buf);
 	}
 	return 0;
 }

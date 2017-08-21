@@ -27,8 +27,8 @@ int main()
 	while(1)
 	{
 		printf("Enter Data : ");
-		scanf("%s",buf);
-		if(sendto(sockfd,buf,sizeof(buf),0,(struct sockaddr *)&mcast,sizeof(mcast)) < 0)
+		gets(buf);
+		if(sendto(sockfd,buf,strlen(buf)+1,0,(struct sockaddr *)&mcast,sizeof(mcast)) < 0)
 		{
 			perror("Error in Sending Data ");
 			close(sockfd);

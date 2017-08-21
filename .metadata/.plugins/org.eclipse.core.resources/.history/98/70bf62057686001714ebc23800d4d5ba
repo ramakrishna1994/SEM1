@@ -1,0 +1,79 @@
+//Import
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <stdbool.h>
+
+//global variables
+bool incs = false;
+pthread_mutex_t mutex;
+int timestamps[10][10]={-1};
+int lastprocessedevent[10]={0};
+
+void calculate(int pid)
+{
+	for(int i=lastprocessedevent[pid];i<=10;i++)
+	{
+		if(timestamps[pid][i] == -1)
+		{
+			timestamps[pid][i] = timestamps[pid][i-1] + 1;
+		}
+		if(timestamps[pid][i] == -2)
+		{
+			lastprocessedevent[pid] = i;
+		}
+	}
+}
+
+void *threadB(void *t)
+{
+    int n = 0, rValue;
+
+    while(1)
+    {
+
+        /* Wait for state B */
+        pthread_mutex_lock(&mutex);
+        while (incs != false);
+
+        incs = true;
+        //pthread_mutex_unlock(&mutex);
+        int a = *((int *) t);
+                    printf("Goodbye\n");
+                    printf("id=%d\n",a);
+                  calculcatetimestamps(a);
+        //do stuff
+        /* Set state to A and wake up thread A */
+        //pthread_mutex_lock(&mutex);
+        incs = false;
+        //pthread_cond_signal(&cond);
+        pthread_mutex_unlock(&mutex);
+        sleep(5);
+
+    }
+
+    return 0;
+}
+
+
+
+int main(int argc, char *argv[])
+{
+    //create our threads
+    pthread_t pt[5];
+    int tid[5];
+    for(int i=1;i<=4;i++)
+    {
+    	tid[i]=i;
+    	pthread_create(&pt[i], NULL, threadB, (void *)&tid[i]);
+    	sleep(2);
+    }
+
+    for(int i=1;i<=4;i++)
+    {
+    	pthread_join(pt[i], NULL);
+    }
+
+    return 0;
+}
