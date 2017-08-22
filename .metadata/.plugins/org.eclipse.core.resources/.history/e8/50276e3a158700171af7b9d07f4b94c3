@@ -1,0 +1,176 @@
+/*
+ * Author : Saradhi Ramakrishna
+ * Branch : M.E Computer Science
+ * Below code is practical implementation of Lamport's Logical clock
+ * using any number of processes and any number of events.
+ * Input :  1.No. of Processes
+ * 			2.No. of Events
+ * 			3.(send process no,send process event ----> receive process no,receive process event)
+ * 			4.Continues taking input until user wants and exits taking input if 0 is given.
+ * 	Output : Displays Timestamps of all events using Lamport's logical clock.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <stdbool.h>
+
+pthread_mutex_t mutex; //Used for blocking parallel access to threads.
+int timestamps[20][20]; // 2-D array for storing final timestamp values.
+int lastprocessedevent[20]={0}; // Used as a loop control for where thread needs to be suspended.
+int countofreceiveevent[20][20]={0}; //stores how many receive events are there for each process.
+int allreceiveevents[20][20][100]; //Actual receive events are stored in 3-D array.
+int noofprocs,noofevents; // No of process and No of events input will stored here.
+
+int checkforsendeventtimestampexistsornot(int pid,int event)
+{
+	int i=countofreceiveevent[pid][event];
+	//printf("%d %d\n",allreceiveevents[pid][event][(2*i)],allreceiveevents[pid][event][(2*i+1)]);
+	int value = timestamps[allreceiveevents[pid][event][(2*i)]][allreceiveevents[pid][event][2*i+1]];
+	if(value != -1)
+	{
+		countofreceiveevent[pid][event] = countofreceiveevent[pid][event]+1;
+	}
+	return value;
+
+}
+
+bool checkalltimestampsfilled()
+{
+	 for(int i=1;i<=noofprocs;i++){
+	    	for(int j=1;j<=noofevents;j++)
+	    	    	{
+	    	    		if(timestamps[i][j]==-1 || timestamps[i][j] == -2)
+	    	    			return false;
+	    	    	}
+
+	    }
+	 return true;
+}
+
+int max(int a, int b)
+{
+	if(a>=b)
+		return a;
+	else return b;
+}
+void calculcatetimestamps(int pid)
+{
+	printf("\ncalculating for pid = %d \n",pid);
+	for(int i=lastprocessedevent[pid];i<=noofevents;i++)
+	{
+		int value = checkforsendeventtimestampexistsornot(pid,i);
+		printf("value = %d\n",value);
+		if(timestamps[pid][i] == -2 && value==-1)
+		{
+			lastprocessedevent[pid] = i;
+			break;
+		}
+		if(timestamps[pid][i] == -2 && value!=-1)
+		{
+			printf("\nvalue=%d,timestamp=%d\n",value,timestamps[pid][i-1]);
+			timestamps[pid][i] = max(timestamps[pid][i-1] + 1,value+1);
+		}
+		if(timestamps[pid][i] == -1)
+		{
+			timestamps[pid][i] = timestamps[pid][i-1] + 1;
+		}
+
+	}
+
+	for(int i=1;i<=noofprocs;i++){
+	                      	for(int j=1;j<=noofevents;j++)
+	                      	    	{
+	                      	    		printf("%d ",timestamps[i][j]);
+	                      	    	}
+	                      	printf("\n");
+	                      }
+	printf("-----------------------\n");
+}
+
+void *doProcess(void *t)
+{
+    while(1)
+    {
+		pthread_mutex_lock(&mutex);
+		int a = *((int *) t);
+		printf("Thread id=%d in action now..\n",a);
+		calculcatetimestamps(a);
+		pthread_mutex_unlock(&mutex);
+		sleep(2);
+        if(checkalltimestampsfilled())
+        	break;
+    }
+    return NULL;
+}
+
+
+
+int main(int argc, char *argv[])
+{
+    pthread_t pt[20];
+    int tid[2];
+    printf("-----------------------\n");
+    printf("Enter the No. of processes : ");
+    scanf("%d",&noofprocs);
+    printf("Enter the No. of Events : ");
+    scanf("%d",&noofevents);
+    printf("-----------------------\n");
+    for(int i=1;i<=noofprocs;i++)
+    {
+    	for(int j=1;j<=noofevents;j++)
+		{
+			countofreceiveevent[i][j] = 0;
+			timestamps[i][j] = -1;
+		}
+    }
+    int p1,p1send,p2,p2recv,ind,input;
+    while(1)
+    {
+    	printf("-----------------------\n");
+    	printf("Enter the send process number  : ");
+    	scanf("%d",&p1);
+    	printf("Enter the event in send process %d  : ",p1);
+    	scanf("%d",&p1send);
+    	printf("Enter the receive process number  : ");
+    	scanf("%d",&p2);
+    	printf("Enter the event in receive process %d  : ",p2);
+    	scanf("%d",&p2recv);
+    	printf("-----------------------\n");
+
+        timestamps[p2][p2recv] = -2;
+        ind = countofreceiveevent[p2][p2recv];
+        allreceiveevents[p2][p2recv][2*ind]=p1;
+        allreceiveevents[p2][p2recv][2*ind+1]=p1send;
+        countofreceiveevent[p2][p2recv] = countofreceiveevent[p2][p2recv] + 1;
+        printf("-----------------------\n");
+        printf("Press 1 to enter more send and receive inputs,0 to start calculating timestamps : ");
+        scanf("%d",&input);
+        printf("-----------------------\n");
+        if(input != 1)
+        	break;
+
+    }
+
+    /*** Setting back values to 0 ******/
+    for(int i=1;i<=10;i++)
+    	for(int j=1;j<=10;j++)
+    		countofreceiveevent[i][j] = 0;
+
+    /*** Creating equal number of threads as processes ******/
+    for(int i=1;i<=noofprocs;i++)
+    {
+    	tid[i]=i;
+    	pthread_create(&pt[i], NULL, doProcess, (void *)&tid[i]);
+    	sleep(2);
+    }
+
+    /*** Waiting for all threads to end ******/
+    for(int i=1;i<=noofprocs;i++)
+    {
+    	pthread_join(pt[i], NULL);
+    }
+
+    return 0;
+}

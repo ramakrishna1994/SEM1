@@ -1,6 +1,0 @@
-#include <stdio.h>
-int main()
-{
-	int sockfd;
-	char buf[256];
-}
