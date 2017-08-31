@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "dictionary.h"
+
+int main(int argc,char **argv)
+{
+	CLIENT *cl;
+	common_in in;
+	insert_out *insert_output;
+	if(argc!=2){
+		printf("client localhost");
+		exit(1);
+	}
+	cl = clnt_create(argv[1],DICTIONARY_PROG,DICTIONARY_VERS,"tcp");
+
+		char key[100];
+		char meaning[100];
+		int choice;
+		while(1)
+		{
+			printf("----------------------------------------------\n");
+			printf("Enter \n 1 to Insert new word and\n 2 to Get meaning\n 3 to Delete Word: ");
+			scanf("%d",&choice);
+			printf("----------------------------------------------\n");
+			switch(choice)
+			{
+				case 1 :
+					printf("Enter Word to add to dictionary: ");
+					scanf("%s",key);
+					printf("Enter Meaning : ");
+					scanf("%s",meaning);
+					out = sortarray_proc_1(&in,cl)
+					//insert(key,meaning);
+					break;
+				case 2 :
+					printf("Enter word to get meaning from dictionary: ");
+					scanf("%s",key);
+					getmeaning(key);
+					break;
+				case 3 :
+					printf("Enter Word to delete from dictionary : ");
+					scanf("%s",key);
+					delete(key);
+					delete(key);
+					break;
+				default :
+					printf("Enter correct option");
+					break;
+
+			}
+			printf("----------------------------------------------\n");
+		}
+	for(int i=0;i<10;i++)
+	{
+		scanf("%d",&in.unsortedarray[i]);
+	}
+	for(int i=0;i<10;i++)
+        {
+                printf("%d",in.unsortedarray[i]);
+        }
+
+	if((out = sortarray_proc_1(&in,cl)) == NULL)
+	{
+		printf("Error");
+		exit(1);
+	}
+	printf("Succesfully sorted : ");
+	for(int i=0;i<10;i++)
+	{
+		printf("%d,",out->sortedarray[i]);
+	}
+	return 0;
+
+}

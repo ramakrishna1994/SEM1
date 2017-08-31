@@ -1,0 +1,18 @@
+struct insert_in
+{
+	char word[20];
+	char meaning[100];
+};
+
+struct insert_out
+{
+	int sortedarray[10];
+};
+
+program DICTIONARY_PROG {
+	version DICTIONARY_VERS {
+		sort_out INSERT_PROC(sort_in) = 1;
+	} = 1;
+} = 0x13451111;
+
+

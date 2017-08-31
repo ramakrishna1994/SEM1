@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<string.h>
+
+char key[100][20]={'0'};
+char meaning[100][3][100]={'0'};
+char noofmeaningsforkey[100]={'0'};
+int noofkeys=0;
+
+int search(char searchkey[])
+{
+	for(int i=0;i<noofkeys;i++)
+	{
+		if(strcmp(searchkey,key[i]) == 0)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+void insert(char newkey[],char newmeaning[])
+{
+	int index = search(&newkey);
+	if(index != -1)
+	{
+		strcpy(key[noofkeys],newkey);
+		noofkeys++;
+	}
+}
+
+void printkeys()
+{
+	for(int i=0;i<noofkeys;i++)
+	{
+		printf("%s\n",key[i]);
+	}
+}
+
+
+
+int main()
+{
+	char key[100];
+	char meaning[100];
+	while(1)
+	{
+		printf('Enter Key : ');
+			scanf("%s",&key);
+			printf("Enter Meaning : ");
+			scanf("%s",&meaning);
+			insert(key,meaning);
+
+	}
+	printkeys();
+}
+
+
+

@@ -1,0 +1,120 @@
+#include<stdio.h>
+#include<string.h>
+
+char key[100][20]={'0'};
+char meaning[100][3][100]={'0'};
+char noofmeaningsforkey[100]={'0'};
+int noofkeys=0;
+
+int search(char *searchkey)
+{
+	for(int i=0;i<noofkeys;i++)
+	{
+		printf("%s\n",key[i]);
+		if(strcmp(searchkey,key[i]) == 0)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+void getmeaning(char *searchkey)
+{
+	int index = search(searchkey);
+	if(index == -1)
+	{
+		printf("Word doesn't exists in dictionary!!\n");
+	}
+	else
+	{
+		printf("meaning of \"%s\" : %s",*searchkey,*meaning[index][0]);
+
+	}
+}
+
+void insert(char *newkey,char *newmeaning)
+{
+	int index = search(newkey);
+	if(index == -1)
+	{
+		printf("Key doesn't exists!!\n");
+		strcpy(key[noofkeys],newkey);
+		noofkeys++;
+	}
+	else
+	{
+		printf("Key exists at index %d!!\n",index);
+
+	}
+}
+
+void delete(char *key)
+{
+	int index = search(key);
+	if(index == -1)
+		{
+			printf("Key doesn't exists to delete!!\n");
+		}
+		else
+		{
+			key[noofkeys]='0';
+			noofkeys--;
+			printf("Key deleted!!\n");
+		}
+}
+
+
+void printkeys()
+{
+	for(int i=0;i<noofkeys;i++)
+	{
+		printf("%s\n",key[i]);
+	}
+}
+
+
+
+int main()
+{
+	char key[100];
+	char meaning[100];
+	int choice;
+	while(1)
+	{
+		printf("Enter \n 1 to Insert new word and\n 2 to Get meaning\n 3 to Delete Word: ");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1 :
+				printf("Enter Word to add to dictionary: ");
+				scanf("%s",key);
+				printf("Enter Meaning : ");
+				scanf("%s",meaning);
+				insert(key,meaning);
+				break;
+			case 2 :
+				printf("Enter word to get meaning from dictionary: ");
+				scanf("%s",key);
+				search(key);
+				break;
+			case 3 :
+				printf("Enter Word to delete from dictionary : ");
+				scanf("%s",key);
+				delete(key);
+				delete(key);
+				break;
+			default :
+				printf("Enter correct option");
+				break;
+
+		}
+
+
+
+	}
+	printkeys();
+}
+
+
+

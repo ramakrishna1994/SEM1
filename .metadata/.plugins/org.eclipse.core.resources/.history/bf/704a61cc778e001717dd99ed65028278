@@ -1,0 +1,172 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "dictionary.h"
+
+char word[100][20]={'0'};
+char meaning[100][3][100]={'0'};
+int noofmeaningsforword[100]={ 0 };
+int noofkeys=0;
+char *allmeanings;
+
+int search(char *searchkey)
+{
+	for(int i=0;i<noofkeys;i++)
+	{
+		printf("%s\n",word[i]);
+		if(strcmp(searchkey,word[i]) == 0)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+char *appendmeanings(int index)
+{
+	int len = 0;
+	allmeanings = malloc( 500 * sizeof(char) );
+	for(int i=0;i<noofmeaningsforword[index];i++)
+	{
+		for(int j=0;j<strlen(meaning[index][i]);j++)
+		{
+			allmeanings[len]=meaning[index][i][j];
+			len++;
+		}
+		allmeanings[len]=',';
+		len++;
+	}
+	return allmeanings;
+}
+
+
+
+char** str_split(char* a_str, const char a_delim)
+{
+    char** result    = 0;
+    size_t count     = 0;
+    char* tmp        = a_str;
+    char* last_comma = 0;
+    char delim[2];
+    delim[0] = a_delim;
+    delim[1] = 0;
+
+    /* Count how many elements will be extracted. */
+    while (*tmp)
+    {
+        if (a_delim == *tmp)
+        {
+            count++;
+            last_comma = tmp;
+        }
+        tmp++;
+    }
+
+    /* Add space for trailing token. */
+    count += last_comma < (a_str + strlen(a_str) - 1);
+
+    /* Add space for terminating null string so caller
+       knows where the list of returned strings ends. */
+    count++;
+
+    result = malloc(sizeof(char*) * count);
+
+    if (result)
+    {
+        size_t idx  = 0;
+        char* token = strtok(a_str, delim);
+
+        while (token)
+        {
+            assert(idx < count);
+            *(result + idx++) = strdup(token);
+            token = strtok(0, delim);
+        }
+        assert(idx == count - 1);
+        *(result + idx) = 0;
+    }
+
+    return result;
+}
+
+
+insert_out *insert_proc_1_svc(common_in *in,struct svc_req *rqstp)
+{
+	static insert_out outp;
+	int temp;
+
+	int index = search(in->word);
+		if(index == -1)
+		{
+			printf("Key doesn't exists!!\n");
+			strcpy(word[noofkeys],in->word);
+			strcpy(meaning[noofkeys][noofmeaningsforword[noofkeys]],in->meaning);
+			noofmeaningsforword[noofkeys]++;
+			noofkeys++;
+			outp.iswordinserted = 1;
+			printf("Word successfully added to dictionary!!\n");
+		}
+		else
+		{
+			printf("Key exists at index %d!!\n",index);
+			strcpy(meaning[index][noofmeaningsforword[index]],in->meaning);
+			noofmeaningsforword[index]++;
+			noofkeys++;
+			outp.iswordinserted = 1;
+
+		}
+
+	return (&outp);
+}
+
+getmeaning_out *getmeaning_proc_1_svc(common_in *in,struct svc_req *rqstp)
+{
+	static getmeaning_out outp;
+
+		int index = search(in->word);
+		if(index == -1)
+		{
+			outp.iswordpresent = 0;
+			printf("Word successfully added to dictionary!!\n");
+		}
+		else
+		{
+			printf("Key exists at index %d!!\n",index);
+			outp.iswordpresent = 1;
+
+			strcpy(outp.word ,word[index]);
+			for(int i=0;i<noofmeaningsforword[index];i++)
+			{
+				printf("meaning : %s\n",meaning[index][i]);
+			}
+			char *allmeanings = appendmeanings(index);
+			printf("%s",allmeanings);
+			strcpy(outp.meaning ,allmeanings);
+			free(allmeanings);
+
+		}
+
+	return (&outp);
+}
+
+delete_out *delete_proc_1_svc(common_in *in,struct svc_req *rqstp)
+{
+	static delete_out outp;
+
+	int index = search(in->word);
+		//Todo : add getmeaning function
+		if(index == -1)
+			{
+				printf("Key doesn't exists to delete!!\n");
+				outp.isworddeleted = 0;
+			}
+			else
+			{
+				printf("Key exists and deleted!!\n");
+				word[index][1] = '0'; //
+				outp.isworddeleted = 1;
+			}
+
+	return (&outp);
+}
+
+

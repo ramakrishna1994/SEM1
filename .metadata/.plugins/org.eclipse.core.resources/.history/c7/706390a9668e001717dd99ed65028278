@@ -1,0 +1,31 @@
+struct common_in
+{
+	char word[20];
+	char meaning[100];
+};
+
+struct insert_out
+{
+	char message[50];
+};
+
+struct getmeaning_out
+{
+	char word[20];
+	char meaning[10][100];
+	int noofmeanings;
+	int iswordpresent;
+};
+
+struct delete_out
+{
+	int iswordpresent; 
+};
+
+program DICTIONARY_PROG {
+	version DICTIONARY_VERS {
+		insert_out INSERT_PROC(common_in) = 1;
+	} = 1;
+} = 0x13451111;
+
+

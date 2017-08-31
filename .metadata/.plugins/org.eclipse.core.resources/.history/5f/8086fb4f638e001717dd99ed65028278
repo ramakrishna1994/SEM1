@@ -1,0 +1,23 @@
+struct common_in
+{
+	char word[20];
+	char meaning[100];
+};
+
+struct insert_out
+{
+	char message[50];
+};
+
+struct getmeaning_out
+{
+
+};
+
+program DICTIONARY_PROG {
+	version DICTIONARY_VERS {
+		insert_out INSERT_PROC(insert_in) = 1;
+	} = 1;
+} = 0x13451111;
+
+

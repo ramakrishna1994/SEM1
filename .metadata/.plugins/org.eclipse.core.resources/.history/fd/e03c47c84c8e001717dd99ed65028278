@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+
+char key[100][20]={'0'};
+char meaning[100][3][100]={'0'};
+char noofmeaningsforkey[100]={'0'};
+int noofkeys=0;
+int main()
+{
+
+}
+
+
+void insert(char newkey[],char newmeaning[])
+{
+	int index = search(&newkey);
+	if(index != -1)
+	{
+		strcpy(key[noofkeys],newkey);
+		noofkeys++;
+	}
+}
+
+int search(char searchkey[])
+{
+	for(int i=0;i<noofkeys;i++)
+	{
+		if(strcmp(searchkey,key[i]) == 0)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
