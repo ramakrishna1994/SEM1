@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include "dictionary.h"
+
+struct m
+{
+	char *meaning;
+	struct m *ptrtonextmeaning;
+};
+
+struct w
+{
+	char *word;
+	struct m *ptrtomeaning;
+	int noofmeanings;
+	struct w *ptrtonextword;
+};
+
+struct w *head = NULL;
+
+struct w* findword(char *word)
+{
+	 struct w *temp = head;
+	 while(temp->ptrtonextword)
+	 {
+		 if(strcmp(temp->ptrtonextword->word,word) == 0)
+			 return temp;
+
+		 temp=temp->ptrtonextword;
+	 }
+	 return NULL;
+}
+
+void print()
+{
+	struct w *temp = head;
+	while(temp)
+		 {
+			 //printf("word is %s and meaning is %s\n",temp->word,temp->ptrtomeaning->meaning);
+			printf("word is %s \n",temp->word);
+			 temp=temp->ptrtonextword;
+		 }
+}
+
+ bool_t insert_proc_1_svc(input *in,output *out,struct svc_req *rqstp)
+{
+
+	 bool_t retval = 1;;
+	 if(head == NULL)
+	 	{
+	 		 head = (struct w*)malloc(sizeof(struct w));
+	 		 head->word = (char *)malloc(strlen(in->word)*sizeof(char));
+	 		 strcpy(head->word,in->word);
+	 		 head->ptrtonextword = NULL;
+	 		 head->ptrtomeaning = (struct m*)malloc(sizeof(struct m));
+	 		 head->ptrtomeaning->meaning = (char *)malloc(strlen(in->meaning)*sizeof(char));
+	 		 strcpy(head->ptrtomeaning->meaning,in->meaning);
+	 		 head->ptrtomeaning->ptrtonextmeaning = NULL;
+	 		 out->status = 1;
+	 		 print();
+	 		 return retval;
+	 	}
+
+
+	 struct w *indexofword = (struct w*)findword(in->word);
+	 if(indexofword == NULL)
+	 {
+		 printf("Word doesn't exists\n");
+		 struct w *temp = head;
+		 while(temp)
+			 temp=temp->ptrtonextword;
+		 struct w *newword = (struct w*)malloc(sizeof(struct w));
+		 newword->word = (char *)malloc(strlen(in->word)*sizeof(char));
+			strcpy(newword->word,in->word);
+			newword->ptrtonextword = NULL;
+			newword->ptrtomeaning = (struct m*)malloc(sizeof(struct m));
+			newword->ptrtomeaning->meaning = (char *)malloc(strlen(in->meaning)*sizeof(char));
+			strcpy(newword->ptrtomeaning->meaning,in->meaning);
+			newword->ptrtomeaning->ptrtonextmeaning = NULL;
+			out->status = 1;
+			temp = newword;
+			print();
+			return retval;
+
+	 }
+	 else
+	 {
+
+	 }
+
+
+	 out->status = 1;
+
+	return retval;
+}
+
+
+
+ int dictionary_prog_1_freeresult (SVCXPRT *svcprt, xdrproc_t xdr, caddr_t cadr)
+ {
+	 (void) xdr_free(xdr, cadr);
+	 return 1;
+ }

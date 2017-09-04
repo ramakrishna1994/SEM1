@@ -1,0 +1,18 @@
+struct input
+{
+	char word[20];
+	char meaning[100];
+};
+
+struct output
+{
+	int status;
+};
+
+program DICTIONARY_PROG {
+	version DICTIONARY_VERS {
+		output INSERT_PROC(input) = 1;
+	} = 1;
+} = 0x13451111;
+
+

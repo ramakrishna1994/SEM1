@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "dictionary.h"
+
+struct m
+{
+	char *meaning;
+	struct m *ptrtonextmeaning;
+};
+
+struct w
+{
+	char *word;
+	struct m *ptrtomeaning;
+	int noofmeanings;
+};
+
+struct w *head = NULL;
+
+ bool_t insert_proc_1_svc(input *input,output *output,struct svc_req *rqstp)
+{
+
+	 bool_t retval = 1;;
+	 if(head == NULL)
+	 	{
+	 		 head = (struct w*)malloc(sizeof(struct w));
+	 	}
+	 while(head)
+	 {
+		 printf("word is %s\n",head->word);
+	 }
+
+	 output->status = 1;
+
+	return retval;
+}
+
+ int dictionary_prog_1_freeresult (SVCXPRT *svcprt, xdrproc_t xdr, caddr_t cadr)
+ {
+	 (void) xdr_free(xdr, cadr);
+	 return 1;
+ }

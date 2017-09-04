@@ -1,9 +1,0 @@
-#include<stdio.h>
-
-char key[100][20];
-char meaning[100][3][100];
-char noofmeaningsforkey[100]={0};
-int main()
-{
-
-}

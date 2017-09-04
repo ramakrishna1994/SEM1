@@ -1,0 +1,17 @@
+struct in
+{
+	char word[20];
+};
+
+struct out
+{
+	char mean[20];
+};
+
+program DICTIONARY_PROG {
+	version DICTIONARY_VERS {
+		insert_out INSERT_PROC(common_in) = 1;
+	} = 1;
+} = 0x13451111;
+
+

@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "../Concurrent/dictionary.h"
+
+
+ bool_t insert_proc_1_svc(in *input,out *output,struct svc_req *rqstp)
+{
+
+	strcpy(output->mean,"Hi There i am done");
+
+	return 0;
+}
+
+ int dictionary_prog_1_freeresult (SVCXPRT *svcprt, xdrproc_t xdr, caddr_t cadr)
+ {
+	 //(void) xdr_free(xdr, cadr);
+	 return 0;
+ }
