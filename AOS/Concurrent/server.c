@@ -65,7 +65,13 @@ struct w* findpreviousindexofword(char *word)
 char *appendmeanings(struct w  *ptrtoword)
 {
 	int len = 0;
-	char *allmeanings = malloc( 300 * sizeof(char) );
+	struct m *temp1 = ptrtoword->ptrtomeaning;
+	while(temp1)
+	{
+		len += strlen(temp1->meaning)+1;
+		temp1=temp1->ptrtonextmeaning;
+	}
+	char *allmeanings = calloc( len ,sizeof(char) );
 	struct m *temp = ptrtoword->ptrtomeaning;
 	while(temp)
 	{
@@ -161,14 +167,33 @@ struct m* creatememoryformeaning(char *meaning)
 		 struct m *ismeaningpresent = findindexofmeaninginaword(indexofword,in->meaning);
 		 if(ismeaningpresent != NULL)
 		 {
+			 out->status = 2;
 			 return retval;
 		 }
 		 while(temp->ptrtonextmeaning)
-			 temp=temp->ptrtonextmeaning;
+		 {
+			 if(strcmp(temp->meaning,in->meaning) >= 0)
+			 {
+				 break;
+			 }
+			temp=temp->ptrtonextmeaning;
+		 }
 
-		 struct m *newmeaning = creatememoryformeaning(in->meaning);
-		out->status = 1;
-		temp->ptrtonextmeaning = newmeaning;
+		 if(temp->ptrtonextmeaning == NULL)
+		 {
+			 struct m *newmeaning = creatememoryformeaning(in->meaning);
+			 		out->status = 1;
+			 		temp->ptrtonextmeaning = newmeaning;
+		 }
+		 else
+		 {
+			 struct m *newmeaning = creatememoryformeaning(in->meaning);
+			 struct m *temporary;
+			 newmeaning->ptrtonextmeaning = temp->ptrtonextmeaning;
+			 temp->ptrtonextmeaning = newmeaning;
+		 }
+
+
 		print();
 
 
