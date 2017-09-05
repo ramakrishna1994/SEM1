@@ -108,7 +108,7 @@ void printallmeaningsforaword(struct m *ptr)
 	int i=1;
 	while(ptr)
 	{
-		printf("%d). %s\n",i,ptr->meaning);
+		//printf("%d). %s\n",i,ptr->meaning);
 		ptr=ptr->ptrtonextmeaning;
 		i++;
 	}
@@ -124,7 +124,7 @@ void print()
 	while(temp)
 		 {
 			 //printf("word is %s and meaning is %s\n",temp->word,temp->ptrtomeaning->meaning);
-			printf("word is %s \n",temp->word);
+			//printf("word is %s \n",temp->word);
 			printallmeaningsforaword(temp->ptrtomeaning);
 			temp=temp->ptrtonextword;
 		 }
@@ -275,7 +275,7 @@ struct m* creatememoryformeaning(char *meaning)
 	 {
 		 todelete = temp;
 		 temp=temp->ptrtonextmeaning;
-		 printf("meaning %s deleted\n",todelete->meaning);
+		 //printf("meaning %s deleted\n",todelete->meaning);
 		 free(todelete);
 	 }
  }
@@ -293,7 +293,6 @@ struct m* creatememoryformeaning(char *meaning)
 	 {
 		 	 	 if(head->ptrtonextword == NULL)
 		         {
-		             printf("There is only one node. The list can't be made empty ");
 		             deleteallmeaningsforspecificword(indexofword);
 		             free(indexofword);
 		             head = NULL;

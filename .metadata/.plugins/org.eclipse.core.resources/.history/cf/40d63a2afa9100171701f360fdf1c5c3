@@ -5,18 +5,12 @@
 
 #include "dictionary.h"
 
-/*
- * Structure for storing meaning of a word
- * */
 struct m
 {
 	char *meaning;
 	struct m *ptrtonextmeaning;
 };
 
-/*
- * Structure for storing word
- * */
 struct w
 {
 	char *word;
@@ -25,15 +19,8 @@ struct w
 	struct w *ptrtonextword;
 };
 
-
 struct w *head = NULL;
 
-/*
- * function for finding the index(address) of a given word.
- * It is a traversing function
- * Input is word to be searched
- * Output is Address of word structure
- * */
 struct w* findindexofword(char *word)
 {
 	 struct w *temp = head;
@@ -47,12 +34,6 @@ struct w* findindexofword(char *word)
 	 return NULL;
 }
 
-/*
- * Function used to find address of meaning of a word
- * Input is taken as address of word and the meaning
- * Output is address of meaning of the given word
- *
- */
 struct m* findindexofmeaninginaword(struct w *indexofword,char *meaning)
 {
 	struct m* ptrtomng = indexofword->ptrtomeaning;
@@ -68,12 +49,19 @@ struct m* findindexofmeaninginaword(struct w *indexofword,char *meaning)
 	return NULL;
 }
 
+struct w* findpreviousindexofword(char *word)
+{
+	 struct w *temp = head;
+	 while(temp->ptrtonextword)
+	 {
+		 if(strcmp(temp->ptrtonextword->word,word) == 0)
+			 return temp;
 
-/*
- * Function used to add all meaning of a word into a common string to be sent to client
- * Input is taken as address of word
- * Output is String containinig all meaning of a word seperated by delimiter(,)
- */
+		 temp=temp->ptrtonextword;
+	 }
+	 return NULL;
+}
+
 char *appendmeanings(struct w  *ptrtoword)
 {
 	int len = 0;
@@ -98,11 +86,6 @@ char *appendmeanings(struct w  *ptrtoword)
 	return allmeanings;
 }
 
-/*
- * Function used as server side debugging
- * It prints all meanings of a particlar word
- */
-
 void printallmeaningsforaword(struct m *ptr)
 {
 	int i=1;
@@ -114,10 +97,6 @@ void printallmeaningsforaword(struct m *ptr)
 	}
 }
 
-/*
- * Function used as server side debugging
- * It prints all meanings of  all words
- */
 void print()
 {
 	struct w *temp = head;
@@ -130,12 +109,6 @@ void print()
 		 }
 }
 
-
-/*
- * Function used to create memory for new word to be added
- * Input is taken as word to be added
- * Ouput is Address to the word
- */
 struct w* creatememoryforword(char *word)
 {
 	struct w *newword = (struct w*)malloc(sizeof(struct w));
@@ -145,12 +118,6 @@ struct w* creatememoryforword(char *word)
 	return newword;
 }
 
-
-/*
- * Function used to create memory for new meaning to be added
- * Input is taken as meaning to be added
- * Ouput is Address to the meaning
- */
 struct m* creatememoryformeaning(char *meaning)
 {
 	struct m *newmeaning = (struct m*)malloc(sizeof(struct m));
@@ -160,12 +127,6 @@ struct m* creatememoryformeaning(char *meaning)
 	return newmeaning;
 }
 
-
-/*
- * Function used to insert a word with meaning
- * Input is input structure from client
- * return value is boolean which tell whether
- */
  bool_t insert_proc_1_svc(input *in,output *out,struct svc_req *rqstp)
 {
 

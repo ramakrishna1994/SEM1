@@ -60,7 +60,7 @@ int main(int argc,char **argv)
 							deletemeaning();
 							break;
 						case 4 :
-							exit(1);
+							break;
 						default :
 							printf("Enter correct option\n");
 							break;
@@ -92,7 +92,7 @@ void getmeaning()
 	getmeaning_proc_1(&in,&out,cl);
 	if(out.status == 1)
 	{
-		printf("Meaning(s) of Word \"%s\" : \n",out.word);
+		printf("meaning(s) of \"%s\" : \n",out.word);
 		char **meanings = str_split(out.allmeaningsappended,',');
 		for (int i = 0; meanings[i]; i++)
 		{
