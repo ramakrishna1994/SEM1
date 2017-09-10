@@ -129,7 +129,7 @@ void *doProcess(void *t)
 int main(int argc, char *argv[])
 {
     pthread_t pt[20];
-    int tid[2];
+    int tid[20];
     printf("\n-----------------------\n");
     printf("Enter the No. of processes : ");
     scanf("%d",&noofprocs);

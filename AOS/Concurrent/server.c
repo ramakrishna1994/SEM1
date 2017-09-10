@@ -21,7 +21,7 @@ struct w
 {
 	char *word;
 	struct m *ptrtomeaning;
-	int noofmeanings;
+
 	struct w *ptrtonextword;
 };
 
