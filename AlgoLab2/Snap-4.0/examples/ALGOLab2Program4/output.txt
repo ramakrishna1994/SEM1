@@ -1,0 +1,243 @@
+   -i:Edge list format (default:'graph.edgelist')
+Creating graph:
+-------------------------------------------------
+Undirected Node Graph: nodes: 20, edges: 84
+   0 [9]   1  3  4  5  9 12 13 17 19
+   1 [8]   0  7  9 11 13 17 18 19
+   2 [5]   5  6 11 12 19
+   3 [9]   0  6  7  8  9 10 14 16 18
+   4 [8]   0  5  8  9 10 14 16 18
+   5 [11]   0  2  4  5  6  7  9 14 15 16 17
+   6 [7]   2  3  5 12 14 15 17
+   7 [5]   1  3  5  9 12
+   8 [9]   3  4 10 11 12 13 14 15 17
+   9 [9]   0  1  3  4  5  7 11 17 19
+  10 [8]   3  4  8 11 12 13 16 19
+  11 [6]   1  2  8  9 10 18
+  12 [9]   0  2  6  7  8 10 15 18 19
+  13 [7]   0  1  8 10 15 16 18
+  14 [8]   3  4  5  6  8 15 17 18
+  15 [11]   5  6  8 12 13 14 15 16 17 18 19
+  16 [7]   3  4  5 10 13 15 17
+  17 [11]   0  1  5  6  8  9 14 15 16 17 18
+  18 [10]   1  3  4 11 12 13 14 15 17 19
+  19 [8]   0  1  2  9 10 12 15 18
+
++++++++++++++++++++++++++++++ Trial 1 +++++++++++++++++++++++
+Neighbour selected for node 1 is 19
+Neighbour selected for node 19 is 15
+Neighbour selected for node 15 is 15
+Neighbour selected for node 15 is 8
+Neighbour selected for node 8 is 13
+Neighbour selected for node 13 is 10
+Destination reached successfully in 6 run(s)!!
++++++++++++++++++++++++++++++ Trial 2 +++++++++++++++++++++++
+Neighbour selected for node 1 is 9
+Neighbour selected for node 9 is 4
+Neighbour selected for node 4 is 5
+Neighbour selected for node 5 is 2
+Neighbour selected for node 2 is 11
+Neighbour selected for node 11 is 2
+Neighbour selected for node 2 is 5
+Neighbour selected for node 5 is 5
+Neighbour selected for node 5 is 14
+Neighbour selected for node 14 is 17
+Neighbour selected for node 17 is 17
+Neighbour selected for node 17 is 18
+Neighbour selected for node 18 is 4
+Neighbour selected for node 4 is 0
+Neighbour selected for node 0 is 19
+Neighbour selected for node 19 is 0
+Neighbour selected for node 0 is 13
+Neighbour selected for node 13 is 8
+Neighbour selected for node 8 is 17
+Neighbour selected for node 17 is 14
+Neighbour selected for node 14 is 17
+Neighbour selected for node 17 is 18
+Neighbour selected for node 18 is 15
+Neighbour selected for node 15 is 19
+Neighbour selected for node 19 is 1
+Neighbour selected for node 1 is 9
+Neighbour selected for node 9 is 0
+Neighbour selected for node 0 is 5
+Neighbour selected for node 5 is 14
+Neighbour selected for node 14 is 18
+Neighbour selected for node 18 is 11
+Neighbour selected for node 11 is 10
+Destination reached successfully in 32 run(s)!!
++++++++++++++++++++++++++++++ Trial 3 +++++++++++++++++++++++
+Neighbour selected for node 1 is 11
+Neighbour selected for node 11 is 10
+Destination reached successfully in 2 run(s)!!
++++++++++++++++++++++++++++++ Trial 4 +++++++++++++++++++++++
+Neighbour selected for node 1 is 17
+Neighbour selected for node 17 is 18
+Neighbour selected for node 18 is 3
+Neighbour selected for node 3 is 7
+Neighbour selected for node 7 is 12
+Neighbour selected for node 12 is 8
+Neighbour selected for node 8 is 13
+Neighbour selected for node 13 is 8
+Neighbour selected for node 8 is 10
+Destination reached successfully in 9 run(s)!!
++++++++++++++++++++++++++++++ Trial 5 +++++++++++++++++++++++
+Neighbour selected for node 1 is 9
+Neighbour selected for node 9 is 3
+Neighbour selected for node 3 is 6
+Neighbour selected for node 6 is 2
+Neighbour selected for node 2 is 5
+Neighbour selected for node 5 is 14
+Neighbour selected for node 14 is 4
+Neighbour selected for node 4 is 16
+Neighbour selected for node 16 is 13
+Neighbour selected for node 13 is 1
+Neighbour selected for node 1 is 7
+Neighbour selected for node 7 is 1
+Neighbour selected for node 1 is 17
+Neighbour selected for node 17 is 8
+Neighbour selected for node 8 is 14
+Neighbour selected for node 14 is 3
+Neighbour selected for node 3 is 18
+Neighbour selected for node 18 is 14
+Neighbour selected for node 14 is 4
+Neighbour selected for node 4 is 5
+Neighbour selected for node 5 is 2
+Neighbour selected for node 2 is 19
+Neighbour selected for node 19 is 18
+Neighbour selected for node 18 is 4
+Neighbour selected for node 4 is 5
+Neighbour selected for node 5 is 0
+Neighbour selected for node 0 is 13
+Neighbour selected for node 13 is 15
+Neighbour selected for node 15 is 8
+Neighbour selected for node 8 is 14
+Neighbour selected for node 14 is 17
+Neighbour selected for node 17 is 15
+Neighbour selected for node 15 is 6
+Neighbour selected for node 6 is 15
+Neighbour selected for node 15 is 18
+Neighbour selected for node 18 is 17
+Neighbour selected for node 17 is 17
+Neighbour selected for node 17 is 5
+Neighbour selected for node 5 is 17
+Neighbour selected for node 17 is 6
+Neighbour selected for node 6 is 3
+Neighbour selected for node 3 is 14
+Neighbour selected for node 14 is 8
+Neighbour selected for node 8 is 17
+Neighbour selected for node 17 is 16
+Neighbour selected for node 16 is 3
+Neighbour selected for node 3 is 6
+Neighbour selected for node 6 is 14
+Neighbour selected for node 14 is 5
+Neighbour selected for node 5 is 7
+Neighbour selected for node 7 is 12
+Neighbour selected for node 12 is 0
+Neighbour selected for node 0 is 3
+Neighbour selected for node 3 is 7
+Neighbour selected for node 7 is 9
+Neighbour selected for node 9 is 19
+Neighbour selected for node 19 is 1
+Neighbour selected for node 1 is 7
+Neighbour selected for node 7 is 5
+Neighbour selected for node 5 is 14
+Neighbour selected for node 14 is 8
+Neighbour selected for node 8 is 15
+Neighbour selected for node 15 is 6
+Neighbour selected for node 6 is 14
+Neighbour selected for node 14 is 3
+Neighbour selected for node 3 is 18
+Neighbour selected for node 18 is 3
+Neighbour selected for node 3 is 14
+Neighbour selected for node 14 is 4
+Neighbour selected for node 4 is 10
+Destination reached successfully in 70 run(s)!!
++++++++++++++++++++++++++++++ Trial 6 +++++++++++++++++++++++
+Neighbour selected for node 1 is 11
+Neighbour selected for node 11 is 10
+Destination reached successfully in 2 run(s)!!
++++++++++++++++++++++++++++++ Trial 7 +++++++++++++++++++++++
+Neighbour selected for node 1 is 7
+Neighbour selected for node 7 is 3
+Neighbour selected for node 3 is 9
+Neighbour selected for node 9 is 11
+Neighbour selected for node 11 is 18
+Neighbour selected for node 18 is 3
+Neighbour selected for node 3 is 7
+Neighbour selected for node 7 is 12
+Neighbour selected for node 12 is 8
+Neighbour selected for node 8 is 11
+Neighbour selected for node 11 is 10
+Destination reached successfully in 11 run(s)!!
++++++++++++++++++++++++++++++ Trial 8 +++++++++++++++++++++++
+Neighbour selected for node 1 is 7
+Neighbour selected for node 7 is 9
+Neighbour selected for node 9 is 11
+Neighbour selected for node 11 is 18
+Neighbour selected for node 18 is 14
+Neighbour selected for node 14 is 6
+Neighbour selected for node 6 is 14
+Neighbour selected for node 14 is 3
+Neighbour selected for node 3 is 6
+Neighbour selected for node 6 is 12
+Neighbour selected for node 12 is 6
+Neighbour selected for node 6 is 14
+Neighbour selected for node 14 is 18
+Neighbour selected for node 18 is 19
+Neighbour selected for node 19 is 15
+Neighbour selected for node 15 is 14
+Neighbour selected for node 14 is 8
+Neighbour selected for node 8 is 10
+Destination reached successfully in 18 run(s)!!
++++++++++++++++++++++++++++++ Trial 9 +++++++++++++++++++++++
+Neighbour selected for node 1 is 13
+Neighbour selected for node 13 is 8
+Neighbour selected for node 8 is 14
+Neighbour selected for node 14 is 6
+Neighbour selected for node 6 is 14
+Neighbour selected for node 14 is 15
+Neighbour selected for node 15 is 14
+Neighbour selected for node 14 is 6
+Neighbour selected for node 6 is 14
+Neighbour selected for node 14 is 6
+Neighbour selected for node 6 is 14
+Neighbour selected for node 14 is 3
+Neighbour selected for node 3 is 18
+Neighbour selected for node 18 is 17
+Neighbour selected for node 17 is 0
+Neighbour selected for node 0 is 12
+Neighbour selected for node 12 is 2
+Neighbour selected for node 2 is 5
+Neighbour selected for node 5 is 0
+Neighbour selected for node 0 is 9
+Neighbour selected for node 9 is 11
+Neighbour selected for node 11 is 10
+Destination reached successfully in 22 run(s)!!
++++++++++++++++++++++++++++++ Trial 10 +++++++++++++++++++++++
+Neighbour selected for node 1 is 11
+Neighbour selected for node 11 is 8
+Neighbour selected for node 8 is 14
+Neighbour selected for node 14 is 6
+Neighbour selected for node 6 is 12
+Neighbour selected for node 12 is 8
+Neighbour selected for node 8 is 3
+Neighbour selected for node 3 is 16
+Neighbour selected for node 16 is 5
+Neighbour selected for node 5 is 16
+Neighbour selected for node 16 is 3
+Neighbour selected for node 3 is 6
+Neighbour selected for node 6 is 5
+Neighbour selected for node 5 is 15
+Neighbour selected for node 15 is 17
+Neighbour selected for node 17 is 16
+Neighbour selected for node 16 is 3
+Neighbour selected for node 3 is 16
+Neighbour selected for node 16 is 3
+Neighbour selected for node 3 is 6
+Neighbour selected for node 6 is 3
+Neighbour selected for node 3 is 16
+Neighbour selected for node 16 is 10
+Destination reached successfully in 23 run(s)!!
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Best Trial is 3 and found destination in 2 run(s)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
