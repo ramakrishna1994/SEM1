@@ -110,7 +110,7 @@ void *process1(void *val)
 				printf("--------------process1---------------\n");
 					ptr1 = fopen("file1.txt","r");
 					while (!feof (ptr1))
-				    {+
+				    {
 					 	 fscanf(ptr1,"%d %d",&pno,&ts);
 					 	 if(ts > 0 && (pno!=1))
 					 	 {
