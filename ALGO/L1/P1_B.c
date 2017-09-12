@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define NO_OF_TRIALS 100000
+#define NO_OF_TRIALS 1000000
 
 int *peoplearray,currenttrial=1;
 int noofpeople,noofdays;
