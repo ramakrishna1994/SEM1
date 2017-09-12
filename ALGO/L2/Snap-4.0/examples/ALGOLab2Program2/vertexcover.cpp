@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include <stdlib.h>
-#define NO_OF_EDGES 10000
-#define NO_OF_VERTICES 1000
-#define NO_OF_TRIALS 10000
+#define NO_OF_EDGES 10
+#define NO_OF_VERTICES 6
+#define NO_OF_TRIALS 10
 
 int vertexcover[NO_OF_VERTICES]={-1};
 int length;
@@ -10,7 +10,7 @@ int isvertexalreadythereinset(int vertex);
 void addvertextoset(int nid);
 void printvertexcover();
 const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.edgelist", "Edge list format");
-int minvertexcoverlength = 32000;
+int minvertexcoverlength = 32000,besttrial;
 
 
 int main(int argc, char* argv[]) {
@@ -41,13 +41,14 @@ int main(int argc, char* argv[]) {
   }
   IAssert(G->IsOk());
   TSnap::SaveEdgeList(G, "graph.edgelist", "Edge list format");
-  printf("no of edges = %d\n",G->GetEdges());
+  //printf("no of edges = %d\n",G->GetEdges());
+  G->Dump();
   int actualNoOfEdgesCreated = G->GetEdges();
   int loop = 0;
   while(loop < NO_OF_TRIALS)
   {
+	  printf("+++++++++++++++++++++++++++++ Trial %d +++++++++++++++++++++++\n",loop);
 	  length=0;
-
 	  for(int i=0;i<actualNoOfEdgesCreated;i++)
 	    {
 	  	  int randomedge = rand() % (actualNoOfEdgesCreated - i);
@@ -71,38 +72,21 @@ int main(int argc, char* argv[]) {
 
 	  	        }
 	    }
-	  //printvertexcover();
-	  printf("In Iteration %d ,size of vertex cover is %d\n",loop,length);
+	  printf("size of vertex cover is %d\n",length);
+	  printvertexcover();
 	  if(minvertexcoverlength > length)
+	  {
 		  minvertexcoverlength = length;
+		  besttrial = loop;
+	  }
+
 	  G = TSnap::LoadEdgeList<PUNGraph>(InFNm);
 	  loop++;
   }
-
-
-
-/*
-  for (typename PGraph::TObj::TEdgeI ei = G->BegEI(); ei < G->EndEI(); ei++) {
-      //printf("%d\t%d\n", ei.GetSrcNId(), ei.GetDstNId());
-	  if (!isvertexalreadythereinset(ei.GetSrcNId()) && !isvertexalreadythereinset(ei.GetDstNId()))
-		  {
-		  	  addvertextoset(ei.GetSrcNId());
-		  	  addvertextoset(ei.GetDstNId());
-		  }
-
-    }*/
-
-  //G->Dump();
-  /*delete
-  PGraph::TObj::TNodeI NI = G->GetNI(0);
-  printf("Delete edge %d -- %d\n", NI.GetId(), NI.GetOutNId(0));
-  G->DelEdge(NI.GetId(), NI.GetOutNId(0));
-  const int RndNId = G->GetRndNId();
-  printf("Delete node %d\n", RndNId);
-  G->DelNode(RndNId);
-  IAssert(G->IsOk());*/
-  printf("Minimum Vertex Cover length is %d \n",minvertexcoverlength);
-   return 0;
+  printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+  printf("Minimum Vertex Cover length is %d\n",minvertexcoverlength,besttrial);
+  printf("Best Trial is %d\n",besttrial);
+  return 0;
 }
 
 
