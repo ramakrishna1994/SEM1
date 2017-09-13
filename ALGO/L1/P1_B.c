@@ -29,7 +29,7 @@ void main()
 	}
 	printf("Out of %d Trials, there are %d Trials where atleast 2 people have same birthday!!\n",NO_OF_TRIALS,count);
 	float prob = (float)count / (float)NO_OF_TRIALS;
-	printf("So Probability is %.2f\n",prob);
+	printf("So Probability is %.4f\n",prob);
 }
 
 int checkfortwopeoplehavingsamebirthday()

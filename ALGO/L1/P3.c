@@ -43,7 +43,7 @@ void main()
 				break;
 		}
 		printf("No of balls thrown to make each bin has atleast one ball : %d\n",getnoofballstomakeallbinsfull());
-		printbinarray();
+		//printbinarray();
 		currenttrial++;
 	}
 }

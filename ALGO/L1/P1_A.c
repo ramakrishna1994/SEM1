@@ -7,7 +7,7 @@
 // Returns approximate number of people for a given probability
 int findnoofpersons(double d,double p)
 {
-    return ceil(sqrt(2*365*log(1/(1-p))));
+    return ceil(sqrt(2*d*log(1/(1-p))));
 }
 
 int main()
@@ -20,7 +20,5 @@ int main()
 	printf("No. of persons : %d \n",findnoofpersons(noofdays,prob));
 }
 
-// C++ program to approximate number of people in Birthday Paradox
-// problem
 
 

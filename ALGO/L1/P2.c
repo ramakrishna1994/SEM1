@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define NO_OF_TRIALS 100
 
 int *hatarray;
@@ -48,6 +49,7 @@ void printpeoplewhogottheirownhat()
 
 void randomizepeopleandhats()
 {
+	srand(time(NULL));
 	for(int i=1;i<=noofpeople;i++)
 	{
 		while(1)

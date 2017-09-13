@@ -17,8 +17,8 @@ void DefaultConstructor() {
 
 // Test node, edge creation
 void ManipulateNodesEdges() {
-  int NNodes = 10;
-  int NEdges = 10;
+  int NNodes = 10000;
+  int NEdges = 100000;
   const char *FName = "demo.graph.dat";
 
   PUNGraph Graph;
@@ -55,7 +55,6 @@ void ManipulateNodesEdges() {
     }
   }
   PrintGStats("ManipulateNodesEdges:Graph",Graph);
-Graph->Dump();
 
   // traverse the nodes, count them
   NCount = 0;
@@ -130,8 +129,6 @@ int main(int argc, char* argv[]) {
   DefaultConstructor();
   ManipulateNodesEdges();
   GetSmallGraph();
-
-	printf("hi there\n");
 }
 
 

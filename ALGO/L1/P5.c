@@ -41,6 +41,7 @@ void main()
 	printf("Average of N-Max across %d trials is %d\n",NO_OF_TRIALS,calculateaverageofnmax());
 	printf("Variance of N-Max across %d trials is %f\n",NO_OF_TRIALS,variance());
 	printf("S.D of N-Max across %d trials is %f\n",NO_OF_TRIALS,standarddeviation());
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 }
 
 float variance()
