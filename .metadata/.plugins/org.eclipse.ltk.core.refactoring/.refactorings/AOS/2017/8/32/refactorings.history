@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;AOS/newfork.cpp&apos; to &apos;MultipleCommandsUsingPipe.cpp&apos;" description="Rename resource &apos;newfork.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="newfork.cpp" name="MultipleCommandsUsingPipe.cpp" stamp="1502547547729" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;AOS/L2P3/SharedMemorySend.cpp&apos; to &apos;SharedMemory.cpp&apos;" description="Rename resource &apos;SharedMemorySend.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="L2P3/SharedMemorySend.cpp" name="SharedMemory.cpp" stamp="1502557342659" updateReferences="true"/>
+</session>

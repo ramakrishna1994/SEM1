@@ -20,6 +20,10 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.cdt.core.cnature</nature>
+<<<<<<< HEAD
+=======
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+>>>>>>> 88a92749baac016679551f6cf27831f3cdcae244
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>

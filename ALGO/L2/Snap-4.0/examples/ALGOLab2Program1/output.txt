@@ -1,0 +1,55 @@
+   -i:Edge list format (default:'graph.edgelist')
+Creating graph:
+-------------------------------------------------
+Undirected Node Graph: nodes: 6, edges: 7
+  0 [3]  1 2 5
+  1 [3]  0 1 5
+  2 [3]  0 4 5
+  3 [0] 
+  4 [1]  2
+  5 [3]  0 1 2
+
++++++++++++++++++++++++++++++ Trial 1 +++++++++++++++++++++++
+Randomly selected node is 0
+Randomly selected node is 4
+Randomly selected node is 1
+Randomly selected node is 3
+Randomly selected node is 2
+Randomly selected node is 5
+mindomset is {0,4,3,}
++++++++++++++++++++++++++++++ Trial 2 +++++++++++++++++++++++
+Randomly selected node is 5
+Randomly selected node is 4
+Randomly selected node is 3
+Randomly selected node is 0
+Randomly selected node is 2
+Randomly selected node is 1
+mindomset is {5,4,3,}
++++++++++++++++++++++++++++++ Trial 3 +++++++++++++++++++++++
+Randomly selected node is 1
+Randomly selected node is 2
+Randomly selected node is 5
+Randomly selected node is 0
+Randomly selected node is 3
+Randomly selected node is 4
+mindomset is {1,2,3,}
++++++++++++++++++++++++++++++ Trial 4 +++++++++++++++++++++++
+Randomly selected node is 4
+Randomly selected node is 0
+Randomly selected node is 1
+Randomly selected node is 5
+Randomly selected node is 2
+Randomly selected node is 3
+mindomset is {4,0,3,}
++++++++++++++++++++++++++++++ Trial 5 +++++++++++++++++++++++
+Randomly selected node is 3
+Randomly selected node is 2
+Randomly selected node is 1
+Randomly selected node is 4
+Randomly selected node is 0
+Randomly selected node is 5
+mindomset is {3,2,1,}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Best Minimum Dominating Set Length is 3
+Best Trial is 1 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
