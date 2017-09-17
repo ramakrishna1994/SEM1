@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ALGO/L2/Snap-4.0/examples/ALGOLab2Program1/vertexcover&apos;" deleteContents="false" description="Delete resource &apos;ALGO/L2/Snap-4.0/examples/ALGOLab2Program1/vertexcover&apos;" element1="/ALGO/L2/Snap-4.0/examples/ALGOLab2Program1/vertexcover" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1505495879641"/>
+</session>
