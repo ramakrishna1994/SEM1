@@ -1,15 +1,15 @@
 #include "stdafx.h"
 #include <stdlib.h>
 
-#define NO_OF_VERTICES 8
-#define NO_OF_TRIALS 100
+#define MAX_SIZE 32000
+#define NO_OF_TRIALS 10
 
-int vertexcover[NO_OF_VERTICES]={-1};
+int vertexcover[MAX_SIZE]={-1};
 int length;
 int isvertexalreadythereinset(int vertex);
 void addvertextoset(int nid);
 void printvertexcover();
-const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.edgelist", "Edge list format");
+const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.txt", "Edge list format");
 int minvertexcoverlength = 32000,besttrial;
 
 int getrandomnodefromgraph(PUNGraph G)
