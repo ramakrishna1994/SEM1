@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define NO_OF_TRIALS 1
+#define NO_OF_TRIALS 10
 
 int *binarray,noofbins,randombinnumber,phase,noofbinsfull,currentnoofbinsfull;
-int currentnoofballsthrown,noofballs;
+int currentnoofballsthrown,noofballs,sumofballs = 0;;
 
 void printbinarray();
 int getnoofballstomakeallbinsfull();
 void initializeallbinstozeros();
 int checkforatleastoneballineachbin();
 int checkforhowmanybinsfull();
+int calculateaverage();
 
 
 void main()
@@ -43,9 +44,13 @@ void main()
 				break;
 		}
 		printf("No of balls thrown to make each bin has atleast one ball : %d\n",getnoofballstomakeallbinsfull());
+		sumofballs += getnoofballstomakeallbinsfull();
 		//printbinarray();
 		currenttrial++;
 	}
+
+	printf("++++++++++++++++++++++++++++ End of Trials +++++++++++++++++++++++++\n");
+	printf("Average No. of balls thrown to make all bins full : %d\n",calculateaverage());
 }
 
 int checkforhowmanybinsfull()
@@ -90,6 +95,10 @@ int checkforatleastoneballineachbin()
 	return 1; // Full
 }
 
+int calculateaverage()
+{
+	return sumofballs/NO_OF_TRIALS;
+}
 
 
 

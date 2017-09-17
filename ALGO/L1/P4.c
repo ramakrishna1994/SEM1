@@ -25,12 +25,12 @@ void main()
 	srand(time(NULL));
 	for(int i=1;i<=sizeofarray;i++)
 	{
-		A[i] = rand() % (sizeofarray*1000) + 1;
+		A[i] = rand() % (sizeofarray*10) + 1;
 	}
-
+	//printarray(1,sizeofarray);
 	findmedian(1,sizeofarray);
 	printf("+++++++++++++++++++++++++++++++++++\n");
-	sortarray();
+	//sortarray();
 	printf("Actual Median if array is sorted : %d\n",A[medianindex]);
 
 }

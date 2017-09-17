@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include<stdio.h>
 #include <stdlib.h>
-#define NO_OF_TRIALS 10
+#define NO_OF_TRIALS 1
+#define NO_OF_VERTICES 5242
 
 int latestedgeindex = 1;
 int besttrail = 0;
@@ -30,13 +31,14 @@ struct edgelistformat* createnewnode(int vertex1,int vertex2)
 
 void insertedgeintostruct(int vertex1,int vertex2)
 {
-	struct edgelistformat *temp = head;
+
 	struct edgelistformat *newnode = NULL;
 	newnode = createnewnode(vertex1,vertex2);
 	if(head == NULL)
 		head = newnode;
 	else
 	{
+		struct edgelistformat *temp = head;
 		while(temp->nextedge)
 		{
 			temp=temp->nextedge;
@@ -63,17 +65,19 @@ int getnoofedges()
 void printedges()
 {
 	struct edgelistformat *temp = head;
+	int count = 1;
 	while(temp)
 	{
-		printf("%d\t%d\n",temp->vertex1,temp->vertex2);
+		printf("(%d,%d)\t--->edge %d\n",temp->vertex1,temp->vertex2,count);
 		temp=temp->nextedge;
+		count++;
 	}
 }
 
 int getnoofvertices()
 {
 	struct edgelistformat *temp = head;
-	int verticesarray[100];
+	int *verticesarray = (int *)malloc((NO_OF_VERTICES+1)*sizeof(int));
 	int noofvertices = 0;
 
 	while(temp!=NULL)
@@ -226,14 +230,14 @@ void startalgo()
 	while(getnoofvertices() > 2)
 	{
 		printf("---------------------------------------------\n");
-		printedges();
+		//printedges();
 		printf("no of vertices %d\n",getnoofvertices());
-		printf("no of edges %d\n",getnoofedges());
+		//printf("no of edges %d\n",getnoofedges());
 		edgepointer = selectrandomedge();
 		if(edgepointer != NULL)
 		{
 			mergeandremove(edgepointer);
-			printf("Merging edge and all other vertices incoming to it\n");
+			printf("Removing edge,merging both nodes and redirecting all other edges to new merged node \n");
 		}
 		else
 			printf("NULL came\n");
@@ -264,6 +268,10 @@ int main()
 			printf("Creating graph:\n");
 			head = NULL;
 			PGraph G = PGraph::TObj::New();
+			for (int n = 0; n < NO_OF_VERTICES; n++) {
+			    G->AddNode(); // if no parameter is given, node ids are 0,1,...,9
+			  }
+			printf("Vertices Added\n");
 			G = TSnap::LoadEdgeList<PNEGraph>(InFNm);
 			for (typename PGraph::TObj::TEdgeI ei = G->BegEI(); ei < G->EndEI(); ei++)
 			{
@@ -276,11 +284,12 @@ int main()
 				noofcuts = getnoofedges();
 				besttrail = count;
 			}
+			printf("Min cut is %d\n",getnoofedges());
 			count++;
 	}
 
 	printf("+++++++++++++++++++++++++++ End Of Trials +++++++++++++++++++++++++++++++++\n");
-	printf("Min cut is %d and best trail is %d\n",noofcuts,besttrail);
+	printf("Best Min cut is %d and best trail is %d\n",noofcuts,besttrail);
 	printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
 }

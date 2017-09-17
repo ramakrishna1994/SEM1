@@ -1,0 +1,5 @@
+--------
+/home/saradhi/Sem/ALGO/L2/Snap-4.0/examples/ALGOLab2Program2/vertexcovernew.Err
+Sun Sep 17 15:50:23 2017
+Execution stopped: !IsNode(NId) [Reason:'NodeId 0 already exists'], file graph.cpp, line 12
+--------

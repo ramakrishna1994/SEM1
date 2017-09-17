@@ -1,55 +1,4682 @@
-   -i:Edge list format (default:'graph.edgelist')
+   -i:Edge list format (default:'graph.txt')
 Creating graph:
--------------------------------------------------
-Undirected Node Graph: nodes: 6, edges: 7
-  0 [3]  1 2 5
-  1 [3]  0 1 5
-  2 [3]  0 4 5
-  3 [0] 
-  4 [1]  2
-  5 [3]  0 1 2
-
 +++++++++++++++++++++++++++++ Trial 1 +++++++++++++++++++++++
-Randomly selected node is 0
-Randomly selected node is 4
-Randomly selected node is 1
-Randomly selected node is 3
-Randomly selected node is 2
-Randomly selected node is 5
-mindomset is {0,4,3,}
-+++++++++++++++++++++++++++++ Trial 2 +++++++++++++++++++++++
-Randomly selected node is 5
-Randomly selected node is 4
-Randomly selected node is 3
-Randomly selected node is 0
-Randomly selected node is 2
-Randomly selected node is 1
-mindomset is {5,4,3,}
-+++++++++++++++++++++++++++++ Trial 3 +++++++++++++++++++++++
-Randomly selected node is 1
-Randomly selected node is 2
-Randomly selected node is 5
-Randomly selected node is 0
-Randomly selected node is 3
-Randomly selected node is 4
-mindomset is {1,2,3,}
-+++++++++++++++++++++++++++++ Trial 4 +++++++++++++++++++++++
-Randomly selected node is 4
-Randomly selected node is 0
-Randomly selected node is 1
-Randomly selected node is 5
-Randomly selected node is 2
-Randomly selected node is 3
-mindomset is {4,0,3,}
-+++++++++++++++++++++++++++++ Trial 5 +++++++++++++++++++++++
-Randomly selected node is 3
-Randomly selected node is 2
-Randomly selected node is 1
-Randomly selected node is 4
-Randomly selected node is 0
-Randomly selected node is 5
-mindomset is {3,2,1,}
+Node 21012 has degree 81
+node 21012 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15244 has degree 59
+node 15244 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13929 has degree 45
+node 13929 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13801 has degree 41
+node 13801 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14265 has degree 37
+node 14265 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7650 has degree 37
+node 7650 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2654 has degree 36
+node 2654 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22601 has degree 36
+node 22601 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2710 has degree 32
+node 2710 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4364 has degree 32
+node 4364 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6264 has degree 31
+node 6264 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 449 has degree 30
+node 449 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9639 has degree 29
+node 9639 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23038 has degree 28
+node 23038 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9017 has degree 27
+node 9017 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7689 has degree 26
+node 7689 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23614 has degree 26
+node 23614 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6583 has degree 25
+node 6583 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10762 has degree 24
+node 10762 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13142 has degree 24
+node 13142 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19865 has degree 24
+node 19865 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9124 has degree 23
+node 9124 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7007 has degree 23
+node 7007 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1217 has degree 23
+node 1217 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6823 has degree 21
+node 6823 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24814 has degree 20
+node 24814 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9471 has degree 20
+node 9471 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24924 has degree 19
+node 24924 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9710 has degree 19
+node 9710 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24330 has degree 19
+node 24330 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15300 has degree 18
+node 15300 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25034 has degree 18
+node 25034 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15066 has degree 18
+node 15066 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24057 has degree 18
+node 24057 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15108 has degree 17
+node 15108 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 676 has degree 16
+node 676 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 593 has degree 16
+node 593 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13008 has degree 16
+node 13008 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11372 has degree 16
+node 11372 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 615 has degree 15
+node 615 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22423 has degree 15
+node 22423 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3113 has degree 15
+node 3113 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22177 has degree 15
+node 22177 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11275 has degree 15
+node 11275 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21075 has degree 14
+node 21075 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4575 has degree 14
+node 4575 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11696 has degree 14
+node 11696 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2072 has degree 14
+node 2072 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11861 has degree 14
+node 11861 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16258 has degree 13
+node 16258 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24696 has degree 13
+node 24696 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3839 has degree 13
+node 3839 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13520 has degree 13
+node 13520 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23836 has degree 13
+node 23836 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17501 has degree 13
+node 17501 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11557 has degree 13
+node 11557 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20765 has degree 13
+node 20765 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17038 has degree 12
+node 17038 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8254 has degree 12
+node 8254 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12842 has degree 12
+node 12842 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11293 has degree 12
+node 11293 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6482 has degree 12
+node 6482 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3716 has degree 12
+node 3716 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18122 has degree 12
+node 18122 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14534 has degree 11
+node 14534 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12212 has degree 11
+node 12212 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6154 has degree 11
+node 6154 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2115 has degree 11
+node 2115 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9629 has degree 11
+node 9629 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22555 has degree 11
+node 22555 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16482 has degree 11
+node 16482 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9591 has degree 11
+node 9591 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1493 has degree 11
+node 1493 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15184 has degree 10
+node 15184 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25080 has degree 10
+node 25080 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18365 has degree 10
+node 18365 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10055 has degree 10
+node 10055 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13813 has degree 10
+node 13813 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24781 has degree 10
+node 24781 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13346 has degree 10
+node 13346 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6337 has degree 10
+node 6337 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16368 has degree 9
+node 16368 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5695 has degree 9
+node 5695 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24097 has degree 9
+node 24097 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10801 has degree 9
+node 10801 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18030 has degree 9
+node 18030 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12187 has degree 9
+node 12187 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18215 has degree 9
+node 18215 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24412 has degree 9
+node 24412 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6675 has degree 9
+node 6675 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20328 has degree 9
+node 20328 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22815 has degree 9
+node 22815 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22415 has degree 8
+node 22415 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17330 has degree 8
+node 17330 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7844 has degree 8
+node 7844 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17379 has degree 8
+node 17379 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13955 has degree 8
+node 13955 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14337 has degree 8
+node 14337 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17359 has degree 8
+node 17359 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13859 has degree 8
+node 13859 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6023 has degree 8
+node 6023 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5385 has degree 8
+node 5385 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12406 has degree 8
+node 12406 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17612 has degree 8
+node 17612 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20924 has degree 8
+node 20924 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14149 has degree 8
+node 14149 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18256 has degree 8
+node 18256 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9037 has degree 8
+node 9037 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16154 has degree 8
+node 16154 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6350 has degree 8
+node 6350 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1765 has degree 7
+node 1765 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12980 has degree 7
+node 12980 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3872 has degree 7
+node 3872 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18676 has degree 7
+node 18676 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12478 has degree 7
+node 12478 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8851 has degree 7
+node 8851 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12938 has degree 7
+node 12938 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22483 has degree 7
+node 22483 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16594 has degree 7
+node 16594 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1896 has degree 7
+node 1896 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1116 has degree 7
+node 1116 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16976 has degree 7
+node 16976 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23529 has degree 7
+node 23529 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26065 has degree 7
+node 26065 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18619 has degree 7
+node 18619 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16543 has degree 7
+node 16543 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12286 has degree 7
+node 12286 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24009 has degree 7
+node 24009 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14690 has degree 7
+node 14690 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8177 has degree 7
+node 8177 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 135 has degree 7
+node 135 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12599 has degree 7
+node 12599 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4013 has degree 7
+node 4013 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3618 has degree 7
+node 3618 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1265 has degree 7
+node 1265 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5655 has degree 7
+node 5655 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13966 has degree 7
+node 13966 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14067 has degree 7
+node 14067 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24439 has degree 7
+node 24439 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24207 has degree 7
+node 24207 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24841 has degree 7
+node 24841 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1981 has degree 7
+node 1981 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1854 has degree 6
+node 1854 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7125 has degree 6
+node 7125 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6427 has degree 6
+node 6427 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23485 has degree 6
+node 23485 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24568 has degree 6
+node 24568 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16039 has degree 6
+node 16039 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3765 has degree 6
+node 3765 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7045 has degree 6
+node 7045 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14952 has degree 6
+node 14952 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17443 has degree 6
+node 17443 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15568 has degree 6
+node 15568 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21608 has degree 6
+node 21608 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19781 has degree 6
+node 19781 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11318 has degree 6
+node 11318 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5738 has degree 6
+node 5738 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24970 has degree 6
+node 24970 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19936 has degree 6
+node 19936 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4211 has degree 6
+node 4211 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16717 has degree 6
+node 16717 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5078 has degree 6
+node 5078 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6056 has degree 6
+node 6056 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11609 has degree 6
+node 11609 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12235 has degree 6
+node 12235 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24489 has degree 6
+node 24489 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10338 has degree 6
+node 10338 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6735 has degree 6
+node 6735 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9606 has degree 6
+node 9606 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13558 has degree 6
+node 13558 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10235 has degree 5
+node 10235 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8916 has degree 5
+node 8916 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17172 has degree 5
+node 17172 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20879 has degree 5
+node 20879 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 178 has degree 5
+node 178 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22951 has degree 5
+node 22951 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1044 has degree 5
+node 1044 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7911 has degree 5
+node 7911 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3804 has degree 5
+node 3804 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7194 has degree 5
+node 7194 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6804 has degree 5
+node 6804 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10600 has degree 5
+node 10600 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12135 has degree 5
+node 12135 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19340 has degree 5
+node 19340 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6638 has degree 5
+node 6638 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2054 has degree 5
+node 2054 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1711 has degree 5
+node 1711 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18736 has degree 5
+node 18736 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1736 has degree 5
+node 1736 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17149 has degree 5
+node 17149 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5425 has degree 5
+node 5425 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19140 has degree 5
+node 19140 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20940 has degree 5
+node 20940 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25607 has degree 5
+node 25607 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5156 has degree 5
+node 5156 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 369 has degree 5
+node 369 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6503 has degree 5
+node 6503 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5519 has degree 5
+node 5519 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14369 has degree 5
+node 14369 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15372 has degree 5
+node 15372 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5240 has degree 5
+node 5240 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 299 has degree 5
+node 299 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25540 has degree 5
+node 25540 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6442 has degree 5
+node 6442 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3516 has degree 5
+node 3516 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23084 has degree 5
+node 23084 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4275 has degree 5
+node 4275 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22 has degree 5
+node 22 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21344 has degree 5
+node 21344 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2222 has degree 5
+node 2222 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3377 has degree 5
+node 3377 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9579 has degree 5
+node 9579 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7479 has degree 5
+node 7479 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9715 has degree 5
+node 9715 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9189 has degree 5
+node 9189 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25496 has degree 5
+node 25496 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17266 has degree 4
+node 17266 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13740 has degree 4
+node 13740 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18592 has degree 4
+node 18592 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12968 has degree 4
+node 12968 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15770 has degree 4
+node 15770 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21389 has degree 4
+node 21389 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1817 has degree 4
+node 1817 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3996 has degree 4
+node 3996 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23720 has degree 4
+node 23720 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24885 has degree 4
+node 24885 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14020 has degree 4
+node 14020 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13328 has degree 4
+node 13328 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3048 has degree 4
+node 3048 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 140 has degree 4
+node 140 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8134 has degree 4
+node 8134 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2490 has degree 4
+node 2490 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19084 has degree 4
+node 19084 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15353 has degree 4
+node 15353 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25435 has degree 4
+node 25435 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10956 has degree 4
+node 10956 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21466 has degree 4
+node 21466 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10719 has degree 4
+node 10719 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8641 has degree 4
+node 8641 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4727 has degree 4
+node 4727 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21450 has degree 4
+node 21450 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21927 has degree 4
+node 21927 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10081 has degree 4
+node 10081 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17006 has degree 4
+node 17006 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21195 has degree 4
+node 21195 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14886 has degree 4
+node 14886 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12930 has degree 4
+node 12930 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25957 has degree 4
+node 25957 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17750 has degree 4
+node 17750 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13664 has degree 4
+node 13664 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5212 has degree 4
+node 5212 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2611 has degree 4
+node 2611 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13712 has degree 4
+node 13712 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1278 has degree 4
+node 1278 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 161 has degree 4
+node 161 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22719 has degree 4
+node 22719 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16115 has degree 4
+node 16115 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6666 has degree 4
+node 6666 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1656 has degree 4
+node 1656 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12053 has degree 4
+node 12053 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7877 has degree 4
+node 7877 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10564 has degree 4
+node 10564 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17280 has degree 4
+node 17280 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26092 has degree 4
+node 26092 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4488 has degree 4
+node 4488 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21024 has degree 4
+node 21024 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4825 has degree 4
+node 4825 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3052 has degree 4
+node 3052 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13749 has degree 4
+node 13749 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14770 has degree 4
+node 14770 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18970 has degree 4
+node 18970 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15227 has degree 4
+node 15227 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5960 has degree 4
+node 5960 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15683 has degree 4
+node 15683 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1989 has degree 4
+node 1989 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4777 has degree 4
+node 4777 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23424 has degree 4
+node 23424 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10268 has degree 3
+node 10268 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23214 has degree 3
+node 23214 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18222 has degree 3
+node 18222 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8589 has degree 3
+node 8589 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11661 has degree 3
+node 11661 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24614 has degree 3
+node 24614 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17245 has degree 3
+node 17245 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14051 has degree 3
+node 14051 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25537 has degree 3
+node 25537 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24640 has degree 3
+node 24640 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7625 has degree 3
+node 7625 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14089 has degree 3
+node 14089 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25215 has degree 3
+node 25215 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25209 has degree 3
+node 25209 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24 has degree 3
+node 24 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21650 has degree 3
+node 21650 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25408 has degree 3
+node 25408 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11891 has degree 3
+node 11891 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9616 has degree 3
+node 9616 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5503 has degree 3
+node 5503 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6075 has degree 3
+node 6075 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24705 has degree 3
+node 24705 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20052 has degree 3
+node 20052 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6064 has degree 3
+node 6064 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4135 has degree 3
+node 4135 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25354 has degree 3
+node 25354 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11967 has degree 3
+node 11967 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19350 has degree 3
+node 19350 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21401 has degree 3
+node 21401 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17984 has degree 3
+node 17984 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4298 has degree 3
+node 4298 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13702 has degree 3
+node 13702 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5639 has degree 3
+node 5639 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5529 has degree 3
+node 5529 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8428 has degree 3
+node 8428 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17595 has degree 3
+node 17595 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5363 has degree 3
+node 5363 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10251 has degree 3
+node 10251 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24402 has degree 3
+node 24402 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15528 has degree 3
+node 15528 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25116 has degree 3
+node 25116 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8864 has degree 3
+node 8864 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1728 has degree 3
+node 1728 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6280 has degree 3
+node 6280 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19580 has degree 3
+node 19580 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18373 has degree 3
+node 18373 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6190 has degree 3
+node 6190 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1556 has degree 3
+node 1556 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20414 has degree 3
+node 20414 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25130 has degree 3
+node 25130 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6878 has degree 3
+node 6878 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24852 has degree 3
+node 24852 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19964 has degree 3
+node 19964 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10500 has degree 3
+node 10500 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12411 has degree 3
+node 12411 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6944 has degree 3
+node 6944 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9962 has degree 3
+node 9962 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8557 has degree 3
+node 8557 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4425 has degree 3
+node 4425 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7546 has degree 3
+node 7546 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8446 has degree 3
+node 8446 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7916 has degree 3
+node 7916 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21177 has degree 3
+node 21177 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16598 has degree 3
+node 16598 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25545 has degree 3
+node 25545 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24159 has degree 3
+node 24159 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1289 has degree 3
+node 1289 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5629 has degree 3
+node 5629 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1292 has degree 3
+node 1292 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10936 has degree 3
+node 10936 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17293 has degree 3
+node 17293 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10679 has degree 3
+node 10679 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13 has degree 3
+node 13 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13357 has degree 3
+node 13357 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1549 has degree 3
+node 1549 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5211 has degree 3
+node 5211 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15641 has degree 3
+node 15641 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17785 has degree 3
+node 17785 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 360 has degree 3
+node 360 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16886 has degree 3
+node 16886 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3754 has degree 3
+node 3754 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9224 has degree 3
+node 9224 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13031 has degree 3
+node 13031 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4630 has degree 3
+node 4630 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16823 has degree 3
+node 16823 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11120 has degree 3
+node 11120 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23576 has degree 2
+node 23576 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10912 has degree 2
+node 10912 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17979 has degree 2
+node 17979 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24932 has degree 2
+node 24932 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6858 has degree 2
+node 6858 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10115 has degree 2
+node 10115 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2368 has degree 2
+node 2368 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8279 has degree 2
+node 8279 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7774 has degree 2
+node 7774 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12380 has degree 2
+node 12380 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22790 has degree 2
+node 22790 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14972 has degree 2
+node 14972 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8069 has degree 2
+node 8069 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16106 has degree 2
+node 16106 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23513 has degree 2
+node 23513 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10406 has degree 2
+node 10406 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3998 has degree 2
+node 3998 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13682 has degree 2
+node 13682 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9066 has degree 2
+node 9066 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22203 has degree 2
+node 22203 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18904 has degree 2
+node 18904 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13067 has degree 2
+node 13067 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4213 has degree 2
+node 4213 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25565 has degree 2
+node 25565 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10467 has degree 2
+node 10467 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18003 has degree 2
+node 18003 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19233 has degree 2
+node 19233 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19109 has degree 2
+node 19109 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11566 has degree 2
+node 11566 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21321 has degree 2
+node 21321 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5485 has degree 2
+node 5485 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13196 has degree 2
+node 13196 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16607 has degree 2
+node 16607 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5181 has degree 2
+node 5181 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5411 has degree 2
+node 5411 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16010 has degree 2
+node 16010 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 365 has degree 2
+node 365 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1090 has degree 2
+node 1090 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24860 has degree 2
+node 24860 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17859 has degree 2
+node 17859 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21530 has degree 2
+node 21530 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18171 has degree 2
+node 18171 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 715 has degree 2
+node 715 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24451 has degree 2
+node 24451 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8742 has degree 2
+node 8742 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23175 has degree 2
+node 23175 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5367 has degree 2
+node 5367 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26004 has degree 2
+node 26004 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2789 has degree 2
+node 2789 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23883 has degree 2
+node 23883 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14033 has degree 2
+node 14033 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5184 has degree 2
+node 5184 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3524 has degree 2
+node 3524 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6434 has degree 2
+node 6434 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10879 has degree 2
+node 10879 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16765 has degree 2
+node 16765 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2394 has degree 2
+node 2394 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4302 has degree 2
+node 4302 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11806 has degree 2
+node 11806 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3063 has degree 2
+node 3063 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2656 has degree 2
+node 2656 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16703 has degree 2
+node 16703 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9994 has degree 2
+node 9994 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12616 has degree 2
+node 12616 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11047 has degree 2
+node 11047 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10317 has degree 2
+node 10317 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 853 has degree 2
+node 853 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12419 has degree 2
+node 12419 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3849 has degree 2
+node 3849 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7010 has degree 2
+node 7010 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7506 has degree 2
+node 7506 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4017 has degree 2
+node 4017 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9763 has degree 2
+node 9763 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5202 has degree 2
+node 5202 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12703 has degree 2
+node 12703 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1787 has degree 2
+node 1787 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18684 has degree 2
+node 18684 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22890 has degree 2
+node 22890 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20236 has degree 2
+node 20236 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2047 has degree 2
+node 2047 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17804 has degree 2
+node 17804 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5083 has degree 2
+node 5083 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2316 has degree 2
+node 2316 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 350 has degree 2
+node 350 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18217 has degree 2
+node 18217 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8732 has degree 2
+node 8732 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5547 has degree 2
+node 5547 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15160 has degree 2
+node 15160 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8222 has degree 2
+node 8222 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21149 has degree 2
+node 21149 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10872 has degree 2
+node 10872 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9630 has degree 2
+node 9630 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19507 has degree 2
+node 19507 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11152 has degree 2
+node 11152 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6642 has degree 2
+node 6642 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16872 has degree 2
+node 16872 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24816 has degree 2
+node 24816 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19598 has degree 2
+node 19598 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19800 has degree 2
+node 19800 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3239 has degree 2
+node 3239 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9968 has degree 2
+node 9968 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1404 has degree 2
+node 1404 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1092 has degree 2
+node 1092 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4033 has degree 2
+node 4033 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2503 has degree 2
+node 2503 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5465 has degree 2
+node 5465 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18370 has degree 2
+node 18370 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9959 has degree 2
+node 9959 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12256 has degree 2
+node 12256 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12320 has degree 2
+node 12320 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4019 has degree 2
+node 4019 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 187 has degree 2
+node 187 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 844 has degree 2
+node 844 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13035 has degree 2
+node 13035 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1916 has degree 2
+node 1916 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15706 has degree 2
+node 15706 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7861 has degree 2
+node 7861 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25089 has degree 2
+node 25089 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 820 has degree 2
+node 820 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6159 has degree 2
+node 6159 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17388 has degree 2
+node 17388 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 800 has degree 2
+node 800 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9618 has degree 2
+node 9618 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6229 has degree 2
+node 6229 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3206 has degree 2
+node 3206 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12290 has degree 2
+node 12290 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6389 has degree 2
+node 6389 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 192 has degree 2
+node 192 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4826 has degree 2
+node 4826 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3062 has degree 2
+node 3062 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16124 has degree 2
+node 16124 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15681 has degree 2
+node 15681 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17461 has degree 2
+node 17461 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13010 has degree 2
+node 13010 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10432 has degree 2
+node 10432 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2332 has degree 2
+node 2332 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16783 has degree 2
+node 16783 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22404 has degree 2
+node 22404 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25136 has degree 2
+node 25136 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 348 has degree 2
+node 348 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11969 has degree 2
+node 11969 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10178 has degree 2
+node 10178 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23757 has degree 2
+node 23757 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21558 has degree 2
+node 21558 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7090 has degree 2
+node 7090 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19011 has degree 2
+node 19011 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20803 has degree 2
+node 20803 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8058 has degree 2
+node 8058 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3200 has degree 2
+node 3200 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10513 has degree 2
+node 10513 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7477 has degree 2
+node 7477 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5839 has degree 2
+node 5839 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 787 has degree 2
+node 787 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14302 has degree 2
+node 14302 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14894 has degree 2
+node 14894 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3362 has degree 2
+node 3362 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2201 has degree 2
+node 2201 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13677 has degree 2
+node 13677 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4110 has degree 2
+node 4110 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9149 has degree 2
+node 9149 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20150 has degree 2
+node 20150 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24575 has degree 2
+node 24575 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 822 has degree 2
+node 822 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5446 has degree 2
+node 5446 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10818 has degree 2
+node 10818 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2223 has degree 2
+node 2223 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6170 has degree 2
+node 6170 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4144 has degree 2
+node 4144 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15358 has degree 2
+node 15358 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14175 has degree 2
+node 14175 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1983 has degree 2
+node 1983 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6576 has degree 2
+node 6576 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13486 has degree 2
+node 13486 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1798 has degree 2
+node 1798 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19466 has degree 2
+node 19466 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1051 has degree 2
+node 1051 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24708 has degree 2
+node 24708 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8395 has degree 2
+node 8395 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13415 has degree 2
+node 13415 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 74 has degree 2
+node 74 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1969 has degree 2
+node 1969 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16971 has degree 2
+node 16971 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18608 has degree 2
+node 18608 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7280 has degree 2
+node 7280 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8891 has degree 2
+node 8891 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2334 has degree 2
+node 2334 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23970 has degree 2
+node 23970 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4038 has degree 2
+node 4038 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1878 has degree 2
+node 1878 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5256 has degree 2
+node 5256 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14845 has degree 2
+node 14845 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18720 has degree 1
+node 18720 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15159 has degree 1
+node 15159 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4822 has degree 1
+node 4822 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16470 has degree 1
+node 16470 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10822 has degree 1
+node 10822 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5435 has degree 1
+node 5435 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10794 has degree 1
+node 10794 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12860 has degree 1
+node 12860 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20647 has degree 1
+node 20647 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18517 has degree 1
+node 18517 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20257 has degree 1
+node 20257 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21613 has degree 1
+node 21613 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4036 has degree 1
+node 4036 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22834 has degree 1
+node 22834 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1375 has degree 1
+node 1375 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9721 has degree 1
+node 9721 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13600 has degree 1
+node 13600 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 921 has degree 1
+node 921 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4870 has degree 1
+node 4870 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8352 has degree 1
+node 8352 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8157 has degree 1
+node 8157 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7713 has degree 1
+node 7713 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8302 has degree 1
+node 8302 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21699 has degree 1
+node 21699 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 523 has degree 1
+node 523 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1832 has degree 1
+node 1832 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14344 has degree 1
+node 14344 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15399 has degree 1
+node 15399 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5355 has degree 1
+node 5355 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6160 has degree 1
+node 6160 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19974 has degree 1
+node 19974 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8708 has degree 1
+node 8708 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4975 has degree 1
+node 4975 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26190 has degree 1
+node 26190 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13621 has degree 1
+node 13621 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11919 has degree 1
+node 11919 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17021 has degree 1
+node 17021 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18612 has degree 1
+node 18612 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7615 has degree 1
+node 7615 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3323 has degree 1
+node 3323 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5352 has degree 1
+node 5352 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14627 has degree 1
+node 14627 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7895 has degree 1
+node 7895 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19710 has degree 1
+node 19710 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20650 has degree 1
+node 20650 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3965 has degree 1
+node 3965 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2004 has degree 1
+node 2004 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8442 has degree 1
+node 8442 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8887 has degree 1
+node 8887 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1818 has degree 1
+node 1818 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1498 has degree 1
+node 1498 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4254 has degree 1
+node 4254 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1497 has degree 1
+node 1497 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2630 has degree 1
+node 2630 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13282 has degree 1
+node 13282 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18758 has degree 1
+node 18758 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20248 has degree 1
+node 20248 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25934 has degree 1
+node 25934 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22502 has degree 1
+node 22502 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3826 has degree 1
+node 3826 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12369 has degree 1
+node 12369 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25152 has degree 1
+node 25152 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8815 has degree 1
+node 8815 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15249 has degree 1
+node 15249 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2783 has degree 1
+node 2783 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12247 has degree 1
+node 12247 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7039 has degree 1
+node 7039 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17235 has degree 1
+node 17235 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17086 has degree 1
+node 17086 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1550 has degree 1
+node 1550 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9511 has degree 1
+node 9511 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16906 has degree 1
+node 16906 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19791 has degree 1
+node 19791 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11093 has degree 1
+node 11093 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3990 has degree 1
+node 3990 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3312 has degree 1
+node 3312 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6943 has degree 1
+node 6943 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12112 has degree 1
+node 12112 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1194 has degree 1
+node 1194 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2852 has degree 1
+node 2852 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7246 has degree 1
+node 7246 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1910 has degree 1
+node 1910 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4554 has degree 1
+node 4554 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10676 has degree 1
+node 10676 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2569 has degree 1
+node 2569 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 546 has degree 1
+node 546 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3980 has degree 1
+node 3980 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9094 has degree 1
+node 9094 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18905 has degree 1
+node 18905 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24503 has degree 1
+node 24503 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2119 has degree 1
+node 2119 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20215 has degree 1
+node 20215 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12664 has degree 1
+node 12664 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17208 has degree 1
+node 17208 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6533 has degree 1
+node 6533 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18521 has degree 1
+node 18521 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7935 has degree 1
+node 7935 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2239 has degree 1
+node 2239 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15821 has degree 1
+node 15821 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8437 has degree 1
+node 8437 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8301 has degree 1
+node 8301 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7885 has degree 1
+node 7885 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12743 has degree 1
+node 12743 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17875 has degree 1
+node 17875 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1490 has degree 1
+node 1490 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2883 has degree 1
+node 2883 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25189 has degree 1
+node 25189 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17990 has degree 1
+node 17990 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2339 has degree 1
+node 2339 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5477 has degree 1
+node 5477 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22283 has degree 1
+node 22283 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11328 has degree 1
+node 11328 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 294 has degree 1
+node 294 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11459 has degree 1
+node 11459 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5601 has degree 1
+node 5601 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13675 has degree 1
+node 13675 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23224 has degree 1
+node 23224 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6448 has degree 1
+node 6448 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1050 has degree 1
+node 1050 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9595 has degree 1
+node 9595 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16177 has degree 1
+node 16177 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9125 has degree 1
+node 9125 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12161 has degree 1
+node 12161 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8726 has degree 1
+node 8726 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9491 has degree 1
+node 9491 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1341 has degree 1
+node 1341 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2169 has degree 1
+node 2169 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18724 has degree 1
+node 18724 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4641 has degree 1
+node 4641 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4269 has degree 1
+node 4269 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14771 has degree 1
+node 14771 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19313 has degree 1
+node 19313 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23465 has degree 1
+node 23465 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16235 has degree 1
+node 16235 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1985 has degree 1
+node 1985 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9893 has degree 1
+node 9893 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17800 has degree 1
+node 17800 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4189 has degree 1
+node 4189 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20217 has degree 1
+node 20217 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19895 has degree 1
+node 19895 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20315 has degree 1
+node 20315 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16281 has degree 1
+node 16281 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2762 has degree 1
+node 2762 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6810 has degree 1
+node 6810 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3058 has degree 1
+node 3058 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19464 has degree 1
+node 19464 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11820 has degree 1
+node 11820 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17502 has degree 1
+node 17502 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5408 has degree 1
+node 5408 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15388 has degree 1
+node 15388 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8530 has degree 1
+node 8530 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12160 has degree 1
+node 12160 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8876 has degree 1
+node 8876 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16937 has degree 1
+node 16937 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1834 has degree 1
+node 1834 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3594 has degree 1
+node 3594 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20662 has degree 1
+node 20662 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20086 has degree 1
+node 20086 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 925 has degree 1
+node 925 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21297 has degree 1
+node 21297 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22693 has degree 1
+node 22693 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9441 has degree 1
+node 9441 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1267 has degree 1
+node 1267 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1511 has degree 1
+node 1511 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22830 has degree 1
+node 22830 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14616 has degree 1
+node 14616 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8523 has degree 1
+node 8523 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8871 has degree 1
+node 8871 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4967 has degree 1
+node 4967 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22087 has degree 1
+node 22087 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14854 has degree 1
+node 14854 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9413 has degree 1
+node 9413 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10026 has degree 1
+node 10026 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18066 has degree 1
+node 18066 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18557 has degree 1
+node 18557 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19909 has degree 1
+node 19909 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2593 has degree 1
+node 2593 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 750 has degree 1
+node 750 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23480 has degree 1
+node 23480 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3718 has degree 1
+node 3718 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10041 has degree 1
+node 10041 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12318 has degree 1
+node 12318 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21190 has degree 1
+node 21190 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17141 has degree 1
+node 17141 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11612 has degree 1
+node 11612 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5814 has degree 1
+node 5814 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3119 has degree 1
+node 3119 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6354 has degree 1
+node 6354 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1107 has degree 1
+node 1107 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4148 has degree 1
+node 4148 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2476 has degree 1
+node 2476 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 866 has degree 1
+node 866 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1436 has degree 1
+node 1436 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10133 has degree 1
+node 10133 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3067 has degree 1
+node 3067 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19252 has degree 1
+node 19252 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 194 has degree 1
+node 194 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17114 has degree 1
+node 17114 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8146 has degree 1
+node 8146 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10897 has degree 1
+node 10897 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15898 has degree 1
+node 15898 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5577 has degree 1
+node 5577 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3100 has degree 1
+node 3100 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2049 has degree 1
+node 2049 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19380 has degree 1
+node 19380 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3074 has degree 1
+node 3074 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1101 has degree 1
+node 1101 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19911 has degree 1
+node 19911 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10847 has degree 1
+node 10847 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20157 has degree 1
+node 20157 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25853 has degree 1
+node 25853 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25 has degree 1
+node 25 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1668 has degree 1
+node 1668 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10559 has degree 1
+node 10559 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7468 has degree 1
+node 7468 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12041 has degree 1
+node 12041 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17951 has degree 1
+node 17951 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6161 has degree 1
+node 6161 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7857 has degree 1
+node 7857 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25829 has degree 1
+node 25829 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13022 has degree 1
+node 13022 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6300 has degree 1
+node 6300 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5182 has degree 1
+node 5182 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21809 has degree 1
+node 21809 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21018 has degree 1
+node 21018 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8629 has degree 1
+node 8629 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19739 has degree 1
+node 19739 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14843 has degree 1
+node 14843 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17585 has degree 1
+node 17585 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7957 has degree 1
+node 7957 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15181 has degree 1
+node 15181 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 373 has degree 1
+node 373 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10356 has degree 1
+node 10356 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7807 has degree 1
+node 7807 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2624 has degree 1
+node 2624 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15572 has degree 1
+node 15572 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8811 has degree 1
+node 8811 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7536 has degree 1
+node 7536 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1344 has degree 1
+node 1344 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11611 has degree 1
+node 11611 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1376 has degree 1
+node 1376 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15712 has degree 1
+node 15712 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7769 has degree 1
+node 7769 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3989 has degree 1
+node 3989 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9053 has degree 1
+node 9053 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1589 has degree 1
+node 1589 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23759 has degree 1
+node 23759 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5119 has degree 1
+node 5119 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6446 has degree 1
+node 6446 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5137 has degree 1
+node 5137 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8336 has degree 1
+node 8336 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25510 has degree 1
+node 25510 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8976 has degree 1
+node 8976 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19906 has degree 1
+node 19906 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6079 has degree 1
+node 6079 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16338 has degree 1
+node 16338 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 82 has degree 1
+node 82 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7595 has degree 1
+node 7595 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15688 has degree 1
+node 15688 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4955 has degree 1
+node 4955 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5409 has degree 1
+node 5409 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4272 has degree 1
+node 4272 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2981 has degree 1
+node 2981 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6669 has degree 1
+node 6669 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4750 has degree 1
+node 4750 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7588 has degree 1
+node 7588 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3599 has degree 1
+node 3599 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3297 has degree 1
+node 3297 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2329 has degree 1
+node 2329 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2938 has degree 1
+node 2938 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21593 has degree 1
+node 21593 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1187 has degree 1
+node 1187 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15423 has degree 1
+node 15423 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 254 has degree 1
+node 254 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23621 has degree 1
+node 23621 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25211 has degree 1
+node 25211 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7636 has degree 1
+node 7636 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4278 has degree 1
+node 4278 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10522 has degree 1
+node 10522 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12863 has degree 1
+node 12863 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1836 has degree 1
+node 1836 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8054 has degree 1
+node 8054 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22605 has degree 1
+node 22605 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10382 has degree 1
+node 10382 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16643 has degree 1
+node 16643 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 372 has degree 1
+node 372 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8735 has degree 1
+node 8735 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9039 has degree 1
+node 9039 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21303 has degree 1
+node 21303 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19221 has degree 1
+node 19221 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21949 has degree 1
+node 21949 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5697 has degree 1
+node 5697 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8558 has degree 1
+node 8558 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8534 has degree 1
+node 8534 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1662 has degree 1
+node 1662 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16622 has degree 1
+node 16622 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16312 has degree 1
+node 16312 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11991 has degree 1
+node 11991 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14182 has degree 1
+node 14182 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5387 has degree 1
+node 5387 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19145 has degree 1
+node 19145 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22110 has degree 1
+node 22110 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22311 has degree 1
+node 22311 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12751 has degree 1
+node 12751 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 831 has degree 1
+node 831 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15154 has degree 1
+node 15154 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24462 has degree 1
+node 24462 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14338 has degree 1
+node 14338 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11411 has degree 1
+node 11411 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5853 has degree 1
+node 5853 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9831 has degree 1
+node 9831 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18388 has degree 1
+node 18388 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4037 has degree 1
+node 4037 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4196 has degree 1
+node 4196 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25447 has degree 1
+node 25447 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19892 has degree 1
+node 19892 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4643 has degree 1
+node 4643 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14990 has degree 1
+node 14990 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14763 has degree 1
+node 14763 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20766 has degree 1
+node 20766 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15553 has degree 1
+node 15553 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5490 has degree 1
+node 5490 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1976 has degree 1
+node 1976 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12248 has degree 1
+node 12248 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4181 has degree 1
+node 4181 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8409 has degree 1
+node 8409 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11579 has degree 1
+node 11579 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16922 has degree 1
+node 16922 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23772 has degree 1
+node 23772 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8717 has degree 1
+node 8717 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2561 has degree 1
+node 2561 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6776 has degree 1
+node 6776 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11215 has degree 1
+node 11215 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3748 has degree 1
+node 3748 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10602 has degree 1
+node 10602 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11467 has degree 1
+node 11467 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9130 has degree 1
+node 9130 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1010 has degree 1
+node 1010 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11642 has degree 1
+node 11642 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16015 has degree 1
+node 16015 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20333 has degree 1
+node 20333 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6701 has degree 1
+node 6701 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5406 has degree 1
+node 5406 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4366 has degree 1
+node 4366 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9211 has degree 1
+node 9211 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19473 has degree 1
+node 19473 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24214 has degree 1
+node 24214 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24820 has degree 1
+node 24820 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5486 has degree 1
+node 5486 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5261 has degree 1
+node 5261 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18908 has degree 1
+node 18908 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12050 has degree 1
+node 12050 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14 has degree 1
+node 14 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5233 has degree 0
+node 5233 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14982 has degree 0
+node 14982 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24372 has degree 0
+node 24372 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1796 has degree 0
+node 1796 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5740 has degree 0
+node 5740 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6376 has degree 0
+node 6376 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18235 has degree 0
+node 18235 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18549 has degree 0
+node 18549 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24731 has degree 0
+node 24731 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6864 has degree 0
+node 6864 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12971 has degree 0
+node 12971 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18648 has degree 0
+node 18648 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2076 has degree 0
+node 2076 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20001 has degree 0
+node 20001 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23481 has degree 0
+node 23481 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19783 has degree 0
+node 19783 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5672 has degree 0
+node 5672 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4046 has degree 0
+node 4046 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5262 has degree 0
+node 5262 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5579 has degree 0
+node 5579 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17331 has degree 0
+node 17331 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17603 has degree 0
+node 17603 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23387 has degree 0
+node 23387 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12422 has degree 0
+node 12422 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8824 has degree 0
+node 8824 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11613 has degree 0
+node 11613 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14547 has degree 0
+node 14547 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8067 has degree 0
+node 8067 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25379 has degree 0
+node 25379 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12665 has degree 0
+node 12665 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24114 has degree 0
+node 24114 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17309 has degree 0
+node 17309 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18037 has degree 0
+node 18037 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13385 has degree 0
+node 13385 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19578 has degree 0
+node 19578 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12045 has degree 0
+node 12045 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12287 has degree 0
+node 12287 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18681 has degree 0
+node 18681 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2307 has degree 0
+node 2307 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2982 has degree 0
+node 2982 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19215 has degree 0
+node 19215 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14376 has degree 0
+node 14376 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10158 has degree 0
+node 10158 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21316 has degree 0
+node 21316 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22900 has degree 0
+node 22900 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25143 has degree 0
+node 25143 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25601 has degree 0
+node 25601 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17394 has degree 0
+node 17394 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5674 has degree 0
+node 5674 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7209 has degree 0
+node 7209 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18605 has degree 0
+node 18605 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11053 has degree 0
+node 11053 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23385 has degree 0
+node 23385 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25868 has degree 0
+node 25868 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4383 has degree 0
+node 4383 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7014 has degree 0
+node 7014 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3679 has degree 0
+node 3679 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19445 has degree 0
+node 19445 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19495 has degree 0
+node 19495 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23227 has degree 0
+node 23227 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21322 has degree 0
+node 21322 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10253 has degree 0
+node 10253 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14325 has degree 0
+node 14325 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3595 has degree 0
+node 3595 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18174 has degree 0
+node 18174 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17850 has degree 0
+node 17850 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20620 has degree 0
+node 20620 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9417 has degree 0
+node 9417 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15972 has degree 0
+node 15972 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5995 has degree 0
+node 5995 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7999 has degree 0
+node 7999 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8047 has degree 0
+node 8047 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8178 has degree 0
+node 8178 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8868 has degree 0
+node 8868 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10824 has degree 0
+node 10824 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19806 has degree 0
+node 19806 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23304 has degree 0
+node 23304 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20149 has degree 0
+node 20149 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4983 has degree 0
+node 4983 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14562 has degree 0
+node 14562 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15912 has degree 0
+node 15912 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22245 has degree 0
+node 22245 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9983 has degree 0
+node 9983 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5840 has degree 0
+node 5840 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8614 has degree 0
+node 8614 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26141 has degree 0
+node 26141 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3207 has degree 0
+node 3207 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9269 has degree 0
+node 9269 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2127 has degree 0
+node 2127 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19234 has degree 0
+node 19234 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22603 has degree 0
+node 22603 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1280 has degree 0
+node 1280 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2081 has degree 0
+node 2081 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2664 has degree 0
+node 2664 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25872 has degree 0
+node 25872 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10919 has degree 0
+node 10919 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16644 has degree 0
+node 16644 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13705 has degree 0
+node 13705 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3946 has degree 0
+node 3946 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11863 has degree 0
+node 11863 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20667 has degree 0
+node 20667 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13653 has degree 0
+node 13653 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13622 has degree 0
+node 13622 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23163 has degree 0
+node 23163 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3683 has degree 0
+node 3683 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3845 has degree 0
+node 3845 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6748 has degree 0
+node 6748 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14664 has degree 0
+node 14664 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16065 has degree 0
+node 16065 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16963 has degree 0
+node 16963 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4032 has degree 0
+node 4032 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23137 has degree 0
+node 23137 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2742 has degree 0
+node 2742 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7855 has degree 0
+node 7855 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8928 has degree 0
+node 8928 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18375 has degree 0
+node 18375 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1104 has degree 0
+node 1104 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5427 has degree 0
+node 5427 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13529 has degree 0
+node 13529 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 321 has degree 0
+node 321 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5166 has degree 0
+node 5166 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 953 has degree 0
+node 953 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17794 has degree 0
+node 17794 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 114 has degree 0
+node 114 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2348 has degree 0
+node 2348 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6631 has degree 0
+node 6631 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4552 has degree 0
+node 4552 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23454 has degree 0
+node 23454 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3511 has degree 0
+node 3511 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18340 has degree 0
+node 18340 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6184 has degree 0
+node 6184 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20346 has degree 0
+node 20346 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4249 has degree 0
+node 4249 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22290 has degree 0
+node 22290 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24113 has degree 0
+node 24113 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2558 has degree 0
+node 2558 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18910 has degree 0
+node 18910 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10986 has degree 0
+node 10986 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1006 has degree 0
+node 1006 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12852 has degree 0
+node 12852 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16333 has degree 0
+node 16333 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 574 has degree 0
+node 574 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23714 has degree 0
+node 23714 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12679 has degree 0
+node 12679 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10896 has degree 0
+node 10896 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20915 has degree 0
+node 20915 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1347 has degree 0
+node 1347 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24959 has degree 0
+node 24959 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22254 has degree 0
+node 22254 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3999 has degree 0
+node 3999 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8211 has degree 0
+node 8211 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12373 has degree 0
+node 12373 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11892 has degree 0
+node 11892 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23264 has degree 0
+node 23264 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13496 has degree 0
+node 13496 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18788 has degree 0
+node 18788 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18791 has degree 0
+node 18791 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23409 has degree 0
+node 23409 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11899 has degree 0
+node 11899 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19167 has degree 0
+node 19167 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21727 has degree 0
+node 21727 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23863 has degree 0
+node 23863 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5060 has degree 0
+node 5060 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15625 has degree 0
+node 15625 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11868 has degree 0
+node 11868 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20191 has degree 0
+node 20191 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10524 has degree 0
+node 10524 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12337 has degree 0
+node 12337 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15419 has degree 0
+node 15419 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12389 has degree 0
+node 12389 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15718 has degree 0
+node 15718 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13498 has degree 0
+node 13498 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22530 has degree 0
+node 22530 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3171 has degree 0
+node 3171 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19149 has degree 0
+node 19149 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12065 has degree 0
+node 12065 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14558 has degree 0
+node 14558 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15306 has degree 0
+node 15306 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15400 has degree 0
+node 15400 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22528 has degree 0
+node 22528 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22832 has degree 0
+node 22832 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13321 has degree 0
+node 13321 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16958 has degree 0
+node 16958 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23346 has degree 0
+node 23346 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22371 has degree 0
+node 22371 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3730 has degree 0
+node 3730 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25674 has degree 0
+node 25674 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18867 has degree 0
+node 18867 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24943 has degree 0
+node 24943 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 731 has degree 0
+node 731 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6828 has degree 0
+node 6828 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25319 has degree 0
+node 25319 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14606 has degree 0
+node 14606 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10478 has degree 0
+node 10478 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16675 has degree 0
+node 16675 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8378 has degree 0
+node 8378 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14970 has degree 0
+node 14970 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4642 has degree 0
+node 4642 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16708 has degree 0
+node 16708 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8231 has degree 0
+node 8231 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6316 has degree 0
+node 6316 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25870 has degree 0
+node 25870 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11944 has degree 0
+node 11944 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25784 has degree 0
+node 25784 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23092 has degree 0
+node 23092 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25571 has degree 0
+node 25571 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8476 has degree 0
+node 8476 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9944 has degree 0
+node 9944 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21341 has degree 0
+node 21341 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22696 has degree 0
+node 22696 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25358 has degree 0
+node 25358 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15209 has degree 0
+node 15209 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15669 has degree 0
+node 15669 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6832 has degree 0
+node 6832 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19557 has degree 0
+node 19557 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2926 has degree 0
+node 2926 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11617 has degree 0
+node 11617 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21029 has degree 0
+node 21029 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19355 has degree 0
+node 19355 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17729 has degree 0
+node 17729 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 379 has degree 0
+node 379 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10907 has degree 0
+node 10907 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4638 has degree 0
+node 4638 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23909 has degree 0
+node 23909 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8630 has degree 0
+node 8630 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21027 has degree 0
+node 21027 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5360 has degree 0
+node 5360 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19544 has degree 0
+node 19544 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16554 has degree 0
+node 16554 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25091 has degree 0
+node 25091 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13970 has degree 0
+node 13970 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19903 has degree 0
+node 19903 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2851 has degree 0
+node 2851 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1595 has degree 0
+node 1595 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17939 has degree 0
+node 17939 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22771 has degree 0
+node 22771 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14154 has degree 0
+node 14154 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15882 has degree 0
+node 15882 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5241 has degree 0
+node 5241 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25684 has degree 0
+node 25684 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16230 has degree 0
+node 16230 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3821 has degree 0
+node 3821 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3875 has degree 0
+node 3875 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4069 has degree 0
+node 4069 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1968 has degree 0
+node 1968 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15942 has degree 0
+node 15942 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2805 has degree 0
+node 2805 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9419 has degree 0
+node 9419 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5827 has degree 0
+node 5827 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6527 has degree 0
+node 6527 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10881 has degree 0
+node 10881 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23866 has degree 0
+node 23866 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2936 has degree 0
+node 2936 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10354 has degree 0
+node 10354 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15198 has degree 0
+node 15198 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18067 has degree 0
+node 18067 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10186 has degree 0
+node 10186 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1327 has degree 0
+node 1327 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6738 has degree 0
+node 6738 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10825 has degree 0
+node 10825 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25863 has degree 0
+node 25863 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4382 has degree 0
+node 4382 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6641 has degree 0
+node 6641 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15920 has degree 0
+node 15920 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18233 has degree 0
+node 18233 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24583 has degree 0
+node 24583 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15960 has degree 0
+node 15960 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17564 has degree 0
+node 17564 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25383 has degree 0
+node 25383 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20065 has degree 0
+node 20065 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23910 has degree 0
+node 23910 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 81 has degree 0
+node 81 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1029 has degree 0
+node 1029 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3819 has degree 0
+node 3819 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25959 has degree 0
+node 25959 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18625 has degree 0
+node 18625 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13834 has degree 0
+node 13834 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5361 has degree 0
+node 5361 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18097 has degree 0
+node 18097 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8310 has degree 0
+node 8310 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9314 has degree 0
+node 9314 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12291 has degree 0
+node 12291 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12639 has degree 0
+node 12639 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13292 has degree 0
+node 13292 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13320 has degree 0
+node 13320 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4052 has degree 0
+node 4052 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 195 has degree 0
+node 195 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19168 has degree 0
+node 19168 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17589 has degree 0
+node 17589 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25911 has degree 0
+node 25911 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24595 has degree 0
+node 24595 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 183 has degree 0
+node 183 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7573 has degree 0
+node 7573 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8193 has degree 0
+node 8193 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16576 has degree 0
+node 16576 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16889 has degree 0
+node 16889 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21391 has degree 0
+node 21391 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17017 has degree 0
+node 17017 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17161 has degree 0
+node 17161 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20255 has degree 0
+node 20255 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 839 has degree 0
+node 839 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7098 has degree 0
+node 7098 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12642 has degree 0
+node 12642 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16485 has degree 0
+node 16485 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2341 has degree 0
+node 2341 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3508 has degree 0
+node 3508 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12641 has degree 0
+node 12641 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13068 has degree 0
+node 13068 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9713 has degree 0
+node 9713 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24592 has degree 0
+node 24592 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2563 has degree 0
+node 2563 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14345 has degree 0
+node 14345 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1859 has degree 0
+node 1859 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15192 has degree 0
+node 15192 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3631 has degree 0
+node 3631 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18152 has degree 0
+node 18152 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24148 has degree 0
+node 24148 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 950 has degree 0
+node 950 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17131 has degree 0
+node 17131 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19051 has degree 0
+node 19051 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16107 has degree 0
+node 16107 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26171 has degree 0
+node 26171 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8150 has degree 0
+node 8150 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4128 has degree 0
+node 4128 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 450 has degree 0
+node 450 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11910 has degree 0
+node 11910 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23477 has degree 0
+node 23477 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11923 has degree 0
+node 11923 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20616 has degree 0
+node 20616 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5636 has degree 0
+node 5636 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17988 has degree 0
+node 17988 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2055 has degree 0
+node 2055 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3037 has degree 0
+node 3037 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19457 has degree 0
+node 19457 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11841 has degree 0
+node 11841 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5698 has degree 0
+node 5698 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11713 has degree 0
+node 11713 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25598 has degree 0
+node 25598 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4138 has degree 0
+node 4138 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21131 has degree 0
+node 21131 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23859 has degree 0
+node 23859 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12868 has degree 0
+node 12868 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17180 has degree 0
+node 17180 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18154 has degree 0
+node 18154 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6703 has degree 0
+node 6703 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12803 has degree 0
+node 12803 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15596 has degree 0
+node 15596 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17592 has degree 0
+node 17592 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9093 has degree 0
+node 9093 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13680 has degree 0
+node 13680 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15382 has degree 0
+node 15382 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17076 has degree 0
+node 17076 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11035 has degree 0
+node 11035 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17289 has degree 0
+node 17289 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5730 has degree 0
+node 5730 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15252 has degree 0
+node 15252 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25112 has degree 0
+node 25112 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13389 has degree 0
+node 13389 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6185 has degree 0
+node 6185 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8520 has degree 0
+node 8520 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15626 has degree 0
+node 15626 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25903 has degree 0
+node 25903 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 232 has degree 0
+node 232 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1075 has degree 0
+node 1075 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8737 has degree 0
+node 8737 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13481 has degree 0
+node 13481 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16742 has degree 0
+node 16742 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10000 has degree 0
+node 10000 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17337 has degree 0
+node 17337 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21634 has degree 0
+node 21634 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16332 has degree 0
+node 16332 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19940 has degree 0
+node 19940 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8441 has degree 0
+node 8441 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16070 has degree 0
+node 16070 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16087 has degree 0
+node 16087 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19434 has degree 0
+node 19434 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23944 has degree 0
+node 23944 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24499 has degree 0
+node 24499 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16084 has degree 0
+node 16084 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19581 has degree 0
+node 19581 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20954 has degree 0
+node 20954 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6629 has degree 0
+node 6629 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22088 has degree 0
+node 22088 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21660 has degree 0
+node 21660 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12056 has degree 0
+node 12056 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2761 has degree 0
+node 2761 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2143 has degree 0
+node 2143 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21755 has degree 0
+node 21755 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5255 has degree 0
+node 5255 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6082 has degree 0
+node 6082 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23653 has degree 0
+node 23653 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7959 has degree 0
+node 7959 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17569 has degree 0
+node 17569 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21657 has degree 0
+node 21657 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21995 has degree 0
+node 21995 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3188 has degree 0
+node 3188 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11108 has degree 0
+node 11108 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17251 has degree 0
+node 17251 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20557 has degree 0
+node 20557 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18580 has degree 0
+node 18580 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18623 has degree 0
+node 18623 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21588 has degree 0
+node 21588 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17797 has degree 0
+node 17797 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7386 has degree 0
+node 7386 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17401 has degree 0
+node 17401 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9986 has degree 0
+node 9986 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11719 has degree 0
+node 11719 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4467 has degree 0
+node 4467 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13636 has degree 0
+node 13636 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16696 has degree 0
+node 16696 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19605 has degree 0
+node 19605 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11572 has degree 0
+node 11572 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21630 has degree 0
+node 21630 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2059 has degree 0
+node 2059 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22372 has degree 0
+node 22372 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11563 has degree 0
+node 11563 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1599 has degree 0
+node 1599 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24252 has degree 0
+node 24252 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16349 has degree 0
+node 16349 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17191 has degree 0
+node 17191 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1350 has degree 0
+node 1350 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1675 has degree 0
+node 1675 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2512 has degree 0
+node 2512 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23420 has degree 0
+node 23420 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9597 has degree 0
+node 9597 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17121 has degree 0
+node 17121 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25272 has degree 0
+node 25272 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25977 has degree 0
+node 25977 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25958 has degree 0
+node 25958 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20253 has degree 0
+node 20253 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3955 has degree 0
+node 3955 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22105 has degree 0
+node 22105 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4289 has degree 0
+node 4289 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9135 has degree 0
+node 9135 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4027 has degree 0
+node 4027 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9095 has degree 0
+node 9095 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18742 has degree 0
+node 18742 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26044 has degree 0
+node 26044 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 124 has degree 0
+node 124 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15663 has degree 0
+node 15663 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14497 has degree 0
+node 14497 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12981 has degree 0
+node 12981 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19642 has degree 0
+node 19642 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8179 has degree 0
+node 8179 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7579 has degree 0
+node 7579 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17294 has degree 0
+node 17294 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8553 has degree 0
+node 8553 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4633 has degree 0
+node 4633 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11593 has degree 0
+node 11593 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16818 has degree 0
+node 16818 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23648 has degree 0
+node 23648 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 939 has degree 0
+node 939 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14037 has degree 0
+node 14037 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6913 has degree 0
+node 6913 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10024 has degree 0
+node 10024 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20344 has degree 0
+node 20344 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3633 has degree 0
+node 3633 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25719 has degree 0
+node 25719 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2532 has degree 0
+node 2532 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13483 has degree 0
+node 13483 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14711 has degree 0
+node 14711 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23623 has degree 0
+node 23623 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23686 has degree 0
+node 23686 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 864 has degree 0
+node 864 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17882 has degree 0
+node 17882 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18379 has degree 0
+node 18379 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21165 has degree 0
+node 21165 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9913 has degree 0
+node 9913 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22382 has degree 0
+node 22382 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7309 has degree 0
+node 7309 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8156 has degree 0
+node 8156 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16011 has degree 0
+node 16011 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22929 has degree 0
+node 22929 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22993 has degree 0
+node 22993 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14809 has degree 0
+node 14809 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18489 has degree 0
+node 18489 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15524 has degree 0
+node 15524 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12696 has degree 0
+node 12696 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11002 has degree 0
+node 11002 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20106 has degree 0
+node 20106 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14619 has degree 0
+node 14619 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9147 has degree 0
+node 9147 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1045 has degree 0
+node 1045 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6265 has degree 0
+node 6265 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5402 has degree 0
+node 5402 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15947 has degree 0
+node 15947 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2203 has degree 0
+node 2203 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7594 has degree 0
+node 7594 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21615 has degree 0
+node 21615 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2622 has degree 0
+node 2622 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11664 has degree 0
+node 11664 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4712 has degree 0
+node 4712 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11017 has degree 0
+node 11017 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9266 has degree 0
+node 9266 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2750 has degree 0
+node 2750 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20668 has degree 0
+node 20668 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24248 has degree 0
+node 24248 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22503 has degree 0
+node 22503 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12106 has degree 0
+node 12106 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23248 has degree 0
+node 23248 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2356 has degree 0
+node 2356 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 855 has degree 0
+node 855 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4261 has degree 0
+node 4261 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7772 has degree 0
+node 7772 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23299 has degree 0
+node 23299 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16262 has degree 0
+node 16262 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24219 has degree 0
+node 24219 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 628 has degree 0
+node 628 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13641 has degree 0
+node 13641 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15665 has degree 0
+node 15665 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21159 has degree 0
+node 21159 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17249 has degree 0
+node 17249 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17343 has degree 0
+node 17343 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9103 has degree 0
+node 9103 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11878 has degree 0
+node 11878 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 29 has degree 0
+node 29 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16751 has degree 0
+node 16751 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5061 has degree 0
+node 5061 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8922 has degree 0
+node 8922 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9488 has degree 0
+node 9488 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17182 has degree 0
+node 17182 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9987 has degree 0
+node 9987 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21554 has degree 0
+node 21554 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7695 has degree 0
+node 7695 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7025 has degree 0
+node 7025 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17986 has degree 0
+node 17986 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9217 has degree 0
+node 9217 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3452 has degree 0
+node 3452 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14383 has degree 0
+node 14383 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18552 has degree 0
+node 18552 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7103 has degree 0
+node 7103 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7384 has degree 0
+node 7384 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17827 has degree 0
+node 17827 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19060 has degree 0
+node 19060 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5445 has degree 0
+node 5445 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19447 has degree 0
+node 19447 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8877 has degree 0
+node 8877 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3280 has degree 0
+node 3280 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13191 has degree 0
+node 13191 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13013 has degree 0
+node 13013 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2950 has degree 0
+node 2950 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25668 has degree 0
+node 25668 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6455 has degree 0
+node 6455 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 358 has degree 0
+node 358 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19379 has degree 0
+node 19379 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18344 has degree 0
+node 18344 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 252 has degree 0
+node 252 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15418 has degree 0
+node 15418 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3850 has degree 0
+node 3850 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20331 has degree 0
+node 20331 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13864 has degree 0
+node 13864 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21154 has degree 0
+node 21154 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24341 has degree 0
+node 24341 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23135 has degree 0
+node 23135 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11583 has degree 0
+node 11583 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2879 has degree 0
+node 2879 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25219 has degree 0
+node 25219 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7278 has degree 0
+node 7278 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2459 has degree 0
+node 2459 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6380 has degree 0
+node 6380 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12547 has degree 0
+node 12547 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25181 has degree 0
+node 25181 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3431 has degree 0
+node 3431 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20260 has degree 0
+node 20260 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12749 has degree 0
+node 12749 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16729 has degree 0
+node 16729 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4469 has degree 0
+node 4469 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10514 has degree 0
+node 10514 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16800 has degree 0
+node 16800 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21310 has degree 0
+node 21310 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2803 has degree 0
+node 2803 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1823 has degree 0
+node 1823 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 2003 has degree 0
+node 2003 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22031 has degree 0
+node 22031 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4875 has degree 0
+node 4875 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15913 has degree 0
+node 15913 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3073 has degree 0
+node 3073 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17173 has degree 0
+node 17173 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3685 has degree 0
+node 3685 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21594 has degree 0
+node 21594 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22738 has degree 0
+node 22738 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 17341 has degree 0
+node 17341 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24470 has degree 0
+node 24470 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15186 has degree 0
+node 15186 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 26042 has degree 0
+node 26042 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14841 has degree 0
+node 14841 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 25904 has degree 0
+node 25904 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6291 has degree 0
+node 6291 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15250 has degree 0
+node 15250 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15589 has degree 0
+node 15589 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4836 has degree 0
+node 4836 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14991 has degree 0
+node 14991 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20560 has degree 0
+node 20560 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7011 has degree 0
+node 7011 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8702 has degree 0
+node 8702 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18159 has degree 0
+node 18159 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15200 has degree 0
+node 15200 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 7094 has degree 0
+node 7094 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21314 has degree 0
+node 21314 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22556 has degree 0
+node 22556 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 748 has degree 0
+node 748 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19450 has degree 0
+node 19450 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3383 has degree 0
+node 3383 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 24490 has degree 0
+node 24490 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12263 has degree 0
+node 12263 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16155 has degree 0
+node 16155 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5365 has degree 0
+node 5365 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15977 has degree 0
+node 15977 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16040 has degree 0
+node 16040 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19256 has degree 0
+node 19256 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 510 has degree 0
+node 510 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22285 has degree 0
+node 22285 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10850 has degree 0
+node 10850 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1561 has degree 0
+node 1561 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4484 has degree 0
+node 4484 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 21544 has degree 0
+node 21544 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 71 has degree 0
+node 71 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12745 has degree 0
+node 12745 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19023 has degree 0
+node 19023 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 403 has degree 0
+node 403 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1782 has degree 0
+node 1782 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 13521 has degree 0
+node 13521 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18784 has degree 0
+node 18784 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 3910 has degree 0
+node 3910 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 14135 has degree 0
+node 14135 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15899 has degree 0
+node 15899 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 15802 has degree 0
+node 15802 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11926 has degree 0
+node 11926 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 20379 has degree 0
+node 20379 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 11037 has degree 0
+node 11037 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8367 has degree 0
+node 8367 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8969 has degree 0
+node 8969 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12054 has degree 0
+node 12054 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10352 has degree 0
+node 10352 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 4959 has degree 0
+node 4959 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6867 has degree 0
+node 6867 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 23306 has degree 0
+node 23306 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6737 has degree 0
+node 6737 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 18558 has degree 0
+node 18558 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 16801 has degree 0
+node 16801 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 1793 has degree 0
+node 1793 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5481 has degree 0
+node 5481 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 10446 has degree 0
+node 10446 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 8870 has degree 0
+node 8870 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 9867 has degree 0
+node 9867 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 5062 has degree 0
+node 5062 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 19881 has degree 0
+node 19881 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 12295 has degree 0
+node 12295 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22645 has degree 0
+node 22645 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 6078 has degree 0
+node 6078 added to mindomset and all its neighbours and itself are deleted
+--------------
+Node 22728 has degree 0
+node 22728 added to mindomset and all its neighbours and itself are deleted
+--------------
+mindomset is {21012,15244,13929,13801,14265,7650,2654,22601,2710,4364,6264,449,9639,23038,9017,7689,23614,6583,10762,13142,19865,9124,7007,1217,6823,24814,9471,24924,9710,24330,15300,25034,15066,24057,15108,676,593,13008,11372,615,22423,3113,22177,11275,21075,4575,11696,2072,11861,16258,24696,3839,13520,23836,17501,11557,20765,17038,8254,12842,11293,6482,3716,18122,14534,12212,6154,2115,9629,22555,16482,9591,1493,15184,25080,18365,10055,13813,24781,13346,6337,16368,5695,24097,10801,18030,12187,18215,24412,6675,20328,22815,22415,17330,7844,17379,13955,14337,17359,13859,6023,5385,12406,17612,20924,14149,18256,9037,16154,6350,1765,12980,3872,18676,12478,8851,12938,22483,16594,1896,1116,16976,23529,26065,18619,16543,12286,24009,14690,8177,135,12599,4013,3618,1265,5655,13966,14067,24439,24207,24841,1981,1854,7125,6427,23485,24568,16039,3765,7045,14952,17443,15568,21608,19781,11318,5738,24970,19936,4211,16717,5078,6056,11609,12235,24489,10338,6735,9606,13558,10235,8916,17172,20879,178,22951,1044,7911,3804,7194,6804,10600,12135,19340,6638,2054,1711,18736,1736,17149,5425,19140,20940,25607,5156,369,6503,5519,14369,15372,5240,299,25540,6442,3516,23084,4275,22,21344,2222,3377,9579,7479,9715,9189,25496,17266,13740,18592,12968,15770,21389,1817,3996,23720,24885,14020,13328,3048,140,8134,2490,19084,15353,25435,10956,21466,10719,8641,4727,21450,21927,10081,17006,21195,14886,12930,25957,17750,13664,5212,2611,13712,1278,161,22719,16115,6666,1656,12053,7877,10564,17280,26092,4488,21024,4825,3052,13749,14770,18970,15227,5960,15683,1989,4777,23424,10268,23214,18222,8589,11661,24614,17245,14051,25537,24640,7625,14089,25215,25209,24,21650,25408,11891,9616,5503,6075,24705,20052,6064,4135,25354,11967,19350,21401,17984,4298,13702,5639,5529,8428,17595,5363,10251,24402,15528,25116,8864,1728,6280,19580,18373,6190,1556,20414,25130,6878,24852,19964,10500,12411,6944,9962,8557,4425,7546,8446,7916,21177,16598,25545,24159,1289,5629,1292,10936,17293,10679,13,13357,1549,5211,15641,17785,360,16886,3754,9224,13031,4630,16823,11120,23576,10912,17979,24932,6858,10115,2368,8279,7774,12380,22790,14972,8069,16106,23513,10406,3998,13682,9066,22203,18904,13067,4213,25565,10467,18003,19233,19109,11566,21321,5485,13196,16607,5181,5411,16010,365,1090,24860,17859,21530,18171,715,24451,8742,23175,5367,26004,2789,23883,14033,5184,3524,6434,10879,16765,2394,4302,11806,3063,2656,16703,9994,12616,11047,10317,853,12419,3849,7010,7506,4017,9763,5202,12703,1787,18684,22890,20236,2047,17804,5083,2316,350,18217,8732,5547,15160,8222,21149,10872,9630,19507,11152,6642,16872,24816,19598,19800,3239,9968,1404,1092,4033,2503,5465,18370,9959,12256,12320,4019,187,844,13035,1916,15706,7861,25089,820,6159,17388,800,9618,6229,3206,12290,6389,192,4826,3062,16124,15681,17461,13010,10432,2332,16783,22404,25136,348,11969,10178,23757,21558,7090,19011,20803,8058,3200,10513,7477,5839,787,14302,14894,3362,2201,13677,4110,9149,20150,24575,822,5446,10818,2223,6170,4144,15358,14175,1983,6576,13486,1798,19466,1051,24708,8395,13415,74,1969,16971,18608,7280,8891,2334,23970,4038,1878,5256,14845,18720,15159,4822,16470,10822,5435,10794,12860,20647,18517,20257,21613,4036,22834,1375,9721,13600,921,4870,8352,8157,7713,8302,21699,523,1832,14344,15399,5355,6160,19974,8708,4975,26190,13621,11919,17021,18612,7615,3323,5352,14627,7895,19710,20650,3965,2004,8442,8887,1818,1498,4254,1497,2630,13282,18758,20248,25934,22502,3826,12369,25152,8815,15249,2783,12247,7039,17235,17086,1550,9511,16906,19791,11093,3990,3312,6943,12112,1194,2852,7246,1910,4554,10676,2569,546,3980,9094,18905,24503,2119,20215,12664,17208,6533,18521,7935,2239,15821,8437,8301,7885,12743,17875,1490,2883,25189,17990,2339,5477,22283,11328,294,11459,5601,13675,23224,6448,1050,9595,16177,9125,12161,8726,9491,1341,2169,18724,4641,4269,14771,19313,23465,16235,1985,9893,17800,4189,20217,19895,20315,16281,2762,6810,3058,19464,11820,17502,5408,15388,8530,12160,8876,16937,1834,3594,20662,20086,925,21297,22693,9441,1267,1511,22830,14616,8523,8871,4967,22087,14854,9413,10026,18066,18557,19909,2593,750,23480,3718,10041,12318,21190,17141,11612,5814,3119,6354,1107,4148,2476,866,1436,10133,3067,19252,194,17114,8146,10897,15898,5577,3100,2049,19380,3074,1101,19911,10847,20157,25853,25,1668,10559,7468,12041,17951,6161,7857,25829,13022,6300,5182,21809,21018,8629,19739,14843,17585,7957,15181,373,10356,7807,2624,15572,8811,7536,1344,11611,1376,15712,7769,3989,9053,1589,23759,5119,6446,5137,8336,25510,8976,19906,6079,16338,82,7595,15688,4955,5409,4272,2981,6669,4750,7588,3599,3297,2329,2938,21593,1187,15423,254,23621,25211,7636,4278,10522,12863,1836,8054,22605,10382,16643,372,8735,9039,21303,19221,21949,5697,8558,8534,1662,16622,16312,11991,14182,5387,19145,22110,22311,12751,831,15154,24462,14338,11411,5853,9831,18388,4037,4196,25447,19892,4643,14990,14763,20766,15553,5490,1976,12248,4181,8409,11579,16922,23772,8717,2561,6776,11215,3748,10602,11467,9130,1010,11642,16015,20333,6701,5406,4366,9211,19473,24214,24820,5486,5261,18908,12050,14,5233,14982,24372,1796,5740,6376,18235,18549,24731,6864,12971,18648,2076,20001,23481,19783,5672,4046,5262,5579,17331,17603,23387,12422,8824,11613,14547,8067,25379,12665,24114,17309,18037,13385,19578,12045,12287,18681,2307,2982,19215,14376,10158,21316,22900,25143,25601,17394,5674,7209,18605,11053,23385,25868,4383,7014,3679,19445,19495,23227,21322,10253,14325,3595,18174,17850,20620,9417,15972,5995,7999,8047,8178,8868,10824,19806,23304,20149,4983,14562,15912,22245,9983,5840,8614,26141,3207,9269,2127,19234,22603,1280,2081,2664,25872,10919,16644,13705,3946,11863,20667,13653,13622,23163,3683,3845,6748,14664,16065,16963,4032,23137,2742,7855,8928,18375,1104,5427,13529,321,5166,953,17794,114,2348,6631,4552,23454,3511,18340,6184,20346,4249,22290,24113,2558,18910,10986,1006,12852,16333,574,23714,12679,10896,20915,1347,24959,22254,3999,8211,12373,11892,23264,13496,18788,18791,23409,11899,19167,21727,23863,5060,15625,11868,20191,10524,12337,15419,12389,15718,13498,22530,3171,19149,12065,14558,15306,15400,22528,22832,13321,16958,23346,22371,3730,25674,18867,24943,731,6828,25319,14606,10478,16675,8378,14970,4642,16708,8231,6316,25870,11944,25784,23092,25571,8476,9944,21341,22696,25358,15209,15669,6832,19557,2926,11617,21029,19355,17729,379,10907,4638,23909,8630,21027,5360,19544,16554,25091,13970,19903,2851,1595,17939,22771,14154,15882,5241,25684,16230,3821,3875,4069,1968,15942,2805,9419,5827,6527,10881,23866,2936,10354,15198,18067,10186,1327,6738,10825,25863,4382,6641,15920,18233,24583,15960,17564,25383,20065,23910,81,1029,3819,25959,18625,13834,5361,18097,8310,9314,12291,12639,13292,13320,4052,195,19168,17589,25911,24595,183,7573,8193,16576,16889,21391,17017,17161,20255,839,7098,12642,16485,2341,3508,12641,13068,9713,24592,2563,14345,1859,15192,3631,18152,24148,950,17131,19051,16107,26171,8150,4128,450,11910,23477,11923,20616,5636,17988,2055,3037,19457,11841,5698,11713,25598,4138,21131,23859,12868,17180,18154,6703,12803,15596,17592,9093,13680,15382,17076,11035,17289,5730,15252,25112,13389,6185,8520,15626,25903,232,1075,8737,13481,16742,10000,17337,21634,16332,19940,8441,16070,16087,19434,23944,24499,16084,19581,20954,6629,22088,21660,12056,2761,2143,21755,5255,6082,23653,7959,17569,21657,21995,3188,11108,17251,20557,18580,18623,21588,17797,7386,17401,9986,11719,4467,13636,16696,19605,11572,21630,2059,22372,11563,1599,24252,16349,17191,1350,1675,2512,23420,9597,17121,25272,25977,25958,20253,3955,22105,4289,9135,4027,9095,18742,26044,124,15663,14497,12981,19642,8179,7579,17294,8553,4633,11593,16818,23648,939,14037,6913,10024,20344,3633,25719,2532,13483,14711,23623,23686,864,17882,18379,21165,9913,22382,7309,8156,16011,22929,22993,14809,18489,15524,12696,11002,20106,14619,9147,1045,6265,5402,15947,2203,7594,21615,2622,11664,4712,11017,9266,2750,20668,24248,22503,12106,23248,2356,855,4261,7772,23299,16262,24219,628,13641,15665,21159,17249,17343,9103,11878,29,16751,5061,8922,9488,17182,9987,21554,7695,7025,17986,9217,3452,14383,18552,7103,7384,17827,19060,5445,19447,8877,3280,13191,13013,2950,25668,6455,358,19379,18344,252,15418,3850,20331,13864,21154,24341,23135,11583,2879,25219,7278,2459,6380,12547,25181,3431,20260,12749,16729,4469,10514,16800,21310,2803,1823,2003,22031,4875,15913,3073,17173,3685,21594,22738,17341,24470,15186,26042,14841,25904,6291,15250,15589,4836,14991,20560,7011,8702,18159,15200,7094,21314,22556,748,19450,3383,24490,12263,16155,5365,15977,16040,19256,510,22285,10850,1561,4484,21544,71,12745,19023,403,1782,13521,18784,3910,14135,15899,15802,11926,20379,11037,8367,8969,12054,10352,4959,6867,23306,6737,18558,16801,1793,5481,10446,8870,9867,5062,19881,12295,22645,6078,22728,}
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Best Minimum Dominating Set Length is 3
+Best Minimum Dominating Set Length is 1558
 Best Trial is 1 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

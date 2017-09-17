@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include <stdlib.h>
-#define NO_OF_EDGES 10
-#define NO_OF_VERTICES 6
-#define NO_OF_TRIALS 10
+
+#define NO_OF_VERTICES 8
+#define NO_OF_TRIALS 100
 
 int vertexcover[NO_OF_VERTICES]={-1};
 int length;
@@ -11,6 +11,23 @@ void addvertextoset(int nid);
 void printvertexcover();
 const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.edgelist", "Edge list format");
 int minvertexcoverlength = 32000,besttrial;
+
+int getrandomnodefromgraph(PUNGraph G)
+{
+	return G->GetRndNId();
+
+}
+
+int checkforneighboursexists(PUNGraph G,int node)
+{
+	for (typename PUNGraph::TObj::TNodeI ni = G->BegNI(); ni < G->EndNI(); ni++)
+	{
+		if(ni.GetId() == node)
+			if(ni.GetDeg() > 0)
+				return 1;
+	}
+	return 0;
+}
 
 
 int main(int argc, char* argv[]) {
@@ -24,54 +41,21 @@ int main(int argc, char* argv[]) {
   // this code is independent of what particular graph implementation/type we use
   printf("Creating graph:\n");
   PGraph G = PGraph::TObj::New();
-
-  for (int n = 0; n < NO_OF_VERTICES; n++) {
-    G->AddNode(); // if no parameter is given, node ids are 0,1,...,9
-  }
-  G->AddEdge(0, 1);
-  for (int e = 0; e < NO_OF_EDGES; e++) {
-    const int NId1 = G->GetRndNId();
-    const int NId2 = G->GetRndNId();
-    G->AddEdge(NId1, NId2);
-    /*
-    if (G->AddEdge(NId1, NId2) != -2) {
-      //printf("  Edge %d -- %d added\n", NId1,  NId2); }
-    else {
-      //printf("  Edge %d -- %d already exists\n", NId1, NId2); }*/
-  }
-  IAssert(G->IsOk());
-  TSnap::SaveEdgeList(G, "graph.edgelist", "Edge list format");
-  //printf("no of edges = %d\n",G->GetEdges());
+  G = TSnap::LoadEdgeList<PUNGraph>(InFNm);
   G->Dump();
   int actualNoOfEdgesCreated = G->GetEdges();
-  int loop = 0;
-  while(loop < NO_OF_TRIALS)
+  int loop = 1;
+  while(loop <= NO_OF_TRIALS)
   {
 	  printf("+++++++++++++++++++++++++++++ Trial %d +++++++++++++++++++++++\n",loop);
 	  length=0;
-	  for(int i=0;i<actualNoOfEdgesCreated;i++)
-	    {
-	  	  int randomedge = rand() % (actualNoOfEdgesCreated - i);
-	  	  //printf("random is %d\n",randomedge);
-	  	  int index=0;
-	  	  for (typename PGraph::TObj::TEdgeI ei = G->BegEI(); ei < G->EndEI(); ei++) {
-	  	          //printf("%d\t%d\n", ei.GetSrcNId(), ei.GetDstNId());
-	  	    	  if (randomedge == index && !isvertexalreadythereinset(ei.GetSrcNId()) && !isvertexalreadythereinset(ei.GetDstNId()))
-	  	    		  {
-	  	    		  	  addvertextoset(ei.GetSrcNId());
-	  	    		  	  addvertextoset(ei.GetDstNId());
-	  	    		  	  G->DelEdge(ei.GetSrcNId(), ei.GetDstNId());
-	  	    		  	  break;
-	  	    		  }
-	  	    	  else if(randomedge == index)
-	  	    	  {
-	  	    		  G->DelEdge(ei.GetSrcNId(), ei.GetDstNId());
-	  	    		  break;
-	  	    	  }
-	  	    	  index++;
-
-	  	        }
-	    }
+	  while(G->GetEdges() > 0)
+	  {
+		int node = getrandomnodefromgraph(G);
+		if(checkforneighboursexists(G,node))
+			addvertextoset(node);
+		G->DelNode(node);
+	  }
 	  printf("size of vertex cover is %d\n",length);
 	  printvertexcover();
 	  if(minvertexcoverlength > length)
@@ -104,11 +88,8 @@ int isvertexalreadythereinset(int vertex)
 
 void addvertextoset(int nid)
 {
-	if(!isvertexalreadythereinset(nid))
-	{
 		vertexcover[length] = nid;
 		length++;
-	}
 
 }
 

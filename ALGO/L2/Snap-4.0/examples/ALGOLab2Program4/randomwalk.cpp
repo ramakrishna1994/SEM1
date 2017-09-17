@@ -52,11 +52,6 @@ int main(int argc, char* argv[]) {
     const int NId1 = G->GetRndNId();
     const int NId2 = G->GetRndNId();
     G->AddEdge(NId1, NId2);
-    /*
-    if (G->AddEdge(NId1, NId2) != -2) {
-      //printf("  Edge %d -- %d added\n", NId1,  NId2); }
-    else {
-      //printf("  Edge %d -- %d already exists\n", NId1, NId2); }*/
   }
   IAssert(G->IsOk());
   TSnap::SaveEdgeList(G, "graph.edgelist", "Edge list format");
@@ -68,12 +63,14 @@ int main(int argc, char* argv[]) {
 	  	  int nooftimestorun = 2*NO_OF_VERTICES*NO_OF_VERTICES*NO_OF_VERTICES;
 	  	  int currentrun = 1;
 	  	  int neighbourselected = getrandomneighbourofgivennode(G,SOURCE);
-	  	  printf("Neighbour selected for node %d is %d\n",SOURCE,neighbourselected);
+	  	  //printf("Neighbour selected for node %d is %d\n",SOURCE,neighbourselected);
+	  	  printf("%d-->",SOURCE);
 	  	  while(currentrun <= nooftimestorun)
 	  	  {
 	  		  	if(neighbourselected == DESTINATION)
 				{
-					printf("Destination reached successfully in %d run(s)!!\n",currentrun);
+	  		  		printf("%d",neighbourselected);
+					printf("\nDestination reached successfully in %d run(s)!!\n",currentrun);
 					if(noofruns > currentrun)
 					{
 						noofruns = currentrun;
@@ -81,13 +78,15 @@ int main(int argc, char* argv[]) {
 					}
 					break;
 				}
+	  		  	printf("%d-->",neighbourselected);
 	  		  	int node = neighbourselected;
 	  		  	neighbourselected = getrandomneighbourofgivennode(G,neighbourselected);
-				printf("Neighbour selected for node %d is %d\n",node,neighbourselected);
+				//printf("Neighbour selected for node %d is %d\n",node,neighbourselected);
 
 				currentrun++;
 	  	  }
 	  	  loop++;
+	  	  printf("\n");
   }
 
   printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
