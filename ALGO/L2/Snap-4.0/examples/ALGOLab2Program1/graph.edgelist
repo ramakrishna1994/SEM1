@@ -1,6 +1,6 @@
 # Undirected graph (each unordered pair of nodes is saved once): graph.edgelist
 # Edge list format
-# Nodes: 5 Edges: 5
+# Nodes: 5 Edges: 4
 # NodeId	NodeId
 1	2
 2	3

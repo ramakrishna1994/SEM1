@@ -108,7 +108,7 @@ int main(int argc, char* argv[]) {
 					break;
 	 	  }
 
-	  printmindomset();
+	  //printmindomset();
 	  if(bestmindomsetlength > lengthofmindomset)
 	  {
 		  bestmindomsetlength = lengthofmindomset;

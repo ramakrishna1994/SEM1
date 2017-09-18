@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include <stdlib.h>
-#define NO_OF_EDGES 100
-#define NO_OF_VERTICES 20
-#define NO_OF_TRIALS 10
-#define SOURCE 1
-#define DESTINATION 10
+
+#define NO_OF_TRIALS 1000
+#define SOURCE 6077
+#define DESTINATION 5957
 
 
 const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.edgelist", "Edge list format");
@@ -43,7 +42,7 @@ int main(int argc, char* argv[]) {
   // this code is independent of what particular graph implementation/type we use
   printf("Creating graph:\n");
   PGraph G = PGraph::TObj::New();
-
+  /*
   for (int n = 0; n < NO_OF_VERTICES; n++) {
     G->AddNode(); // if no parameter is given, node ids are 0,1,...,9
   }
@@ -55,12 +54,14 @@ int main(int argc, char* argv[]) {
   }
   IAssert(G->IsOk());
   TSnap::SaveEdgeList(G, "graph.edgelist", "Edge list format");
+  */
+  G = TSnap::LoadEdgeList<PUNGraph>(InFNm);
   int loop = 1;
-  G->Dump();
+  //G->Dump();
   while(loop <= NO_OF_TRIALS)
   {
 	  printf("+++++++++++++++++++++++++++++ Trial %d +++++++++++++++++++++++\n",loop);
-	  	  int nooftimestorun = 2*NO_OF_VERTICES*NO_OF_VERTICES*NO_OF_VERTICES;
+	  	  int nooftimestorun = 2*G->GetNodes()*G->GetNodes()*G->GetNodes();
 	  	  int currentrun = 1;
 	  	  int neighbourselected = getrandomneighbourofgivennode(G,SOURCE);
 	  	  //printf("Neighbour selected for node %d is %d\n",SOURCE,neighbourselected);

@@ -2,11 +2,10 @@
 #include <stdlib.h>
 
 #define MAX_SIZE 32000
-#define NO_OF_TRIALS 10
+#define NO_OF_TRIALS 1
 
 int vertexcover[MAX_SIZE]={-1};
 int length;
-int isvertexalreadythereinset(int vertex);
 void addvertextoset(int nid);
 void printvertexcover();
 const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.txt", "Edge list format");
@@ -17,6 +16,7 @@ int getrandomnodefromgraph(PUNGraph G)
 	return G->GetRndNId();
 
 }
+
 
 int checkforneighboursexists(PUNGraph G,int node)
 {
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
   printf("Creating graph:\n");
   PGraph G = PGraph::TObj::New();
   G = TSnap::LoadEdgeList<PUNGraph>(InFNm);
-  G->Dump();
+  //G->Dump();
   int actualNoOfEdgesCreated = G->GetEdges();
   int loop = 1;
   while(loop <= NO_OF_TRIALS)
@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
 		G->DelNode(node);
 	  }
 	  printf("size of vertex cover is %d\n",length);
-	  printvertexcover();
+	  //printvertexcover();
 	  if(minvertexcoverlength > length)
 	  {
 		  minvertexcoverlength = length;
@@ -74,17 +74,6 @@ int main(int argc, char* argv[]) {
 }
 
 
-int isvertexalreadythereinset(int vertex)
-{
-
-	for(int i=0;i<length;i++)
-	{
-		//printf("vertex cover is %d and vertex is %d\n",vertexcover[i],vertex);
-		if(vertexcover[i] == vertex)
-			return 1;
-	}
-	return 0;
-}
 
 void addvertextoset(int nid)
 {

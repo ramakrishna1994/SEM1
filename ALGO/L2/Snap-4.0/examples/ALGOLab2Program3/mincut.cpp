@@ -1,13 +1,14 @@
 #include "stdafx.h"
 #include<stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define NO_OF_TRIALS 1
 #define NO_OF_VERTICES 5242
 
 int latestedgeindex = 1;
 int besttrail = 0;
 int noofcuts = 32000;
-const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.txt", "Edge list format");
+const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.edgelist", "Edge list format");
 struct edgelistformat
 {
 	int vertex1;
@@ -74,6 +75,8 @@ void printedges()
 	}
 }
 
+
+
 int getnoofvertices()
 {
 	struct edgelistformat *temp = head;
@@ -114,6 +117,8 @@ int getnoofvertices()
 
 	return noofvertices;
 }
+
+
 
 struct edgelistformat* getaddressofrandomedge(int num)
 {
@@ -223,15 +228,34 @@ void removeallselfloopsingraph()
 	}
 }
 
+int dowehavemorethantwovertices()
+{
+	struct edgelistformat *temp = head;
+	int a = temp->vertex1;
+	int b = temp->vertex2;
+	while(temp->nextedge)
+	{
+		temp=temp->nextedge;
+		int c=temp->vertex1;
+		int d=temp->vertex2;
+		if( !((a == c && b==d) || (a==d && b==c)))
+		{
+			return 1;
+		}
+
+	}
+	return 0;
+
+}
 
 void startalgo()
 {
 	struct edgelistformat* edgepointer;
-	while(getnoofvertices() > 2)
+	while(dowehavemorethantwovertices())
 	{
 		printf("---------------------------------------------\n");
 		//printedges();
-		printf("no of vertices %d\n",getnoofvertices());
+		//printf("no of vertices %d\n",getnoofvertices());
 		//printf("no of edges %d\n",getnoofedges());
 		edgepointer = selectrandomedge();
 		if(edgepointer != NULL)
@@ -245,13 +269,13 @@ void startalgo()
 	}
 	printf("---------------------------------------------\n");
 	printedges();
-	printf("no of vertices %d\n",getnoofvertices());
+	//printf("no of vertices %d\n",getnoofvertices());
 	printf("no of edges %d\n",getnoofedges());
 	printf("Removing self loops if any\n");
 	removeallselfloopsingraph();
 	printf("---------------------------------------------\n");
 	printedges();
-	printf("no of vertices %d\n",getnoofvertices());
+	//printf("no of vertices %d\n",getnoofvertices());
 	printf("no of edges %d\n",getnoofedges());
 	printf("---------------------------------------------\n");
 
@@ -262,6 +286,7 @@ int main()
 {
 	typedef PNEGraph PGraph;  //   directed multigraph
 	int count = 1;
+	latestedgeindex = getnoofvertices();
 	while(count <= NO_OF_TRIALS)
 	{
 			printf("+++++++++++++++++++++++++++ Trial No : %d +++++++++++++++++++++++++\n",count);
@@ -277,7 +302,7 @@ int main()
 			{
 				insertedgeintostruct(ei.GetSrcNId(), ei.GetDstNId());
 			}
-			latestedgeindex = getnoofvertices();
+			latestedgeindex++;
 			startalgo();
 			if(noofcuts > getnoofedges())
 			{
@@ -285,11 +310,15 @@ int main()
 				besttrail = count;
 			}
 			printf("Min cut is %d\n",getnoofedges());
+			if(getnoofedges() == 0)
+				printf("So Graph is already Disconnected by default\n");
 			count++;
 	}
 
 	printf("+++++++++++++++++++++++++++ End Of Trials +++++++++++++++++++++++++++++++++\n");
 	printf("Best Min cut is %d and best trail is %d\n",noofcuts,besttrail);
+	if(getnoofedges() == 0)
+		printf("So Graph is already Disconnected by default\n");
 	printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
 }
