@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include <stdlib.h>
+#include <iostream>
 
-#define NO_OF_TRIALS 1000
-#define SOURCE 6077
-#define DESTINATION 5957
+using  namespace std;
+
+#define NO_OF_TRIALS 100
+#define SOURCE 24394
+#define DESTINATION 58507
 
 
 const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.edgelist", "Edge list format");
@@ -61,8 +64,9 @@ int main(int argc, char* argv[]) {
   while(loop <= NO_OF_TRIALS)
   {
 	  printf("+++++++++++++++++++++++++++++ Trial %d +++++++++++++++++++++++\n",loop);
-	  	  int nooftimestorun = 2*G->GetNodes()*G->GetNodes()*G->GetNodes();
-	  	  int currentrun = 1;
+	  	  unsigned long long int nooftimestorun = 2*G->GetNodes()*G->GetNodes()*G->GetNodes();
+	  	  cout << nooftimestorun << "\n";
+	  	  unsigned long long int currentrun = 1;
 	  	  int neighbourselected = getrandomneighbourofgivennode(G,SOURCE);
 	  	  //printf("Neighbour selected for node %d is %d\n",SOURCE,neighbourselected);
 	  	  printf("%d-->",SOURCE);
