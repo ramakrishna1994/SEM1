@@ -13,17 +13,21 @@ void handler(int sig)
 }
 int main()
 {
-	int i;
+	int i;pid_t pid[3];
 	signal(SIGCHLD, handler);
 	for(i=0;i<3;i++)
 	{
-		switch(fork())
+		pid[i]= fork();
+		switch(pid[i])
 		{
 			case 0:
 				printf("\tChild created %d\n", getpid());
 				exit(0);
 		}
+		wait(NULL);
 	}
+
+
 
 	sleep(2);
 	return 0;

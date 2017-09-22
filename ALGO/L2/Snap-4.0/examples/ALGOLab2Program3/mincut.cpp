@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #define NO_OF_TRIALS 1
@@ -8,7 +8,7 @@
 int latestedgeindex = 1;
 int besttrail = 0;
 int noofcuts = 32000;
-const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.edgelist", "Edge list format");
+const TStr InFNm = Env.GetIfArgPrefixStr("-i:", "graph.txt", "Edge list format");
 struct edgelistformat
 {
 	int vertex1;

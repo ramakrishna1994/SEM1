@@ -1,0 +1,4 @@
+total 16
+-rwxrwxr-x 1 saradhi saradhi 8984 Sep 19 18:45 a.out
+-rw-rw-r-- 1 saradhi saradhi 1038 Sep 19 18:45 MultipleCommandsUsingPipe.cpp
+-rw-rw-r-- 1 saradhi saradhi    0 Sep 19 18:46 wc
