@@ -3,8 +3,6 @@
 #include <string.h>
 
 char tData[200][30][100]; // [No_of_instances][No_of_atributes][value_of_attribute]
-//char generalHypothesis[10][30][100]; // [Type][No_of_atributes][value_of_attribute] //excluding name and type
-//char specificHypothesis[10][30][10]; // [Type][No_of_atributes][value_of_attribute] //excluding name and type
 int noOfTypes = 7;
 int noOfInstances = 1;
 int noOfAttributes = 18;
@@ -32,6 +30,11 @@ void buildGeneralBoundariesFromSpecific(int type);
 void insertIntoGeneralBoundary(int type,int attr);
 void printGeneralHypotheses(int type);
 struct hypotheses* removeGeneralBoundaryFromList(struct hypotheses* toRemove,int type);
+void doRulePruning(int instance,int type);
+void makeItLessGeneric(int instance,struct hypotheses* toRemove,int type);
+int  isBothBoundariesSame(struct hypotheses *temp1,struct hypotheses *temp2);
+void removeDuplicateGeneralBoundaries(int type);
+
 
 int main()
 {
@@ -43,6 +46,7 @@ int main()
 	{
 		printf("++++++++++++++++++++++++++++++++++++++++ Type - %d +++++++++++++++++++++++++++++++++++++++++\n",i);
 		startAlgo(i);
+		removeDuplicateGeneralBoundaries(i);
 		printSpecificHypotheses(i);
 		printf("-------------------------------------------------------------------------------------------\n");
 		printGeneralHypotheses(i);
@@ -66,6 +70,11 @@ void startAlgo(int type)
 		if(tData[i][18][1] != (char)(type+48))
 		{
 			calculateGenericBoundaries(i,type);
+		}
+		else
+		{
+
+			doRulePruning(i,type);
 		}
 	}
 }
@@ -133,16 +142,36 @@ void calculateGenericBoundaries(int instance,int type)
 	{
 		if(!isHypothesisAcceptingInstance(instance,temp))
 		{
+			// Do Nothing as it is already not accepting Instance
+		}
+		else
+		{
+			makeItLessGeneric(instance,temp,type);
+		}
+		temp = temp->ptrToNextHyp;
+	}
+}
+
+void doRulePruning(int instance,int type)
+{
+	struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
+	while(temp)
+	{
+		if(!isHypothesisAcceptingInstance(instance,temp))
+		{
+			printf("divya\n");
 			//printf("No\n");
-			temp = temp->ptrToNextHyp;
+			temp = removeGeneralBoundaryFromList(temp,type);
+
 		}
 		else
 		{
 			//printf("Yes\n");
-			temp = removeGeneralBoundaryFromList(temp,type);
+			temp = temp->ptrToNextHyp;
 		}
 	}
 }
+
 
 int isHypothesisAcceptingInstance(int instance,struct hypotheses *temp)
 {
@@ -255,6 +284,59 @@ struct hypotheses* removeGeneralBoundaryFromList(struct hypotheses* toRemove,int
 		}
 	}
 	return NULL;
+}
+
+
+void makeItLessGeneric(int instance,struct hypotheses* toChange,int type)
+{
+	//printf("None\n");
+	//struct hypotheses *tempToGeneral = generalHypothesis[type].ptrToNextHyp;
+	struct hypotheses *tempToSpecific = &specificHypothesis[type];
+	for(int i=2;i<=noOfAttributes-1;i++)
+	{
+		if(tData[instance][i][1] != tempToSpecific->attr[i])
+		{
+			if(tempToSpecific->attr[i]!='?')
+				{
+					toChange->attr[i] = tempToSpecific->attr[i];
+					break;
+				}
+		}
+	}
+
+}
+
+int isBothBoundariesSame(struct hypotheses *temp1,struct hypotheses *temp2)
+{
+	int count = 0;
+	for(int i=2;i<=noOfAttributes-1;i++)
+		if(temp1->attr[i] == temp2->attr[i])
+			count++;
+	if(count == noOfAttributes-2)
+		return 1;
+	else
+		return 0;
+}
+
+
+void removeDuplicateGeneralBoundaries(int type)
+{
+		struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
+		while(temp->ptrToNextHyp->ptrToNextHyp)
+		{
+			struct hypotheses *temp1 = temp->ptrToNextHyp;
+			while(temp1)
+			{
+				if(isBothBoundariesSame(temp,temp1))
+					temp1 = removeGeneralBoundaryFromList(temp1,type);
+				else
+					temp1 = temp1->ptrToNextHyp;
+			}
+			temp = temp->ptrToNextHyp;
+		}
+
+
+
 }
 
 
