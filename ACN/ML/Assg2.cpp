@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <vector>
 #include <cstring>
 #include <sstream>
 #include <fstream>
@@ -12,18 +11,40 @@ using namespace std;
 
 
 struct AtttributeMetadata{
-	int index;
+	int Index;
 	string Name;
 	string DistinctValues[21000];
 	int NoOfdistinctValues;
 	int IsContinous;
+	int IsDone;
 	struct AtttributeMetadata *PtrToNextAttr;
 };
-string tData[50000][20]; // [No_of_instances][No_of_atributes]
+
+struct DTreeValue
+{
+	int Index;
+	string Value;
+	struct DTreeNode *ptrToNextNode;
+};
+
+struct DTreeNode
+{
+	string Name;
+	int NoOfDistinctValues;
+	struct DTreeValue *PtrToNextValue[30];
+};
+
+
+
+
+
+
+string tData[50000][30]; // [No_of_instances][No_of_atributes]
 unsigned long long int noOfInstances = 1;
 int noOfAttributes = 15;
 struct AtttributeMetadata *headOfMetadata = NULL;
 
+/*
 void ReadTDataFrmFile();
 void printTData();
 void handleContinousValues();
@@ -32,72 +53,220 @@ struct AtttributeMetadata *insertMetadata();
 void makeItDiscreteValues(struct AtttributeMetadata* temp);
 void printArray(unsigned long long int (&array)[3][35000],int length);
 unsigned long long int findCount(int index,unsigned long long int value,string compare);
-void startAlgo();
-float calculateInformationGain(struct AtttributeMetadata *attr);
-float calculateGlobalEntropyWithRespectToAttr(struct Attribute* attr);
+struct DTreeNode* BuildDTree(string (&oldArray)[35000][30] ,int oldCount);
+*/
 
-
-
-
-int getLessThan()
+int getLessThan(struct AtttributeMetadata *temp,string value,string **array,int length)
 {
 	int count=0;
-	for(int i=1;i<noOfInstances;i++)
-		if(tData[i][noOfAttributes] == "<=50K")
-			count++;
+	if(temp!=NULL)
+	{
+		for(int i=1;i<length;i++)
+			if(array[i][temp->Index]==value && array[i][noOfAttributes] == "<=50K")
+				count++;
+
+	}
+	else
+	{
+		for(int i=1;i<length;i++)
+			if(array[i][noOfAttributes] == "<=50K")
+				count++;
+
+
+	}
 	return count;
 }
 
-int getGreaterThan()
+int getGreaterThan(struct AtttributeMetadata *temp,string value,string **array,int length)
 {
 	int count=0;
-	for(int i=1;i<noOfInstances;i++)
-		if(tData[i][noOfAttributes] == ">50K")
-			count++;
+	if(temp!=NULL)
+		{
+			for(int i=1;i<length;i++)
+				if(array[i][temp->Index]==value && array[i][noOfAttributes] == ">50K")
+					count++;
+
+		}
+		else
+		{
+			for(int i=1;i<length;i++)
+				if(array[i][noOfAttributes] == ">50K")
+					count++;
+
+
+		}
 	return count;
 
 }
 
-double calculateGlobalEntropyWithRespectToAttr(double a,double b,double total)
+double calculateEntropyWithRespectToAttr(double a,double b,double total)
 {
+		double part1 = (double)a/(double)total;
+		double part2 = (double)b/(double)total;
+		double entropy = 0;
+		if(part1 == 0 && part2 == 0)
+		{
+			return entropy;
+		}
+		else if(part2 == 0)
+		{
+			entropy =  -(part1 * log(part1)) / log(2);
+		}
+		else if(part1 == 0)
+		{
+			entropy =  -(part2 * log(part2)) / log(2);
+		}
+		else
+		{
+			entropy =  (-(part1 * log(part1))-(part2 * log(part2))) / log(2);
+		}
 
-		double part1 = (double)a/(double)noOfInstances;
-		double part2 = (double)b/(double)noOfInstances;
-		double entropy =  -(part1 * log(part1))-(part2 * log(part2));
-		cout << "float is " << entropy << "\n";
+		//cout << "float is " << entropy << "\n";
 		return entropy;
 
 }
 
 
-float calculateInformationGain(struct AtttributeMetadata *attr)
+double calculateInformationGain(struct AtttributeMetadata *attr,string **array,int count)
 {
-	float a = getLessThan();
-	float b = getGreaterThan();
-	double globalEntropy = calculateGlobalEntropyWithRespectToAttr(a,b,a+b);
-	for(int i=1;i<attr->NoOfdistinctValues;i++)
+
+	float globala = getLessThan(NULL,"",array,count);
+	float globalb = getGreaterThan(NULL,"",array,count);
+	float globalTotal = globala + globalb;
+	float locala,localb,localTotal;
+	cout << globala << "---" << globalb << "\n";
+	double globalEntropy = calculateEntropyWithRespectToAttr(globala,globalb,globalTotal);
+	if(attr->IsContinous == 0)
 	{
-		globalEntropy +=
+		for(int i=1;i<attr->NoOfdistinctValues;i++)
+		{
+			locala = getLessThan(attr,attr->DistinctValues[i],array,count);
+			localb = getGreaterThan(attr,attr->DistinctValues[i],array,count);
+			localTotal = locala + localb;
+			//cout << locala << "---" << localb << "\n";
+			globalEntropy += (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
+		}
+		return globalEntropy;
 	}
+	else
+	{
+		for(int i=1;i<attr->NoOfdistinctValues;i++)
+		{
+			//TO-DO//
+			return 0;
+		}
+	}
+	return 0;
+}
+
+int checkForAlgoCompletion()
+{
+	cout << "done" << "\n";
+	struct AtttributeMetadata *check = headOfMetadata;
+	int noOfAttributesDone = 0;
+	while(check)
+	{
+		if(check->IsDone == 1)
+			noOfAttributesDone++;
+		check = check->PtrToNextAttr;
+	}
+	if(noOfAttributesDone == noOfAttributes)
+		return 1;
+	else
+		return 0;
+}
+
+
+
+struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
+{
+	cout << "came" << "\n";
+	if(checkForAlgoCompletion())
+		return NULL;
+	else
+	{
+		cout << "came" << "\n";
+
+		struct AtttributeMetadata *temp = headOfMetadata;
+
+		struct AtttributeMetadata *finalOne = NULL;
+		float prev = 0;
+		double newGain = 0;
+		double max = -1;
+		int index;
+
+
+		while(temp)
+		{
+			if(temp->IsDone != 1)
+				newGain = calculateInformationGain(temp,oldArray,oldCount);
+			if(max < newGain)
+			{
+				max = newGain;
+				finalOne = temp;
+			}
+			cout << temp->Name << " information gain is : " << newGain << "\n";
+			temp = temp->PtrToNextAttr;
+		}
+		struct DTreeNode *newDtreeNode = new DTreeNode();
+		newDtreeNode->Name = finalOne->Name;
+		newDtreeNode->NoOfDistinctValues = finalOne->NoOfdistinctValues;
+		for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
+		{
+			struct DTreeValue *newValueNode = new DTreeValue();
+			newValueNode->Value = finalOne->DistinctValues[i];
+			newValueNode->Index = finalOne->Index;
+			newDtreeNode->PtrToNextValue[i] = newValueNode;
+		}
+		string newArray[50000][30];
+		int newCount = 1;
+		for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
+		{
+			for(int k=1;k<oldCount;k++)
+			{
+				if(oldArray[k][newDtreeNode->PtrToNextValue[i]->Index] == newDtreeNode->PtrToNextValue[i]->Value)
+				{
+					for(int j=1;j<=noOfAttributes;j++)
+						newArray[newCount][j] = oldArray[k][j];
+					newCount++;
+				}
+
+			}
+			cout << "count is "<< newCount << "\n";
+			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = BuildDTree(newArray,newCount);
+		}
+
+		cout << "max is" << finalOne->Name << "and information gain is : " << max << "\n";
+		return newDtreeNode;
+
+	}
+	return NULL;
 
 }
 
 
 
-void startAlgo()
+
+
+struct AtttributeMetadata* insertMetadata()
 {
 	struct AtttributeMetadata *temp = headOfMetadata;
-	float prev = 0;
-	while(temp)
+	struct AtttributeMetadata *newnode = new AtttributeMetadata();
+	newnode->PtrToNextAttr = NULL;
+	if(temp == NULL)
 	{
-		float newGain = calculateInformationGain(temp);
-		temp = temp->PtrToNextAttr;
+		headOfMetadata = newnode;
 	}
+	else
+	{
+		while(temp->PtrToNextAttr)
+		{
+			temp = temp->PtrToNextAttr;
+		}
+		temp->PtrToNextAttr = newnode;
+	}
+	return newnode;
 }
-
-
-
-
 
 
 void ReadMetadata()
@@ -112,7 +281,8 @@ void ReadMetadata()
 		istringstream ss1(line);
 		string token;
 		newnode = insertMetadata();
-		newnode->index = index;
+		newnode->Index = index;
+		newnode->IsDone = 0;
 		int i=1;
 		while(std::getline(ss1, token, ':')) {
 			//cout << i << "---" << token  << "\n";
@@ -141,38 +311,25 @@ void ReadMetadata()
 	}
 }
 
-struct AtttributeMetadata* insertMetadata()
+unsigned long long int findCount(int index,unsigned long long int value,string compare)
 {
-	struct AtttributeMetadata *temp = headOfMetadata;
-	struct AtttributeMetadata *newnode = new AtttributeMetadata();
-	newnode->PtrToNextAttr = NULL;
-	if(temp == NULL)
-	{
-		headOfMetadata = newnode;
-	}
-	else
-	{
-		while(temp->PtrToNextAttr)
-		{
-			temp = temp->PtrToNextAttr;
-		}
-		temp->PtrToNextAttr = newnode;
-	}
-	return newnode;
+	//cout << index << "--" << value << "--" << compare << "\n";
+	unsigned long long int count = 0;
+	for(int i=1;i<noOfInstances;i++)
+		if(atoi(tData[i][index].c_str()) == value && tData[i][noOfAttributes]==compare)
+			count++;
+	return count;
 }
 
-void handleContinousValues()
+
+void printArray(unsigned long long int (&array)[3][35000],int length)
 {
-	struct AtttributeMetadata* temp = headOfMetadata;
-	while(temp)
+	for(int i=1;i<length;i++)
 	{
-		if(temp->IsContinous == 1)
-		{
-			makeItDiscreteValues(temp);
-		}
-		temp = temp->PtrToNextAttr;
+		cout << array[1][i] << "--" << array[2][i] << "\n";
 	}
 }
+
 
 void makeItDiscreteValues(struct AtttributeMetadata* temp)
 {
@@ -180,7 +337,7 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	for(int i=1;i<noOfInstances;i++)
 	{
 		//cout << "copying " << i << "\n";
-		temparray[1][i] = atoi(tData[i][temp->index].c_str());
+		temparray[1][i] = atoi(tData[i][temp->Index].c_str());
 		//temparray[2][i] = tData[i][noOfAttributes];
 	}
 	//findHowManyDiscreteValues(temparray);
@@ -199,8 +356,8 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	        }
 	    for(int i=1;i<noOfDistinctValues;i++)
 	    {
-	    	unsigned long long int lessThanCount = findCount(temp->index,temparray[1][i],"<=50K");
-			unsigned long long int greaterThanCount = findCount(temp->index,temparray[1][i],">50K");
+	    	unsigned long long int lessThanCount = findCount(temp->Index,temparray[1][i],"<=50K");
+			unsigned long long int greaterThanCount = findCount(temp->Index,temparray[1][i],">50K");
 			if(lessThanCount <= greaterThanCount)
 				temparray[2][i] = 1; // 1 indicates >50K
 			else
@@ -249,23 +406,22 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 
 }
 
-unsigned long long int findCount(int index,unsigned long long int value,string compare)
-{
-	//cout << index << "--" << value << "--" << compare << "\n";
-	unsigned long long int count = 0;
-	for(int i=1;i<noOfInstances;i++)
-		if(atoi(tData[i][index].c_str()) == value && tData[i][noOfAttributes]==compare)
-			count++;
-	return count;
-}
 
-void printArray(unsigned long long int (&array)[3][35000],int length)
+
+void handleContinousValues()
 {
-	for(int i=1;i<length;i++)
+	struct AtttributeMetadata* temp = headOfMetadata;
+	while(temp)
 	{
-		cout << array[1][i] << "--" << array[2][i] << "\n";
+		if(temp->IsContinous == 1)
+		{
+			makeItDiscreteValues(temp);
+		}
+		temp = temp->PtrToNextAttr;
 	}
 }
+
+
 
 
 void ReadTDataFrmFile()
@@ -304,9 +460,9 @@ int main()
 
 	ReadMetadata();
 	ReadTDataFrmFile();
-	//printTData();
+	printTData();
 	//handleContinousValues();
-	startAlgo();
+	struct DTreeNode *head = BuildDTree(tData,noOfInstances);
 	return 1;
 
 }
