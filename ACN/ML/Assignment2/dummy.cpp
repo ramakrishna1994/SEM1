@@ -8,7 +8,7 @@
 
 using namespace std;
 
-
+int global = 0;
 
 struct AtttributeMetadata{
 	int Index;
@@ -24,6 +24,8 @@ struct DTreeValue
 {
 	int Index;
 	string Value;
+	string searchIndexes[100];
+	int lengthOfSearchIndexes;
 	struct DTreeNode *ptrToNextNode;
 };
 
@@ -35,11 +37,11 @@ struct DTreeNode
 };
 
 
+struct localArr { string array[35000][20]; };
 
 
 
-
-string tData[50000][30]; // [No_of_instances][No_of_atributes]
+string **tData = NULL; // [No_of_instances][No_of_atributes]
 unsigned long long int noOfInstances = 1;
 int noOfAttributes = 15;
 struct AtttributeMetadata *headOfMetadata = NULL;
@@ -56,20 +58,35 @@ unsigned long long int findCount(int index,unsigned long long int value,string c
 struct DTreeNode* BuildDTree(string (&oldArray)[35000][30] ,int oldCount);
 */
 
-int getLessThan(struct AtttributeMetadata *temp,string value,string **array,int length)
+
+void printTData(struct localArr local,int length)
+{
+	cout << "+++++++++++++++++++ printing data ++++++++++++++++++++++++++++++++\n";
+	cout << "address is " << local.array << "\n";
+	for(int i=1;i<length;i++)
+		{
+			for(int j=1;j<=noOfAttributes;j++)
+				cout<<local.array[i][j]<<"|";
+			cout<<"\n";
+		}
+	cout << "length " << length << "\n";
+	cout << "+++++++++++++++++++ end ++++++++++++++++++++++++++++++++\n";
+}
+
+int getLessThan(struct AtttributeMetadata *temp,string value,struct localArr local,int length)
 {
 	int count=0;
 	if(temp!=NULL)
 	{
 		for(int i=1;i<length;i++)
-			if(array[i][temp->Index]==value && array[i][noOfAttributes] == "<=50K")
+			if(local.array[i][temp->Index]==value && local.array[i][noOfAttributes] == "<=50K")
 				count++;
 
 	}
 	else
 	{
 		for(int i=1;i<length;i++)
-			if(array[i][noOfAttributes] == "<=50K")
+			if(local.array[i][noOfAttributes] == "<=50K")
 				count++;
 
 
@@ -77,20 +94,20 @@ int getLessThan(struct AtttributeMetadata *temp,string value,string **array,int 
 	return count;
 }
 
-int getGreaterThan(struct AtttributeMetadata *temp,string value,string **array,int length)
+int getGreaterThan(struct AtttributeMetadata *temp,string value,struct localArr local,int length)
 {
 	int count=0;
 	if(temp!=NULL)
 		{
 			for(int i=1;i<length;i++)
-				if(array[i][temp->Index]==value && array[i][noOfAttributes] == ">50K")
+				if(local.array[i][temp->Index]==value && local.array[i][noOfAttributes] == ">50K")
 					count++;
 
 		}
 		else
 		{
 			for(int i=1;i<length;i++)
-				if(array[i][noOfAttributes] == ">50K")
+				if(local.array[i][noOfAttributes] == ">50K")
 					count++;
 
 
@@ -127,21 +144,20 @@ double calculateEntropyWithRespectToAttr(double a,double b,double total)
 }
 
 
-double calculateInformationGain(struct AtttributeMetadata *attr,string **array,int count)
+double calculateInformationGain(struct AtttributeMetadata *attr,struct localArr local,int count)
 {
 
-	float globala = getLessThan(NULL,"",array,count);
-	float globalb = getGreaterThan(NULL,"",array,count);
+	float globala = getLessThan(NULL,"",local,count);
+	float globalb = getGreaterThan(NULL,"",local,count);
 	float globalTotal = globala + globalb;
 	float locala,localb,localTotal;
-	cout << globala << "---" << globalb << "\n";
 	double globalEntropy = calculateEntropyWithRespectToAttr(globala,globalb,globalTotal);
 	if(attr->IsContinous == 0)
 	{
 		for(int i=1;i<attr->NoOfdistinctValues;i++)
 		{
-			locala = getLessThan(attr,attr->DistinctValues[i],array,count);
-			localb = getGreaterThan(attr,attr->DistinctValues[i],array,count);
+			locala = getLessThan(attr,attr->DistinctValues[i],local,count);
+			localb = getGreaterThan(attr,attr->DistinctValues[i],local,count);
 			localTotal = locala + localb;
 			//cout << locala << "---" << localb << "\n";
 			globalEntropy += (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
@@ -177,16 +193,17 @@ int checkForAlgoCompletion()
 }
 
 
-
-struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
+struct DTreeNode* BuildDTree(struct localArr local,int oldCount)
 {
-	cout << "came" << "\n";
+	global++;
+	if(global == 2)
+		return NULL;
+
+	cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
 	if(checkForAlgoCompletion())
 		return NULL;
 	else
 	{
-		cout << "came" << "\n";
-
 		struct AtttributeMetadata *temp = headOfMetadata;
 
 		struct AtttributeMetadata *finalOne = NULL;
@@ -195,11 +212,11 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 		double max = -1;
 		int index;
 
-
+		printTData(local,oldCount);
 		while(temp)
 		{
 			if(temp->IsDone != 1)
-				newGain = calculateInformationGain(temp,oldArray,oldCount);
+				newGain = calculateInformationGain(temp,local,oldCount);
 			if(max < newGain)
 			{
 				max = newGain;
@@ -208,6 +225,8 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 			cout << temp->Name << " information gain is : " << newGain << "\n";
 			temp = temp->PtrToNextAttr;
 		}
+		cout << "max is" << finalOne->Name << "and information gain is : " << max << "\n";
+
 		struct DTreeNode *newDtreeNode = new DTreeNode();
 		newDtreeNode->Name = finalOne->Name;
 		newDtreeNode->NoOfDistinctValues = finalOne->NoOfdistinctValues;
@@ -218,29 +237,38 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 			newValueNode->Index = finalOne->Index;
 			newDtreeNode->PtrToNextValue[i] = newValueNode;
 		}
-		string newArray[50000][30];
-		int newCount = 1;
+		finalOne->IsDone = 1;
+
+
+
 		for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
 		{
+
+			struct localArr newLocal;
+			int newCount = 1;
 			for(int k=1;k<oldCount;k++)
 			{
-				if(oldArray[k][newDtreeNode->PtrToNextValue[i]->Index] == newDtreeNode->PtrToNextValue[i]->Value)
+				if(local.array[k][newDtreeNode->PtrToNextValue[i]->Index] == newDtreeNode->PtrToNextValue[i]->Value)
 				{
 					for(int j=1;j<=noOfAttributes;j++)
-						newArray[newCount][j] = oldArray[k][j];
+					{
+						newLocal.array[newCount][j] = local.array[k][j];
+
+					}
 					newCount++;
 				}
 
 			}
-			cout << "count is "<< newCount << "\n";
-			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = BuildDTree(newArray,newCount);
+			cout <<"\n";
+			cout << "calling with count : " << newCount << " and value : " << newDtreeNode->PtrToNextValue[i]->Value << "\n";
+			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = BuildDTree(local,newCount);
+
 		}
 
-		cout << "max is" << finalOne->Name << "and information gain is : " << max << "\n";
-		return newDtreeNode;
 
+
+	return newDtreeNode;
 	}
-	return NULL;
 
 }
 
@@ -443,26 +471,25 @@ void ReadTDataFrmFile()
 		}
 }
 
-void printTData()
-{
-	for(int i=1;i<noOfInstances;i++)
-		{
-			for(int j=1;j<=noOfAttributes;j++)
-				cout<<tData[i][j]<<"|";
-			cout<<"\n";
-		}
-	cout << "no of instances are " << noOfInstances << "\n";
-}
+
 
 int main()
 {
-
+	tData = new string*[35000];
+	for(int i = 0; i < 35000; ++i)
+		 tData[i] = new string[20];
 
 	ReadMetadata();
 	ReadTDataFrmFile();
-	printTData();
+	//printTData(tData,noOfInstances);
 	//handleContinousValues();
-	struct DTreeNode *head = BuildDTree(tData,noOfInstances);
+	struct localArr local;
+	for(int i=1;i<noOfInstances;i++)
+	{
+		for(int j=1;j<=noOfAttributes;j++)
+			local.array[i][j] = tData[i][j];
+	}
+	struct DTreeNode * headOfDTree = BuildDTree(local,noOfInstances);
 	return 1;
 
 }
