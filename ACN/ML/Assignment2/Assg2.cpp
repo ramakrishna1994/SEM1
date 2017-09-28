@@ -5,6 +5,7 @@
 #include <fstream>
 #include <set>
 #include <cmath>
+#define HIGHVALUE -100;
 
 using namespace std;
 
@@ -14,6 +15,7 @@ struct AtttributeMetadata{
 	int Index;
 	string Name;
 	string DistinctValues[21000];
+	double Range[25000][3];
 	int NoOfdistinctValues;
 	int IsContinous;
 	int IsDone;
@@ -38,9 +40,11 @@ struct DTreeNode
 
 
 string **tData = NULL; // [No_of_instances][No_of_atributes]
+unsigned long long int temparray[3][35000];
 unsigned long long int noOfInstances = 1;
 int noOfAttributes = 15;
 struct AtttributeMetadata *headOfMetadata = NULL;
+set<unsigned long long int> sa;
 
 /*
 void ReadTDataFrmFile();
@@ -112,12 +116,71 @@ int getGreaterThan(struct AtttributeMetadata *temp,string value,string **array,i
 
 }
 
+
+
+int getLessThanRange(struct AtttributeMetadata *temp,double lessValue,double highValue,string **array,int length)
+{
+	int count=0;
+	if(highValue == -100)
+	{
+		for(int i=1;i<length;i++)
+			if(atoi(array[i][temp->Index].c_str())>lessValue && array[i][noOfAttributes] == "<=50K")
+				count++;
+		return count;
+	}
+	if(temp!=NULL)
+	{
+		for(int i=1;i<length;i++)
+			if(atoi(array[i][temp->Index].c_str())>lessValue && atoi(array[i][temp->Index].c_str()) && array[i][noOfAttributes] == "<=50K")
+				count++;
+
+	}
+	else
+	{
+		for(int i=1;i<length;i++)
+			if(array[i][noOfAttributes] == "<=50K")
+				count++;
+
+
+	}
+	return count;
+}
+
+int getGreaterThanRange(struct AtttributeMetadata *temp,double lessValue,double highValue,string **array,int length)
+{
+	int count=0;
+		if(highValue == -100)
+		{
+			for(int i=1;i<length;i++)
+				if(atoi(array[i][temp->Index].c_str())>lessValue && array[i][noOfAttributes] == ">50K")
+					count++;
+			return count;
+		}
+		if(temp!=NULL)
+		{
+			for(int i=1;i<length;i++)
+				if(atoi(array[i][temp->Index].c_str())>lessValue && atoi(array[i][temp->Index].c_str())<highValue && array[i][noOfAttributes] == ">50K")
+					count++;
+
+		}
+		else
+		{
+			for(int i=1;i<length;i++)
+				if(array[i][noOfAttributes] == ">50K")
+					count++;
+
+
+		}
+	return count;
+
+}
+
 double calculateEntropyWithRespectToAttr(double a,double b,double total)
 {
 		double part1 = (double)a/(double)total;
 		double part2 = (double)b/(double)total;
 		double entropy = 0;
-		if(part1 == 0 && part2 == 0)
+		if((part1 == 0 && part2 == 0) || total == 0)
 		{
 			return entropy;
 		}
@@ -163,9 +226,15 @@ double calculateInformationGain(struct AtttributeMetadata *attr,string **array,i
 	else
 	{
 		for(int i=1;i<attr->NoOfdistinctValues;i++)
-		{
+		{	/*
 			//TO-DO//
+			locala = getLessThanRange(attr,attr->Range[i][1],attr->Range[i][2],array,count);
+			localb = getGreaterThanRange(attr,attr->Range[i][1],attr->Range[i][2],array,count);
+			localTotal = locala + localb;
+			cout << locala << "---" << localb << "\n";
+			globalEntropy += (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
 			return 0;
+			*/
 		}
 	}
 	return 0;
@@ -191,9 +260,9 @@ int checkForAlgoCompletion()
 
 struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 {
-	/*global++;
-	if(global == 2)
-		return NULL;*/
+	global++;
+	if(global == 1)
+		return NULL;
 
 	cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
 	if(checkForAlgoCompletion())
@@ -201,27 +270,30 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 	else
 	{
 		struct AtttributeMetadata *temp = headOfMetadata;
-
 		struct AtttributeMetadata *finalOne = NULL;
 		float prev = 0;
 		double newGain = 0;
 		double max = -1;
 		int index;
 
-		printTData(oldArray,oldCount);
+		//printTData(oldArray,oldCount);
 		while(temp)
 		{
 			if(temp->IsDone != 1)
+			{
 				newGain = calculateInformationGain(temp,oldArray,oldCount);
+				cout << temp->Name << " information gain is : " << newGain << "\n";
+			}
+
 			if(max < newGain)
 			{
 				max = newGain;
 				finalOne = temp;
 			}
-			cout << temp->Name << " information gain is : " << newGain << "\n";
+
 			temp = temp->PtrToNextAttr;
 		}
-		cout << "max is" << finalOne->Name << "and information gain is : " << max << "\n";
+		cout << "\nmax is" << finalOne->Name << "and information gain is : " << max << "\n";
 
 		struct DTreeNode *newDtreeNode = new DTreeNode();
 		newDtreeNode->Name = finalOne->Name;
@@ -261,6 +333,7 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 			cout <<"\n";
 			cout << "calling with count : " << newCount << " and value : " << newDtreeNode->PtrToNextValue[i]->Value << "\n";
 			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = BuildDTree(newArray,newCount);
+			delete(newArray);
 
 		}
 
@@ -360,19 +433,18 @@ void printArray(unsigned long long int (&array)[3][35000],int length)
 
 void makeItDiscreteValues(struct AtttributeMetadata* temp)
 {
-	unsigned long long int temparray[3][35000];
-	for(int i=1;i<noOfInstances;i++)
-	{
-		//cout << "copying " << i << "\n";
-		temparray[1][i] = atoi(tData[i][temp->Index].c_str());
-		//temparray[2][i] = tData[i][noOfAttributes];
-	}
-	//findHowManyDiscreteValues(temparray);
 
 
-	    std::set<int> sa(&temparray[1][1], &temparray[1][noOfInstances]);
+		sa.clear();
+
+	    for(unsigned long long int i=1;i<noOfInstances;i++)
+		{
+			//cout << "copying to set " << i << "\n";
+			sa.insert(atoi(tData[i][temp->Index].c_str()));
+			//temparray[2][i] = tData[i][noOfAttributes];
+		}
 	    //std::cout << sa.size() << std::endl;
-	    set <int, greater <int> > :: iterator itr;
+	    set <unsigned long long int, greater <unsigned long long int> > :: iterator itr;
 	    int noOfDistinctValues = 1;
 	    for (itr = sa.begin(); itr != sa.end(); ++itr)
 	        {
@@ -383,6 +455,7 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	        }
 	    for(int i=1;i<noOfDistinctValues;i++)
 	    {
+	    	//unsigned long long int value = temparray[1][i];
 	    	unsigned long long int lessThanCount = findCount(temp->Index,temparray[1][i],"<=50K");
 			unsigned long long int greaterThanCount = findCount(temp->Index,temparray[1][i],">50K");
 			if(lessThanCount <= greaterThanCount)
@@ -393,8 +466,8 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 			cout << "greater than count is " << greaterThanCount << "\n";
 			cout << "-----------------------\n";*/
 	    }
-	    printArray(temparray,noOfDistinctValues);
-	    int prev = temparray[2][1];
+	    //printArray(temparray,noOfDistinctValues);
+
 	    int count = 0;
 	    for(int i=1;i<noOfDistinctValues-1;i++)
 	    {
@@ -405,34 +478,51 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	    }
 	    //cout << "count is "<< count <<"\n";
 	    //cout << "No of distinct values " << noOfDistinctValues << "\n";
-	    if(count+2 == noOfDistinctValues && temparray[2][1]==1)
+	    temp->NoOfdistinctValues = 1;
+	    if(count+2 == noOfDistinctValues)
 	    {
+	    	//cout << "inside 1\n";
 			//cout << "average is " << temparray[1][noOfDistinctValues]+1 << "\n";
-			temp->DistinctValues[noOfDistinctValues] = temparray[1][noOfDistinctValues]+1;
+	    	temp->Range[temp->NoOfdistinctValues][1] = 0;
+			temp->Range[temp->NoOfdistinctValues][2] = temparray[1][noOfDistinctValues-1]+1;
 			temp->NoOfdistinctValues ++;
+			return;
 	    }
-	    if(count+2 == noOfDistinctValues && temparray[2][1]==0)
-		{
-	    	//cout << "count is "<< count <<"\n";
-			//cout << "average is " << temparray[1][1]-1 << "\n";
-			temp->DistinctValues[noOfDistinctValues] = temparray[1][1]-1;
-			temp->NoOfdistinctValues ++;
-		}
+	    double previousRange = 0;
+	    int prev = temparray[2][1];
+	    //cout << "inside 2\n";
 	    for(int i=2;i<noOfDistinctValues;i++)
 	    {
+	    	//cout << "previous one is " << prev << " and current is " << temparray[2][i] << "\n";
 	    	if(prev != temparray[2][i])
 	    		{
 	    			double average = ((double)temparray[1][i-1] + (double)temparray[1][i])/2;
 	    			//cout << "average is " << average << "\n";
-	    			prev = temparray[2][noOfDistinctValues];
-	    			temp->DistinctValues[noOfDistinctValues] = average;
+	    			prev = temparray[2][i]; //TODO
+	    			temp->Range[temp->NoOfdistinctValues][1] = previousRange;
+	    			temp->Range[temp->NoOfdistinctValues][2] = average;
+	    			previousRange = average;
+	    			//temp->DistinctValues[noOfDistinctValues] = average;
 	    			temp->NoOfdistinctValues ++;
 
 	    		}
 	    }
+	    temp->Range[temp->NoOfdistinctValues][1] = previousRange;
+	    temp->Range[temp->NoOfdistinctValues][2] = -100; // To indicate last filter
+	    temp->NoOfdistinctValues ++;
+
 
 }
 
+void printContinousValues(struct AtttributeMetadata *temp)
+{
+	cout << "+++++++++++++++++++++++++++++++++\n";
+	cout << "name is " << temp->Name << "\n";
+	for(int i=1;i<temp->NoOfdistinctValues;i++)
+	{
+		cout << "Range is :" << temp->Range[i][1] << "\t" << temp->Range[i][2] << "\n";
+	}
+}
 
 
 void handleContinousValues()
@@ -443,6 +533,8 @@ void handleContinousValues()
 		if(temp->IsContinous == 1)
 		{
 			makeItDiscreteValues(temp);
+			//printContinousValues(temp);
+			//cout << "\n+++++++++++++ Done +++++++++++++++++\n";
 		}
 		temp = temp->PtrToNextAttr;
 	}
