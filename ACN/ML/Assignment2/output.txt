@@ -1,0 +1,2484 @@
+73
+
++++++++++++++ Done +++++++++++++++++
+
++++++++++++++ Done +++++++++++++++++
+16
+
++++++++++++++ Done +++++++++++++++++
+119
+
++++++++++++++ Done +++++++++++++++++
+92
+
++++++++++++++ Done +++++++++++++++++
+94
+
++++++++++++++ Done +++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+24720---7841
+age information gain is : 0
+workclass information gain is : 0.0487298
+24720---2420
+fnlwgt information gain is : 0.434903
+education information gain is : 0.0935908
+24720---6153
+education-num information gain is : 0.11321
+marital-status information gain is : 0.156528
+occupation information gain is : 0.120115
+relationship information gain is : 0.165366
+race information gain is : 0.00837796
+sex information gain is : 0.0371714
+1035---0
+capital-gain information gain is : 0.796384
+746---0
+capital-loss information gain is : 0.796384
+24720---7437
+hours-per-week information gain is : 0.0258432
+native-country information gain is : 0.0232333
+
+max is capital-gain and information gain is : 0.796384
+came inside 
+came inside if 1
+
+calling with count : 473 and value : 0 & 3048
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+capital-loss information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 2
+
+calling with count : 98 and value : 3048 & 3120
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+7---90
+age information gain is : 0
+workclass information gain is : 0.113452
+7---34
+fnlwgt information gain is : 0.0952461
+education information gain is : 0.0662487
+7---83
+education-num information gain is : 0.00810579
+marital-status information gain is : 0
+occupation information gain is : 0.210496
+relationship information gain is : 0.0412832
+race information gain is : 0.0187234
+sex information gain is : 0.010708
+0---0
+capital-loss information gain is : 0.373951
+7---89
+hours-per-week information gain is : 0.00112002
+native-country information gain is : 0.00572471
+
+max is capital-loss and information gain is : 0.373951
+came inside 
+came inside if 1
+
+calling with count : 1 and value : 0 & 639
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 2
+
+calling with count : 1 and value : 639 & 731.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 3
+
+calling with count : 1 and value : 731.5 & 1448
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 4
+
+calling with count : 1 and value : 1448 & 1494.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 5
+
+calling with count : 1 and value : 1494.5 & 1551.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 6
+
+calling with count : 1 and value : 1551.5 & 1568.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 7
+
+calling with count : 1 and value : 1568.5 & 1748
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 8
+
+calling with count : 1 and value : 1748 & 1758.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 9
+
+calling with count : 1 and value : 1758.5 & 1820.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 10
+
+calling with count : 1 and value : 1820.5 & 1834.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 11
+
+calling with count : 1 and value : 1834.5 & 1846
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 12
+
+calling with count : 1 and value : 1846 & 1862
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 13
+
+calling with count : 1 and value : 1862 & 1881.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 14
+
+calling with count : 1 and value : 1881.5 & 1923
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 15
+
+calling with count : 1 and value : 1923 & 1975.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 16
+
+calling with count : 1 and value : 1975.5 & 1978.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 17
+
+calling with count : 1 and value : 1978.5 & 2168.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 18
+
+calling with count : 1 and value : 2168.5 & 2176.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 19
+
+calling with count : 1 and value : 2176.5 & 2190
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 20
+
+calling with count : 1 and value : 2190 & 2203
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 21
+
+calling with count : 1 and value : 2203 & 2218.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 22
+
+calling with count : 1 and value : 2218.5 & 2234.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 23
+
+calling with count : 1 and value : 2234.5 & 2242
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 24
+
+calling with count : 1 and value : 2242 & 2262.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 25
+
+calling with count : 1 and value : 2262.5 & 2274.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 26
+
+calling with count : 1 and value : 2274.5 & 2310.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 27
+
+calling with count : 1 and value : 2310.5 & 2364.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 28
+
+calling with count : 1 and value : 2364.5 & 2450.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 29
+
+calling with count : 1 and value : 2450.5 & 2469.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 30
+
+calling with count : 1 and value : 2469.5 & 2480.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 31
+
+calling with count : 1 and value : 2480.5 & 2518
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 32
+
+calling with count : 1 and value : 2518 & 2581
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 33
+
+calling with count : 1 and value : 2581 & 2789
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 34
+
+calling with count : 1 and value : 2789 & 3726.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 35
+
+calling with count : 1 and value : 3726.5 & -100
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 3
+
+calling with count : 310 and value : 3120 & 4243.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+fnlwgt information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+occupation information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 4
+
+calling with count : 71 and value : 4243.5 & 4401
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+12---58
+age information gain is : 0
+workclass information gain is : 0.0516958
+12---18
+fnlwgt information gain is : 0.244841
+education information gain is : 0.111941
+12---53
+education-num information gain is : 0.0201827
+marital-status information gain is : 0
+occupation information gain is : 0.129465
+relationship information gain is : 0.00393154
+race information gain is : 0.00393154
+sex information gain is : 1.08641e-05
+12---55
+hours-per-week information gain is : 0.0119103
+native-country information gain is : 0.0518733
+
+max is fnlwgt and information gain is : 0.244841
+came inside 
+came inside if 1
+
+calling with count : 26 and value : 0 & 133366
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+7---18
+age information gain is : 0
+workclass information gain is : 0.0817191
+education information gain is : 0.219445
+7---15
+education-num information gain is : 0.0613447
+marital-status information gain is : 0
+occupation information gain is : 0.295451
+relationship information gain is : 0.0613447
+race information gain is : 0.0398332
+sex information gain is : 0.0398332
+7---16
+hours-per-week information gain is : 0.0398332
+native-country information gain is : 0.0936395
+
+max is occupation and information gain is : 0.295451
+came inside else
+
+calling with count : 2 and value : Tech-support
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 4 and value : Craft-repair
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+2---1
+age information gain is : 0
+workclass information gain is : 0.251629
+education information gain is : 0.918296
+2---1
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+2---1
+hours-per-week information gain is : 0
+native-country information gain is : 0.251629
+
+max is education and information gain is : 0.918296
+came inside else
+
+calling with count : 1 and value : Bachelors
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Some-college
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : 11th
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 3 and value : HS-grad
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Prof-school
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Assoc-acdm
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 2 and value : Assoc-voc
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : 9th
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : 7th-8th
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : 12th
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Masters
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : 1st-4th
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : 10th
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Doctorate
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : 5th-6th
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Preschool
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 3 and value : Other-service
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+workclass information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 4 and value : Sales
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+2---1
+age information gain is : 0
+workclass information gain is : 0
+2---1
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+2---1
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 5 and value : Exec-managerial
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+1---3
+age information gain is : 0
+workclass information gain is : 0.122556
+1---3
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0.122556
+race information gain is : 0
+sex information gain is : 0
+1---3
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is workclass and information gain is : 0.122556
+came inside else
+
+calling with count : 4 and value : Private
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+1---2
+age information gain is : 0
+1---2
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+1---2
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 2 and value : Self-emp-not-inc
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Self-emp-inc
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Federal-gov
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Local-gov
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : State-gov
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Without-pay
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Never-worked
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 4 and value : Prof-specialty
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 2 and value : Handlers-cleaners
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 5 and value : Machine-op-inspct
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+1---3
+age information gain is : 0
+1---3
+education-num information gain is : 0
+marital-status information gain is : 0
+relationship information gain is : 0.122556
+race information gain is : 0
+sex information gain is : 0.122556
+1---3
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is relationship and information gain is : 0.122556
+came inside else
+
+calling with count : 2 and value : Wife
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Own-child
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 4 and value : Husband
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+1---2
+age information gain is : 0
+1---2
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+1---2
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Not-in-family
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Other-relative
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Unmarried
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 2 and value : Adm-clerical
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 3 and value : Farming-fishing
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+1---1
+age information gain is : 0
+1---1
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+1---1
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 2 and value : Transport-moving
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Priv-house-serv
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Protective-serv
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Armed-Forces
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+education-num information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0
+sex information gain is : 0
+hours-per-week information gain is : 0
+native-country information gain is : 0
+
+max is age and information gain is : 0
+came inside if 2
+
+calling with count : 20 and value : 133366 & 201112
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+5---14
+age information gain is : 0
+5---13
+education-num information gain is : 0.0239326
+marital-status information gain is : 0
+race information gain is : 0.00329873
+sex information gain is : 0.00329873
+5---13
+hours-per-week information gain is : 0.0239326
+native-country information gain is : 0.0494914
+
+max is native-country and information gain is : 0.0494914
+came inside else
+
+calling with count : 18 and value : United-States
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+5---12
+age information gain is : 0
+5---11
+education-num information gain is : 0.0306509
+marital-status information gain is : 0
+race information gain is : 0.0181216
+sex information gain is : 0.00112365
+5---12
+hours-per-week information gain is : 0
+
+max is education-num and information gain is : 0.0306509
+came inside 
+came inside if 1
+
+calling with count : 17 and value : 0 & 13.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+5---11
+age information gain is : 0
+marital-status information gain is : 0
+race information gain is : 0.0158077
+sex information gain is : 0.0158077
+5---11
+hours-per-week information gain is : 0
+
+max is race and information gain is : 0.0158077
+came inside else
+
+calling with count : 15 and value : White
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+4---10
+age information gain is : 0
+marital-status information gain is : 0
+sex information gain is : 0.0248822
+4---10
+hours-per-week information gain is : 0
+
+max is sex and information gain is : 0.0248822
+came inside else
+
+calling with count : 3 and value : Female
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+1---1
+age information gain is : 0
+marital-status information gain is : 0
+1---1
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 13 and value : Male
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+3---9
+age information gain is : 0
+marital-status information gain is : 0
+3---9
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Asian-Pac-Islander
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Amer-Indian-Eskimo
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Other
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 3 and value : Black
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+1---1
+age information gain is : 0
+marital-status information gain is : 0
+1---1
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 2
+
+calling with count : 2 and value : 13.5 & -100
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Cambodia
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : England
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Puerto-Rico
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Canada
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Germany
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Outlying-US(Guam-USVI-etc)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : India
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Japan
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 2 and value : Greece
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : South
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : China
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Cuba
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Iran
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Honduras
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Philippines
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Italy
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Poland
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Jamaica
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Vietnam
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Mexico
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Portugal
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Ireland
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : France
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Dominican-Republic
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Laos
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Ecuador
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Taiwan
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Haiti
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Columbia
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Hungary
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Guatemala
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Nicaragua
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Scotland
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Thailand
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Yugoslavia
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : El-Salvador
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Trinadad&Tobago
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Peru
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Hong
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside else
+
+calling with count : 1 and value : Holand-Netherlands
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 3
+
+calling with count : 1 and value : 201112 & -1
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 5
+
+calling with count : 66 and value : 4401 & 4668.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 6
+
+calling with count : 27 and value : 4668.5 & 4826
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 7
+
+calling with count : 19 and value : 4826 & 4932.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 8
+
+calling with count : 8 and value : 4932.5 & 4973.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 9
+
+calling with count : 71 and value : 4973.5 & 5119
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 10
+
+calling with count : 98 and value : 5119 & 5316.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 11
+
+calling with count : 12 and value : 5316.5 & 5505.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 12
+
+calling with count : 6 and value : 5505.5 & 5638.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 13
+
+calling with count : 4 and value : 5638.5 & 5909
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 14
+
+calling with count : 2 and value : 5909 & 6228.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 15
+
+calling with count : 4 and value : 6228.5 & 6389
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 16
+
+calling with count : 10 and value : 6389 & 6457.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 17
+
+calling with count : 12 and value : 6457.5 & 6505.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 18
+
+calling with count : 6 and value : 6505.5 & 6618.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 19
+
+calling with count : 35 and value : 6618.5 & 7073.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 20
+
+calling with count : 256 and value : 7073.5 & 7436.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 21
+
+calling with count : 6 and value : 7436.5 & 7565.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 22
+
+calling with count : 288 and value : 7565.5 & 7937
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 23
+
+calling with count : 2 and value : 7937 & 8296
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 24
+
+calling with count : 125 and value : 8296 & 10543
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 25
+
+calling with count : 7 and value : 10543 & 10585.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 26
+
+calling with count : 506 and value : 10585.5 & 21045.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 27
+
+calling with count : 2 and value : 21045.5 & 23582
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 28
+
+calling with count : 50 and value : 23582 & 30961.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 29
+
+calling with count : 8 and value : 30961.5 & 70654.5
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+came inside if 30
+
+calling with count : 160 and value : 70654.5 & -100
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+done
+age information gain is : 0
+marital-status information gain is : 0
+hours-per-week information gain is : 0
+
+max is age and information gain is : 0
+name is  capital-gain
+name is  capital-loss
+name is  fnlwgt
+name is  occupation
+name is  native-country

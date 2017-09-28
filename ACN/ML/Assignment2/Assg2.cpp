@@ -14,8 +14,8 @@ int global = 0;
 struct AtttributeMetadata{
 	int Index;
 	string Name;
-	string DistinctValues[21000];
-	double Range[25000][3];
+	string DistinctValues[200];
+	double Range[200][3];
 	int NoOfdistinctValues;
 	int IsContinous;
 	int IsDone;
@@ -26,6 +26,7 @@ struct DTreeValue
 {
 	int Index;
 	string Value;
+	double range[2][3];
 	string searchIndexes[100];
 	int lengthOfSearchIndexes;
 	struct DTreeNode *ptrToNextNode;
@@ -35,7 +36,8 @@ struct DTreeNode
 {
 	string Name;
 	int NoOfDistinctValues;
-	struct DTreeValue *PtrToNextValue[30];
+	int isContinous;
+	struct DTreeValue *PtrToNextValue[200];
 };
 
 
@@ -45,6 +47,7 @@ unsigned long long int noOfInstances = 1;
 int noOfAttributes = 15;
 struct AtttributeMetadata *headOfMetadata = NULL;
 set<unsigned long long int> sa;
+struct DTreeNode * headOfDTree = NULL;
 
 /*
 void ReadTDataFrmFile();
@@ -209,8 +212,11 @@ double calculateInformationGain(struct AtttributeMetadata *attr,string **array,i
 	float globala = getLessThan(NULL,"",array,count);
 	float globalb = getGreaterThan(NULL,"",array,count);
 	float globalTotal = globala + globalb;
+	//cout << globala << "---" << globalb << "\n";
 	float locala,localb,localTotal;
 	double globalEntropy = calculateEntropyWithRespectToAttr(globala,globalb,globalTotal);
+	if(globalEntropy == 0)
+		return 0;
 	if(attr->IsContinous == 0)
 	{
 		for(int i=1;i<attr->NoOfdistinctValues;i++)
@@ -219,22 +225,22 @@ double calculateInformationGain(struct AtttributeMetadata *attr,string **array,i
 			localb = getGreaterThan(attr,attr->DistinctValues[i],array,count);
 			localTotal = locala + localb;
 			//cout << locala << "---" << localb << "\n";
-			globalEntropy += (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
+			globalEntropy -= (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
 		}
 		return globalEntropy;
 	}
 	else
 	{
 		for(int i=1;i<attr->NoOfdistinctValues;i++)
-		{	/*
+		{
 			//TO-DO//
 			locala = getLessThanRange(attr,attr->Range[i][1],attr->Range[i][2],array,count);
 			localb = getGreaterThanRange(attr,attr->Range[i][1],attr->Range[i][2],array,count);
 			localTotal = locala + localb;
 			cout << locala << "---" << localb << "\n";
-			globalEntropy += (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
-			return 0;
-			*/
+			globalEntropy -= (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
+			return globalEntropy;
+
 		}
 	}
 	return 0;
@@ -251,18 +257,45 @@ int checkForAlgoCompletion()
 			noOfAttributesDone++;
 		check = check->PtrToNextAttr;
 	}
-	if(noOfAttributesDone == noOfAttributes)
+	if(noOfAttributesDone == noOfAttributes-1)
 		return 1;
 	else
 		return 0;
 }
 
+void printTree()
+{
+	struct DTreeNode *temp = headOfDTree;
+	cout << "Name is " << temp->Name << "\n";
+	for(int i=1;i<=temp->NoOfDistinctValues;i++)
+	{
+		cout << "Attribute is " << temp->PtrToNextValue[i]->Value << endl;
+	}
+}
+
+void traverseTree(struct DTreeNode *temp)
+{
+	if(temp == NULL)
+		return;
+	else
+	{
+		cout << "name is  " << temp->Name << endl;
+		if(temp->isContinous == 1)
+		{
+			for(int i=1;i<temp->NoOfDistinctValues;i++)
+			{
+				//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
+				traverseTree(temp->PtrToNextValue[i]->ptrToNextNode);
+			}
+		}
+
+	}
+
+}
 
 struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 {
-	global++;
-	if(global == 1)
-		return NULL;
+
 
 	cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
 	if(checkForAlgoCompletion())
@@ -272,7 +305,7 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 		struct AtttributeMetadata *temp = headOfMetadata;
 		struct AtttributeMetadata *finalOne = NULL;
 		float prev = 0;
-		double newGain = 0;
+		double newGain = -1;
 		double max = -1;
 		int index;
 
@@ -293,17 +326,36 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 
 			temp = temp->PtrToNextAttr;
 		}
-		cout << "\nmax is" << finalOne->Name << "and information gain is : " << max << "\n";
+		cout << "\nmax is " << finalOne->Name << " and information gain is : " << max << "\n";
+		if(max == 0)
+			return NULL;
 
 		struct DTreeNode *newDtreeNode = new DTreeNode();
 		newDtreeNode->Name = finalOne->Name;
 		newDtreeNode->NoOfDistinctValues = finalOne->NoOfdistinctValues;
-		for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
+		newDtreeNode->isContinous = finalOne->IsContinous;
+		if(finalOne->IsContinous == 1)
 		{
-			struct DTreeValue *newValueNode = new DTreeValue();
-			newValueNode->Value = finalOne->DistinctValues[i];
-			newValueNode->Index = finalOne->Index;
-			newDtreeNode->PtrToNextValue[i] = newValueNode;
+			cout << "came inside " << endl;
+			for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
+			{
+				struct DTreeValue *newValueNode = new DTreeValue();
+				newValueNode->range[1][1] = finalOne->Range[i][1];
+				newValueNode->range[1][2] = finalOne->Range[i][2];
+				newValueNode->Index = finalOne->Index;
+				newDtreeNode->PtrToNextValue[i] = newValueNode;
+			}
+		}
+		else
+		{
+			for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
+			{
+				struct DTreeValue *newValueNode = new DTreeValue();
+				newValueNode->Value = finalOne->DistinctValues[i];
+				newValueNode->Index = finalOne->Index;
+				newDtreeNode->PtrToNextValue[i] = newValueNode;
+			}
+
 		}
 		finalOne->IsDone = 1;
 
@@ -317,23 +369,74 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount)
 			for(int rk = 0; rk <= oldCount; ++rk)
 				newArray[rk] = new string[20];
 			int newCount = 1;
-			for(int k=1;k<oldCount;k++)
+			if(newDtreeNode->isContinous == 1)
 			{
-				if(oldArray[k][newDtreeNode->PtrToNextValue[i]->Index] == newDtreeNode->PtrToNextValue[i]->Value)
-				{
-					for(int j=1;j<=noOfAttributes;j++)
-					{
-						newArray[newCount][j] = oldArray[k][j];
+				cout << "came inside if " << i << endl;
 
+				if(newDtreeNode->PtrToNextValue[i]->range[1][2] == -100)
+				{
+					for(int k=1;k<oldCount;k++)
+					{
+						if(atoi((oldArray[k][newDtreeNode->PtrToNextValue[i]->Index]).c_str()) > newDtreeNode->PtrToNextValue[i]->range[1][1])
+						{
+							for(int j=1;j<=noOfAttributes;j++)
+							{
+								newArray[newCount][j] = oldArray[k][j];
+
+							}
+							newCount++;
+						}
 					}
-					newCount++;
 				}
+				else
+				{
+					for(int k=1;k<oldCount;k++)
+					{
+
+						if(atoi((oldArray[k][newDtreeNode->PtrToNextValue[i]->Index]).c_str()) > newDtreeNode->PtrToNextValue[i]->range[1][1]
+							   && atoi((oldArray[k][newDtreeNode->PtrToNextValue[i]->Index]).c_str()) < newDtreeNode->PtrToNextValue[i]->range[1][2])
+						{
+							for(int j=1;j<=noOfAttributes;j++)
+							{
+								newArray[newCount][j] = oldArray[k][j];
+
+							}
+							newCount++;
+						}
+					}
+
+
+				}
+				cout <<"\n";
+				cout << "calling with count : " << newCount << " and value : " << newDtreeNode->PtrToNextValue[i]->range[1][1] << " & "<< newDtreeNode->PtrToNextValue[i]->range[1][2] << endl;
+
 
 			}
-			cout <<"\n";
-			cout << "calling with count : " << newCount << " and value : " << newDtreeNode->PtrToNextValue[i]->Value << "\n";
+			else
+			{
+				cout << "came inside else" << endl;
+				for(int k=1;k<oldCount;k++)
+				{
+					if(oldArray[k][newDtreeNode->PtrToNextValue[i]->Index] == newDtreeNode->PtrToNextValue[i]->Value)
+					{
+						for(int j=1;j<=noOfAttributes;j++)
+						{
+							newArray[newCount][j] = oldArray[k][j];
+
+						}
+						newCount++;
+					}
+
+				}
+				cout <<"\n";
+				cout << "calling with count : " << newCount << " and value : " << newDtreeNode->PtrToNextValue[i]->Value << "\n";
+
+
+			}
+
 			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = BuildDTree(newArray,newCount);
-			delete(newArray);
+			//delete(newArray);
+
 
 		}
 
@@ -437,13 +540,28 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 
 		sa.clear();
 
+		if(temp->Index == 3)
+		{
+			temp->NoOfdistinctValues = 4;
+			temp->Range[1][1] = 0;
+			temp->Range[1][2] = 133366.5;
+
+			temp->Range[2][1] = 133366.5;
+			temp->Range[2][2] = 201111.5;
+
+			temp->Range[3][1] = 201111.5;
+			temp->Range[3][2] = -1;
+			return;
+		}
+
+
 	    for(unsigned long long int i=1;i<noOfInstances;i++)
 		{
 			//cout << "copying to set " << i << "\n";
 			sa.insert(atoi(tData[i][temp->Index].c_str()));
 			//temparray[2][i] = tData[i][noOfAttributes];
 		}
-	    //std::cout << sa.size() << std::endl;
+	    std::cout << sa.size() << std::endl;
 	    set <unsigned long long int, greater <unsigned long long int> > :: iterator itr;
 	    int noOfDistinctValues = 1;
 	    for (itr = sa.begin(); itr != sa.end(); ++itr)
@@ -453,6 +571,30 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	    		//cout << temparray[1][noOfDistinctValues] << "|";
 	            noOfDistinctValues++;
 	        }
+
+	    /*
+	    if(temp->Index == 3)
+		{
+	    	temp->NoOfdistinctValues = 1;
+			temp->Range[1][1] = 0;
+			temp->Range[1][2] = temparray[1][200]+0.5;
+			double prev = temparray[1][200]-0.5;
+			int i=2;
+			for(i=2;i<100;i++)
+			{
+				temp->Range[i][1] = prev;
+				temp->Range[i][2] = temparray[1][200*i]+0.5;
+				prev = temparray[1][200*i]+0.5;
+
+			}
+
+			temp->Range[temp->NoOfdistinctValues][1] = prev;
+			temp->Range[temp->NoOfdistinctValues][2] = -1;
+			temp->NoOfdistinctValues++;
+			return;
+		}
+	    */
+
 	    for(int i=1;i<noOfDistinctValues;i++)
 	    {
 	    	//unsigned long long int value = temparray[1][i];
@@ -512,6 +654,9 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	    temp->NoOfdistinctValues ++;
 
 
+
+
+
 }
 
 void printContinousValues(struct AtttributeMetadata *temp)
@@ -534,7 +679,7 @@ void handleContinousValues()
 		{
 			makeItDiscreteValues(temp);
 			//printContinousValues(temp);
-			//cout << "\n+++++++++++++ Done +++++++++++++++++\n";
+			cout << "\n+++++++++++++ Done +++++++++++++++++\n";
 		}
 		temp = temp->PtrToNextAttr;
 	}
@@ -574,7 +719,9 @@ int main()
 	ReadTDataFrmFile();
 	//printTData(tData,noOfInstances);
 	handleContinousValues();
-	struct DTreeNode * headOfDTree = BuildDTree(tData,noOfInstances);
+	headOfDTree = BuildDTree(tData,noOfInstances);
+	//printTree();
+	traverseTree(headOfDTree);
 	return 1;
 
 }
