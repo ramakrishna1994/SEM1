@@ -27,8 +27,6 @@ struct DTreeValue
 	int Index;
 	string Value;
 	double range[2][3];
-	string searchIndexes[100];
-	int lengthOfSearchIndexes;
 	struct DTreeNode *ptrToNextNode;
 };
 
@@ -39,6 +37,7 @@ struct DTreeNode
 	int isContinous;
 	int isLeaf;
 	int index;
+	int isPruned;
 	struct DTreeValue *PtrToNextValue[200];
 };
 
@@ -52,6 +51,7 @@ int noOfAttributes = 15;
 struct AtttributeMetadata *headOfMetadata = NULL;
 set<unsigned long long int> sa;
 struct DTreeNode * headOfDTree = NULL;
+int count = 0;
 
 /*
 void ReadTDataFrmFile();
@@ -274,7 +274,7 @@ void traverseTree(struct DTreeNode *temp)
 		return;
 	if(temp->isLeaf == 1)
 	{
-		//cout << "leaf node and value is  " << temp->PtrToNextValue[1]->Value << endl;
+		cout << "leaf node and value is  " << temp->PtrToNextValue[1]->Value << endl;
 		return;
 	}
 	else
@@ -370,6 +370,7 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 		newDtreeNode->isContinous = finalOne->IsContinous;
 		newDtreeNode->index = finalOne->Index;
 		newDtreeNode->isLeaf = 0;
+		newDtreeNode->isPruned = 0;
 		if(finalOne->IsContinous == 1)
 		{
 			for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
@@ -673,7 +674,7 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	    		{
 	    			double average = ((double)temparray[1][i-1] + (double)temparray[1][i])/2;
 	    			//cout << "average is " << average << "\n";
-	    			prev = temparray[2][i]; //TODO
+	    			prev = temparray[2][i];
 	    			temp->Range[temp->NoOfdistinctValues][1] = previousRange;
 	    			temp->Range[temp->NoOfdistinctValues][2] = average;
 	    			previousRange = average;
@@ -875,11 +876,50 @@ void handleMissingValues(string **data,int length)
 	}
 }
 
+struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
+{
+	if(temp->isLeaf == 1)
+	{
+		struct DTreeNode *newDtreeNode = new DTreeNode();
+		newDtreeNode->Name = temp->Name;
+		newDtreeNode->NoOfDistinctValues = temp->NoOfDistinctValues;
+		newDtreeNode->index = temp->index;
+		newDtreeNode->isContinous = temp->isContinous;
+		newDtreeNode->isLeaf = temp->isLeaf;
+		struct DTreeValue *newValueNode = new DTreeValue();
+		newValueNode->ptrToNextNode = temp->PtrToNextValue[1]->ptrToNextNode;
+		newValueNode->Index = temp->PtrToNextValue[1]->Index;
+		newValueNode->Value = temp->PtrToNextValue[1]->Value;
+		newDtreeNode->PtrToNextValue[1] = newValueNode;
+		return newDtreeNode;
+	}
+	else
+	{
+		struct DTreeNode *newDtreeNode = new DTreeNode();
+		newDtreeNode->Name = temp->Name;
+		newDtreeNode->NoOfDistinctValues = temp->NoOfDistinctValues;
+		newDtreeNode->index = temp->index;
+		newDtreeNode->isContinous = temp->isContinous;
+		newDtreeNode->isLeaf = temp->isLeaf;
+		cout << "name is  " << temp->Name << endl;
+		for(int i=1;i<temp->NoOfDistinctValues;i++)
+		{
+			struct DTreeValue *newValueNode = new DTreeValue();
+			newValueNode->Index = temp->PtrToNextValue[i]->Index;
+			newValueNode->Value = temp->PtrToNextValue[i]->Value;
+			newValueNode->range[1][1] = temp->PtrToNextValue[i]->range[1][1];
+			newValueNode->range[1][2] = temp->PtrToNextValue[i]->range[1][2];
+			newDtreeNode->PtrToNextValue[i] = newValueNode;
+			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = MakeCopyOfTree(temp->PtrToNextValue[i]->ptrToNextNode);
+
+		}
+		return newDtreeNode;
+	}
+	return NULL;
+}
 
 
-
-
-int main()
+void AllocateMemoryForDatas()
 {
 	tData = new string*[35000];
 	vData = new string*[35000];
@@ -888,8 +928,133 @@ int main()
 		 tData[i] = new string[20];
 		 vData[i] = new string[20];
 	}
+}
+
+struct DTreeNode *SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
+{
+
+	if(temp == NULL)
+		return NULL;
+
+	if(temp->isPruned == 0 && temp != root)
+	{
+		temp->isPruned = 1;
+		cout << "Attribute selected for pruning is  " << temp->Name << endl;
+		return temp;
+	}
+
+	for(int i=1;i<temp->NoOfDistinctValues;i++)
+	{
+		//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
+		//cout << "child " << i << " is " << temp->PtrToNextValue[i] << endl;
+		return SelectedNodeToBePruned(temp->PtrToNextValue[i]->ptrToNextNode,root);
+
+	}
+	return NULL;
 
 
+}
+
+
+int getCountOfFinalFromTree(struct DTreeNode* root,string value)
+{
+	if(root == NULL)
+		return 0;
+	if(root->isLeaf == 1)
+	{
+		if(root->PtrToNextValue[1]->Value == value)
+		{
+			//cout << "came" << endl;
+			count++;
+		}
+	}
+	for(int i=1;i<root->NoOfDistinctValues;i++)
+	{
+		//cout << root->Name << endl;
+		getCountOfFinalFromTree(root->PtrToNextValue[i]->ptrToNextNode,value);
+	}
+	return 0;
+}
+
+void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
+{
+	count = 0;
+	getCountOfFinalFromTree(nodeToBePruned,"<=50K");
+	int lessThanCount = count;
+	count = 0;
+	getCountOfFinalFromTree(nodeToBePruned,">50K");
+	int greaterThanCount = count;
+	cout << "less than count is " << lessThanCount <<" and greater than count "<< greaterThanCount << endl;
+	nodeToBePruned->Name = "LeafNode";
+	nodeToBePruned->isLeaf = 1;
+	nodeToBePruned->NoOfDistinctValues = 2;
+	struct DTreeValue *newValueNode = new DTreeValue();
+	newValueNode->ptrToNextNode = NULL;
+	nodeToBePruned->PtrToNextValue[1] = newValueNode;
+	if(lessThanCount == greaterThanCount)
+	{
+		newValueNode->Value = "AcceptAny";
+	}
+	else if(lessThanCount > greaterThanCount)
+	{
+		newValueNode->Value = "<=50K";
+	}
+	else if(lessThanCount < greaterThanCount)
+	{
+		newValueNode->Value = ">50K";
+	}
+}
+
+void updateMainTreeAfterPruning(struct DTreeNode *root,struct DTreeNode *node)
+{
+	if(root == NULL)
+		return;
+	if(root->index == node->index)
+	{
+		root->isPruned = node->isPruned;
+		return;
+	}
+	for(int i=1;i<root->NoOfDistinctValues;i++)
+	{
+		return updateMainTreeAfterPruning(root->PtrToNextValue[i]->ptrToNextNode,node);
+	}
+}
+
+bool areAllAttributesDoneForPruning(struct DTreeNode *temp)
+{
+	if(temp == NULL)
+	{
+		return true;
+	}
+	if(temp->isPruned == 0)
+		return false;
+	for(int i=1;i<temp->NoOfDistinctValues;i++)
+	{
+		return areAllAttributesDoneForPruning(temp->PtrToNextValue[i]->ptrToNextNode);
+	}
+	return true;
+}
+
+void DoReducedErrorPruning()
+{
+
+	while(1)
+	{
+		cout << "+++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+		struct DTreeNode *copyOfTree = MakeCopyOfTree(headOfDTree);
+		struct DTreeNode *nodeToBePruned = SelectedNodeToBePruned(copyOfTree,copyOfTree);
+		updateMainTreeAfterPruning(headOfDTree,nodeToBePruned);
+		BuildNewTreeWithPruning(nodeToBePruned);
+		//traverseTree(copyOfTree);
+		checkForAccuracy(copyOfTree,vData,countOfVData);
+		if(areAllAttributesDoneForPruning(headOfDTree))
+			break;
+	}
+}
+
+int main()
+{
+	AllocateMemoryForDatas();
 	ReadMetadata();
 	ReadTDataFrmFile();
 	//printTData(tData,noOfInstances);
@@ -899,11 +1064,11 @@ int main()
 	headOfDTree = BuildDTree(tData,noOfInstances,"Root",1);
 	//traverseTree(headOfDTree);
 	ReadVDataFrmFile();
-	cout << "Vdata count is " << countOfVData << endl;
 	handleMissingValues(vData,countOfVData);
 	//printTData(vData,countOfVData);
 	checkForAccuracy(headOfDTree,tData,noOfInstances);
 	checkForAccuracy(headOfDTree,vData,countOfVData);
+	DoReducedErrorPruning();
 	return 1;
 
 }
