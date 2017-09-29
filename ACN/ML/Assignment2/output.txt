@@ -1,0 +1,5 @@
+Vdata count is 16282
+actual data count is 25430 and wrong data count is 7131
+accuracy Percentage is 78.0996
+actual data count is 16250 and wrong data count is 15557
+accuracy Percentage is 99.8096
