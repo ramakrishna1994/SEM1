@@ -993,7 +993,7 @@ void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
 	countOfValues = 0;
 	getCountOfFinalFromTree(nodeToBePruned,">50K");
 	int greaterThanCount = countOfValues;
-	cout << "less than count is " << lessThanCount <<" and greater than count "<< greaterThanCount << endl;
+	//cout << "less than count is " << lessThanCount <<" and greater than count "<< greaterThanCount << endl;
 	nodeToBePruned->Name = "LeafNode";
 	nodeToBePruned->isLeaf = 1;
 	nodeToBePruned->NoOfDistinctValues = 2;
@@ -1049,16 +1049,20 @@ void DoReducedErrorPruning()
 	int i=1;
 	while(1)
 	{
+		cout << "-----------------------------------------------" << endl;
 		nodeToBePruned = NULL;
 		//cout << "+++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 		struct DTreeNode *copyOfTree = MakeCopyOfTree(headOfDTree);
 		SelectedNodeToBePruned(copyOfTree,copyOfTree);
 		struct DTreeNode *nodeSelectedForPruning = nodeToBePruned;
-		cout << nodeToBePruned << endl;
+		//cout << nodeToBePruned << endl;
 		//cout << "index is " << nodeSelectedForPruning->index << endl;
 		updateMainTreeAfterPruning(headOfDTree,nodeToBePruned->index);
+		cout << "Building new tree After pruning selected Attribute.." << endl;
 		BuildNewTreeWithPruning(nodeToBePruned);
+		cout << "Done!!" << endl;
 		//cout << "----" << endl;
+		cout << "Calculating Accuracy.." << endl;
 		checkForAccuracy(copyOfTree,tData,noOfInstances,"Training Data");
 		checkForAccuracy(copyOfTree,vData,countOfVData,"Validation Data");
 		//if(areAllAttributesDoneForPruning(headOfDTree))*/
@@ -1072,7 +1076,7 @@ void DoReducedErrorPruning()
 
 int main()
 {
-	cout << "++++++++++++++++ Start Of Phase - 1 ++++++++++++++++++++++" << endl;
+	cout << "\n++++++++++++++++ Start Of Phase - 1 ++++++++++++++++++++++" << endl;
 	AllocateMemoryForDatas();
 	cout << "Reading Metadata From file.." << endl;
 	ReadMetadata();
@@ -1107,7 +1111,9 @@ int main()
 	headOfDTree->isPruned = 1; // Marking root as already pruned to avoid actual pruning
 	cout << "++++++++++++++++ End Of Phase - 1 ++++++++++++++++++++++" << endl;
 	cout << "++++++++++++++++ Start Of Phase - 2 ++++++++++++++++++++++" << endl;
+	cout << "Using Method : Reduced Error Pruning" << endl;
 	DoReducedErrorPruning();
+	cout << "++++++++++++++++ End Of Phase - 2 ++++++++++++++++++++++" << endl;
 	return 1;
 
 }
