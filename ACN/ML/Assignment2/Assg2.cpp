@@ -9,8 +9,6 @@
 
 using namespace std;
 
-int global = 0;
-
 struct AtttributeMetadata{
 	int Index;
 	string Name;
@@ -51,7 +49,7 @@ int noOfAttributes = 15;
 struct AtttributeMetadata *headOfMetadata = NULL;
 set<unsigned long long int> sa;
 struct DTreeNode * headOfDTree = NULL;
-int count = 0;
+int countOfValues = 0;
 
 /*
 void ReadTDataFrmFile();
@@ -274,12 +272,12 @@ void traverseTree(struct DTreeNode *temp)
 		return;
 	if(temp->isLeaf == 1)
 	{
-		cout << "leaf node and value is  " << temp->PtrToNextValue[1]->Value << endl;
+		//cout << "leaf node and value is  " << temp->PtrToNextValue[1]->Value << endl;
 		return;
 	}
 	else
 	{
-		cout << "name is  " << temp->Name << endl;
+			//cout << "name is  " << temp->Name  << "and pruning is " << temp->isPruned << endl;
 			for(int i=1;i<temp->NoOfDistinctValues;i++)
 			{
 				//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
@@ -586,7 +584,7 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 			temp->Range[2][2] = 201111.5;
 
 			temp->Range[3][1] = 201111.5;
-			temp->Range[3][2] = -1;
+			temp->Range[3][2] = -100;
 			return;
 		}
 
@@ -804,7 +802,7 @@ string getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
 }
 
 
-void checkForAccuracy(struct DTreeNode *temp,string **data,int length)
+void checkForAccuracy(struct DTreeNode *temp,string **data,int length,string dataName)
 {
 	int actualDataCount = 0,wrongData = 0;
 	for(int i=1;i<length;i++)
@@ -814,7 +812,7 @@ void checkForAccuracy(struct DTreeNode *temp,string **data,int length)
 		{
 			actualDataCount++;
 		}
-		if(result == data[i][noOfAttributes])
+		else if(result == data[i][noOfAttributes])
 		{
 			actualDataCount++;
 		}
@@ -825,8 +823,8 @@ void checkForAccuracy(struct DTreeNode *temp,string **data,int length)
 	}
 
 	float accuracyPercentage = ((float)actualDataCount/(float)(length-1))*100;
-	cout << "actual data count is " << actualDataCount << " and wrong data count is "<< wrongData << endl;
-	cout << "accuracy Percentage is " << accuracyPercentage << endl;
+	//cout << "actual data count is " << actualDataCount << " and wrong data count is "<< wrongData << endl;
+	cout << "Accuracy Percentage for "<< dataName << " is " << accuracyPercentage << endl;
 }
 
 
@@ -886,8 +884,9 @@ struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
 		newDtreeNode->index = temp->index;
 		newDtreeNode->isContinous = temp->isContinous;
 		newDtreeNode->isLeaf = temp->isLeaf;
+		newDtreeNode->isPruned = temp->isPruned;
 		struct DTreeValue *newValueNode = new DTreeValue();
-		newValueNode->ptrToNextNode = temp->PtrToNextValue[1]->ptrToNextNode;
+		newValueNode->ptrToNextNode = NULL;
 		newValueNode->Index = temp->PtrToNextValue[1]->Index;
 		newValueNode->Value = temp->PtrToNextValue[1]->Value;
 		newDtreeNode->PtrToNextValue[1] = newValueNode;
@@ -901,7 +900,8 @@ struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
 		newDtreeNode->index = temp->index;
 		newDtreeNode->isContinous = temp->isContinous;
 		newDtreeNode->isLeaf = temp->isLeaf;
-		cout << "name is  " << temp->Name << endl;
+		newDtreeNode->isPruned = temp->isPruned;
+		//cout << "name is  " << temp->Name << endl;
 		for(int i=1;i<temp->NoOfDistinctValues;i++)
 		{
 			struct DTreeValue *newValueNode = new DTreeValue();
@@ -915,7 +915,6 @@ struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
 		}
 		return newDtreeNode;
 	}
-	return NULL;
 }
 
 
@@ -930,27 +929,37 @@ void AllocateMemoryForDatas()
 	}
 }
 
-struct DTreeNode *SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
+struct DTreeNode *nodeToBePruned = NULL;
+void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
 {
 
 	if(temp == NULL)
-		return NULL;
-
-	if(temp->isPruned == 0 && temp != root)
+			return;
+	//cout << temp->Name << "and" << temp->isLeaf << endl;
+	if(temp->isLeaf != 1 && temp->isPruned != 1)
 	{
-		temp->isPruned = 1;
-		cout << "Attribute selected for pruning is  " << temp->Name << endl;
-		return temp;
-	}
+		if(nodeToBePruned == NULL)
+		{
+			temp->isPruned = 1;
+			cout << "Attribute selected for pruning is  " << temp->Name << endl;
+			nodeToBePruned = temp;
+		}
 
-	for(int i=1;i<temp->NoOfDistinctValues;i++)
+		//cout << "leaf node and value is  " << temp->PtrToNextValue[1]->Value << endl;
+		return;
+	}
+	else
 	{
-		//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
-		//cout << "child " << i << " is " << temp->PtrToNextValue[i] << endl;
-		return SelectedNodeToBePruned(temp->PtrToNextValue[i]->ptrToNextNode,root);
+			//cout << "name is  " << temp->Name  << "and pruning is " << temp->isPruned << endl;
+			for(int i=1;i<temp->NoOfDistinctValues;i++)
+			{
+				//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
+				//cout << "child " << i << " is " << temp->PtrToNextValue[i] << endl;
+				SelectedNodeToBePruned(temp->PtrToNextValue[i]->ptrToNextNode,root);
+
+			}
 
 	}
-	return NULL;
 
 
 }
@@ -965,7 +974,7 @@ int getCountOfFinalFromTree(struct DTreeNode* root,string value)
 		if(root->PtrToNextValue[1]->Value == value)
 		{
 			//cout << "came" << endl;
-			count++;
+			countOfValues++;
 		}
 	}
 	for(int i=1;i<root->NoOfDistinctValues;i++)
@@ -978,12 +987,12 @@ int getCountOfFinalFromTree(struct DTreeNode* root,string value)
 
 void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
 {
-	count = 0;
+	countOfValues = 0;
 	getCountOfFinalFromTree(nodeToBePruned,"<=50K");
-	int lessThanCount = count;
-	count = 0;
+	int lessThanCount = countOfValues;
+	countOfValues = 0;
 	getCountOfFinalFromTree(nodeToBePruned,">50K");
-	int greaterThanCount = count;
+	int greaterThanCount = countOfValues;
 	cout << "less than count is " << lessThanCount <<" and greater than count "<< greaterThanCount << endl;
 	nodeToBePruned->Name = "LeafNode";
 	nodeToBePruned->isLeaf = 1;
@@ -1005,18 +1014,18 @@ void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
 	}
 }
 
-void updateMainTreeAfterPruning(struct DTreeNode *root,struct DTreeNode *node)
+void updateMainTreeAfterPruning(struct DTreeNode *root,int index)
 {
 	if(root == NULL)
 		return;
-	if(root->index == node->index)
+	if(root->index == index)
 	{
-		root->isPruned = node->isPruned;
-		return;
+		//cout << "came" << endl;;
+		root->isPruned = 1;
 	}
 	for(int i=1;i<root->NoOfDistinctValues;i++)
 	{
-		return updateMainTreeAfterPruning(root->PtrToNextValue[i]->ptrToNextNode,node);
+		updateMainTreeAfterPruning(root->PtrToNextValue[i]->ptrToNextNode,index);
 	}
 }
 
@@ -1030,44 +1039,74 @@ bool areAllAttributesDoneForPruning(struct DTreeNode *temp)
 		return false;
 	for(int i=1;i<temp->NoOfDistinctValues;i++)
 	{
-		return areAllAttributesDoneForPruning(temp->PtrToNextValue[i]->ptrToNextNode);
+		areAllAttributesDoneForPruning(temp->PtrToNextValue[i]->ptrToNextNode);
 	}
 	return true;
 }
 
 void DoReducedErrorPruning()
 {
-
+	int i=1;
 	while(1)
 	{
-		cout << "+++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+		nodeToBePruned = NULL;
+		//cout << "+++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 		struct DTreeNode *copyOfTree = MakeCopyOfTree(headOfDTree);
-		struct DTreeNode *nodeToBePruned = SelectedNodeToBePruned(copyOfTree,copyOfTree);
-		updateMainTreeAfterPruning(headOfDTree,nodeToBePruned);
+		SelectedNodeToBePruned(copyOfTree,copyOfTree);
+		struct DTreeNode *nodeSelectedForPruning = nodeToBePruned;
+		cout << nodeToBePruned << endl;
+		//cout << "index is " << nodeSelectedForPruning->index << endl;
+		updateMainTreeAfterPruning(headOfDTree,nodeToBePruned->index);
 		BuildNewTreeWithPruning(nodeToBePruned);
-		//traverseTree(copyOfTree);
-		checkForAccuracy(copyOfTree,vData,countOfVData);
-		if(areAllAttributesDoneForPruning(headOfDTree))
+		//cout << "----" << endl;
+		checkForAccuracy(copyOfTree,tData,noOfInstances,"Training Data");
+		checkForAccuracy(copyOfTree,vData,countOfVData,"Validation Data");
+		//if(areAllAttributesDoneForPruning(headOfDTree))*/
+		copyOfTree = NULL;
+		if(i==12)
+		//if(areAllAttributesDoneForPruning(headOfDTree))
 			break;
+		i++;
 	}
 }
 
 int main()
 {
+	cout << "++++++++++++++++ Start Of Phase - 1 ++++++++++++++++++++++" << endl;
 	AllocateMemoryForDatas();
+	cout << "Reading Metadata From file.." << endl;
 	ReadMetadata();
+	cout << "Metadata File successfully read!!" << endl;
+	cout << "Reading Training data From file.." << endl;
 	ReadTDataFrmFile();
+	cout << "Training data successfully read!!" << endl;
 	//printTData(tData,noOfInstances);
+	cout << "Handling Continous Values for Training Data" << endl;
 	handleContinousValues();
+	cout << "Done!!" << endl;
+	cout << "Handling Missing Values for Training Data" << endl;
 	handleMissingValues(tData,noOfInstances);
+	cout << "Done" << endl;
 	//printTData(tData,noOfInstances);
+	cout << "Building Decision Tree for Training Data.." << endl;
 	headOfDTree = BuildDTree(tData,noOfInstances,"Root",1);
+	cout << "Decision Tree Successfully built" << endl;
 	//traverseTree(headOfDTree);
+	cout << "Reading Validation data From file.." << endl;
 	ReadVDataFrmFile();
+	cout << "Validation data successfully read!!" << endl;
+	//printTData(tData,noOfInstances);
+	cout << "Handling Missing Values for Validation Data" << endl;
 	handleMissingValues(vData,countOfVData);
+	cout << "Done" << endl;
 	//printTData(vData,countOfVData);
-	checkForAccuracy(headOfDTree,tData,noOfInstances);
-	checkForAccuracy(headOfDTree,vData,countOfVData);
+	cout << "Checking Accuracy of Validation Data on Built Decision Tree.." << endl;
+	checkForAccuracy(headOfDTree,vData,countOfVData,"Validation Data");
+	cout << "Checking Accuracy of Training Data on Built Decision Tree.." << endl;
+	checkForAccuracy(headOfDTree,tData,noOfInstances,"Training Data");
+	headOfDTree->isPruned = 1; // Marking root as already pruned to avoid actual pruning
+	cout << "++++++++++++++++ End Of Phase - 1 ++++++++++++++++++++++" << endl;
+	cout << "++++++++++++++++ Start Of Phase - 2 ++++++++++++++++++++++" << endl;
 	DoReducedErrorPruning();
 	return 1;
 
