@@ -1,13 +1,23 @@
+/*
+ * Name : Machine Learning Assignment 1 (Candidate Elimination Algorithm).
+ * Authors : 1.Saradhi Ramakrishna	(2017H1030081H)
+ * 			 2.Anmol Dayal Dhiman	(2017H1030087H)
+ * 			 3.Bandi Bharathi		(2017H1030067H)
+ * Branch : M.E Computer Science
+ * Below code is practical implementation of following features
+ * 1. Building General Boundaries.
+ * 2. Building Specific Boundaries
+ * 3. Building Version Space.
+ * 4. Using Version Space to design Candidate Elimination Algorithm.
+ * Input : Training Data Set and Validation Set.
+ * Output : Error Percentage for the validation data set based on
+ * the D-Tree built using Training Data set.
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-char tData[200][30][100]; // [No_of_instances][No_of_atributes][value_of_attribute]
-int noOfTypes = 7;
-int noOfInstances = 1;
-int noOfAttributes = 18;
-int countOfGeneralBoundariesForTypes[10];
-int countOfSpecificBoundariesForTypes[10];
 
 struct hypotheses
 {
@@ -15,6 +25,13 @@ struct hypotheses
 	struct hypotheses *ptrToNextHyp;
 };
 
+
+char tData[200][30][100]; // [No_of_instances][No_of_atributes][value_of_attribute]
+int noOfTypes = 7;
+int noOfInstances = 1;
+int noOfAttributes = 18;
+int countOfGeneralBoundariesForTypes[10];
+int countOfSpecificBoundariesForTypes[10];
 struct hypotheses generalHypothesis[10],specificHypothesis[10];
 
 void ReadTDataFrmFile();
@@ -30,12 +47,14 @@ void buildGeneralBoundariesFromSpecific(int type);
 void insertIntoGeneralBoundary(int type,int attr);
 void printGeneralHypotheses(int type);
 struct hypotheses* removeGeneralBoundaryFromList(struct hypotheses* toRemove,int type);
-void doRulePruning(int instance,int type);
+void MakeGenericBoundaryLessSpecfic(int instance,int type);
 void makeItLessGeneric(int instance,struct hypotheses* toRemove,int type);
 int  isBothBoundariesSame(struct hypotheses *temp1,struct hypotheses *temp2);
 void removeDuplicateGeneralBoundaries(int type);
 
-
+/*
+ * Processing Starts from here.
+ */
 int main()
 {
 	ReadTDataFrmFile();
@@ -55,6 +74,9 @@ int main()
 
 }
 
+/*
+ * Candidate Elimination Algorithm starts from here.
+ */
 void startAlgo(int type)
 {
 	for(int i=1;i<noOfInstances;i++)
@@ -73,12 +95,15 @@ void startAlgo(int type)
 		}
 		else
 		{
-
-			doRulePruning(i,type);
+			MakeGenericBoundaryLessSpecfic(i,type);
 		}
 	}
 }
 
+
+/*
+ * Function to calculate Specific boundaries.
+ */
 void calculateSpecificBoundaries(int instance,int type)
 {
 	if(specificHypothesis[type].attr[2] == '@')
@@ -99,6 +124,10 @@ void calculateSpecificBoundaries(int instance,int type)
 	}
 }
 
+
+/*
+ * Function to calculate General boundaries first time from specific boundaries.
+ */
 void buildGeneralBoundariesFromSpecific(int type)
 {
 	for(int i=2;i<=noOfAttributes-1;i++)
@@ -108,9 +137,12 @@ void buildGeneralBoundariesFromSpecific(int type)
 	}
 }
 
+
+/*
+ * Insert General Boundary into linked list structure.
+ */
 void insertIntoGeneralBoundary(int type,int attrID)
 {
-	//printf("type is %d and id is %d\n",type,attrID);
 	struct hypotheses *newnode = (struct hypotheses *)malloc(sizeof(struct hypotheses));
 	for(int i=2;i<=noOfAttributes-1;i++)
 	{
@@ -135,6 +167,10 @@ void insertIntoGeneralBoundary(int type,int attrID)
 	}
 }
 
+
+/*
+ * Calculate General Boundaries.
+ */
 void calculateGenericBoundaries(int instance,int type)
 {
 	struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
@@ -152,30 +188,31 @@ void calculateGenericBoundaries(int instance,int type)
 	}
 }
 
-void doRulePruning(int instance,int type)
+
+/*
+ * Function to make General Boundary Less Specific based on negative instance if its accepting.
+ */
+void MakeGenericBoundaryLessSpecfic(int instance,int type)
 {
 	struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
 	while(temp)
 	{
 		if(!isHypothesisAcceptingInstance(instance,temp))
 		{
-			printf("divya\n");
-			//printf("No\n");
 			temp = removeGeneralBoundaryFromList(temp,type);
-
 		}
 		else
 		{
-			//printf("Yes\n");
 			temp = temp->ptrToNextHyp;
 		}
 	}
 }
 
-
+/*
+ * Function to check whether a hypothesis will accept an instance or not.
+ */
 int isHypothesisAcceptingInstance(int instance,struct hypotheses *temp)
 {
-	//printf("instance is %d and hyp is %c\n",instance,temp->attr[2]);
 	int count = 0;
 	for(int i=2;i<=noOfAttributes-1;i++)
 	{
@@ -188,9 +225,13 @@ int isHypothesisAcceptingInstance(int instance,struct hypotheses *temp)
 		return 0;
 }
 
+
+/*
+ * Function to read training data from a file and store it in array.
+ */
 void ReadTDataFrmFile()
 {
-	FILE *fptr =fopen("TData.txt","r");
+	FILE *fptr =fopen("TrainingData.txt","r");
 	struct trainingData *temp = NULL;
 	while(!feof(fptr))
 	{
@@ -205,6 +246,10 @@ void ReadTDataFrmFile()
 	}
 }
 
+
+/*
+ * Function to print data.
+ */
 void printTData()
 {
 	for(int i=1;i<noOfInstances;i++)
@@ -216,6 +261,10 @@ void printTData()
 		}
 }
 
+
+/*
+ * Function to print Specific Hypotheses.
+ */
 void printSpecificHypotheses(int type)
 {
 	for(int j=2;j<=noOfAttributes-1;j++)
@@ -223,6 +272,10 @@ void printSpecificHypotheses(int type)
 	printf("--------->Specific Boundary\n");
 }
 
+
+/*
+ * Function to print General Hypotheses.
+ */
 void printGeneralHypotheses(int type)
 {
 	struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
@@ -240,6 +293,10 @@ void printGeneralHypotheses(int type)
 	}
 }
 
+
+/*
+ * Function to initialize all General hypotheses to NULL.
+ */
 void initializeGeneralHypotheses()
 {
 	for(int i=1;i<=noOfTypes;i++)
@@ -251,6 +308,10 @@ void initializeGeneralHypotheses()
 
 }
 
+
+/*
+ * Function to initialize all Specific hypotheses to NULL.
+ */
 void initializespecificHypotheses()
 {
 	for(int i=1;i<=noOfTypes;i++)
@@ -261,6 +322,10 @@ void initializespecificHypotheses()
 	}
 }
 
+
+/*
+ * Function to remove General boundary if its not accepting positive instance.
+ */
 struct hypotheses* removeGeneralBoundaryFromList(struct hypotheses* toRemove,int type)
 {
 	struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
@@ -287,25 +352,29 @@ struct hypotheses* removeGeneralBoundaryFromList(struct hypotheses* toRemove,int
 }
 
 
+/*
+ * Function to make Geneal boundary less Generic.
+ */
 void makeItLessGeneric(int instance,struct hypotheses* toChange,int type)
 {
-	//printf("None\n");
-	//struct hypotheses *tempToGeneral = generalHypothesis[type].ptrToNextHyp;
 	struct hypotheses *tempToSpecific = &specificHypothesis[type];
 	for(int i=2;i<=noOfAttributes-1;i++)
 	{
 		if(tData[instance][i][1] != tempToSpecific->attr[i])
 		{
 			if(tempToSpecific->attr[i]!='?')
-				{
-					toChange->attr[i] = tempToSpecific->attr[i];
-					break;
-				}
+			{
+				toChange->attr[i] = tempToSpecific->attr[i];
+				break;
+			}
 		}
 	}
-
 }
 
+
+/*
+ * Function to check it both boundaries are same.
+ */
 int isBothBoundariesSame(struct hypotheses *temp1,struct hypotheses *temp2)
 {
 	int count = 0;
@@ -319,35 +388,22 @@ int isBothBoundariesSame(struct hypotheses *temp1,struct hypotheses *temp2)
 }
 
 
+/*
+ * Function to remove duplicate boundaries if they are same.
+ */
 void removeDuplicateGeneralBoundaries(int type)
 {
-		struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
-		while(temp->ptrToNextHyp->ptrToNextHyp)
+	struct hypotheses *temp = generalHypothesis[type].ptrToNextHyp;
+	while(temp->ptrToNextHyp->ptrToNextHyp)
+	{
+		struct hypotheses *temp1 = temp->ptrToNextHyp;
+		while(temp1)
 		{
-			struct hypotheses *temp1 = temp->ptrToNextHyp;
-			while(temp1)
-			{
-				if(isBothBoundariesSame(temp,temp1))
-					temp1 = removeGeneralBoundaryFromList(temp1,type);
-				else
-					temp1 = temp1->ptrToNextHyp;
-			}
-			temp = temp->ptrToNextHyp;
+			if(isBothBoundariesSame(temp,temp1))
+				temp1 = removeGeneralBoundaryFromList(temp1,type);
+			else
+				temp1 = temp1->ptrToNextHyp;
 		}
-
-
-
+		temp = temp->ptrToNextHyp;
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

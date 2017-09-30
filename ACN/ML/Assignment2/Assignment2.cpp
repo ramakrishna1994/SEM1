@@ -1,3 +1,18 @@
+/*
+ * Name : Machine Learning Assignment 2 (Decision Tree Concept).
+ * Authors : 1.Saradhi Ramakrishna	(2017H1030081H)
+ * 			 2.Anmol Dayal Dhiman	(2017H1030087H)
+ * 			 3.Bandi Bharathi		(2017H1030067H)
+ * Branch : M.E Computer Science
+ * Below code is practical implementation of following features in 3 Phases.
+ * 1. Building Of Decision Tree.
+ * 2. Reduced Error Pruning.
+ * 3. Building Random Forest.
+ * Input : Training Data Set and Validation Set.
+ * Output : Error Percentage for the validation data set based on
+ * the D-Tree built using Training Data set.
+ */
+
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
@@ -9,6 +24,9 @@
 
 using namespace std;
 
+/*
+ * Structure to Store Attribute Metadata and its information.
+ */
 struct AtttributeMetadata{
 	int Index;
 	string Name;
@@ -20,6 +38,9 @@ struct AtttributeMetadata{
 	struct AtttributeMetadata *PtrToNextAttr;
 };
 
+/*
+ * Structure to Store Attribute Values as leaf.
+ */
 struct DTreeValue
 {
 	int Index;
@@ -28,6 +49,10 @@ struct DTreeValue
 	struct DTreeNode *ptrToNextNode;
 };
 
+
+/*
+ * Structure to Store Attribute Name as Node.
+ */
 struct DTreeNode
 {
 	string Name;
@@ -56,19 +81,91 @@ struct DTreeNode *randomTree[10] = {NULL};
 string result;
 struct DTreeNode *nodeToBePruned = NULL;
 
-/*
-void ReadTDataFrmFile();
-void printTData();
-void handleContinousValues();
+void printTData(string **array,int length);
+int getLessThan(struct AtttributeMetadata *temp,string value,string **array,int length);
+int getGreaterThan(struct AtttributeMetadata *temp,string value,string **array,int length);
+int getLessThanRange(struct AtttributeMetadata *temp,double lessValue,double highValue,string **array,int length);
+int getGreaterThanRange(struct AtttributeMetadata *temp,double lessValue,double highValue,string **array,int length);
+double calculateEntropyWithRespectToAttr(double a,double b,double total);
+double calculateInformationGain(struct AtttributeMetadata *attr,string **array,int count);
+int checkForAlgoCompletion();
+void traverseTree(struct DTreeNode *temp);
+struct DTreeNode *BuildLeafNode(string **oldArray,int oldCount);
+struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int child);
+struct AtttributeMetadata* insertMetadata();
 void ReadMetadata();
-struct AtttributeMetadata *insertMetadata();
-void makeItDiscreteValues(struct AtttributeMetadata* temp);
-void printArray(unsigned long long int (&array)[3][35000],int length);
 unsigned long long int findCount(int index,unsigned long long int value,string compare);
-struct DTreeNode* BuildDTree(string (&oldArray)[35000][30] ,int oldCount);
-*/
+void printArray(unsigned long long int (&array)[3][35000],int length);
+void makeItDiscreteValues(struct AtttributeMetadata* temp);
+void printContinousValues(struct AtttributeMetadata *temp);
+void handleContinousValues();
+void ReadVDataFrmFile();
+void ReadTDataFrmFile();
+void getFinalResult(struct DTreeNode *temp,string **dataArray,int i);
+void checkForAccuracy(struct DTreeNode *temp,string **data,int length,string dataName);
+string pickRandomValueFromAttribute(int index,string **data,int length);
+void handleMissingValues(string **data,int length);
+struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp);
+void AllocateMemoryForDatas();
+void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root);
+int getCountOfFinalFromTree(struct DTreeNode* root,string value);
+void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned);
+void updateAttributeParametersToOriginalAsNotDone();
+void updateMainTreeAfterPruning(struct DTreeNode *root,int index);
+bool areAllAttributesDoneForPruning(struct DTreeNode *temp);
+void FreeTreeMemory(struct DTreeNode *temp);
+void DoReducedErrorPruning();
+void RandomForest();
 
+/*
+ * Processing Starts From here.
+ */
+int main()
+{
+	cout << "\n++++++++++++++++ Start Of Phase - 1 ++++++++++++++++++++++" << endl;
+	AllocateMemoryForDatas();
+	cout << "Reading Metadata From file.." << endl;
+	ReadMetadata();
+	cout << "Metadata File successfully read!!" << endl;
+	cout << "Reading Training data From file.." << endl;
+	ReadTDataFrmFile();
+	cout << "Training data successfully read!!" << endl;
+	cout << "Handling Continous Values for Training Data" << endl;
+	handleContinousValues();
+	cout << "Done!!" << endl;
+	cout << "Handling Missing Values for Training Data" << endl;
+	handleMissingValues(tData,noOfInstances);
+	cout << "Done" << endl;
+	cout << "Building Decision Tree for Training Data.." << endl;
+	headOfDTree = BuildDTree(tData,noOfInstances,"Root",1);
+	cout << "Decision Tree Successfully built" << endl;
+	cout << "Reading Validation data From file.." << endl;
+	ReadVDataFrmFile();
+	cout << "Validation data successfully read!!" << endl;
+	cout << "Handling Missing Values for Validation Data" << endl;
+	handleMissingValues(vData,countOfVData);
+	cout << "Done" << endl;
+	cout << "Checking Accuracy of Validation Data on Built Decision Tree.." << endl;
+	checkForAccuracy(headOfDTree,vData,countOfVData,"Validation Data");
+	cout << "Checking Accuracy of Training Data on Built Decision Tree.." << endl;
+	checkForAccuracy(headOfDTree,tData,noOfInstances,"Training Data");
+	headOfDTree->isPruned = 1; // Marking root as already pruned to avoid actual pruning
+	cout << "++++++++++++++++ End Of Phase - 1 ++++++++++++++++++++++" << endl;
+	cout << "++++++++++++++++ Start Of Phase - 2 ++++++++++++++++++++++" << endl;
+	cout << "Using Method : Reduced Error Pruning" << endl;
+	DoReducedErrorPruning();
+	headOfDTree = NULL;
+	cout << "++++++++++++++++ End Of Phase - 2 ++++++++++++++++++++++" << endl;
+	cout << "++++++++++++++++ Start Of Phase - 3 ++++++++++++++++++++++" << endl;
+	cout << "Building Random Forests.."<< endl;
+	RandomForest();
+	cout << "++++++++++++++++ End Of Phase - 3 ++++++++++++++++++++++" << endl;
+	return 0;
+}
 
+/*
+ * Function to print Data which can be training or validation.
+ */
 void printTData(string **array,int length)
 {
 	cout << "+++++++++++++++++++ printing data ++++++++++++++++++++++++++++++++\n";
@@ -83,6 +180,9 @@ void printTData(string **array,int length)
 	cout << "+++++++++++++++++++ end ++++++++++++++++++++++++++++++++\n";
 }
 
+/*
+ * Function to get count of rows which are discrete and which are having "<=50K".
+ */
 int getLessThan(struct AtttributeMetadata *temp,string value,string **array,int length)
 {
 	int count=0;
@@ -91,19 +191,20 @@ int getLessThan(struct AtttributeMetadata *temp,string value,string **array,int 
 		for(int i=1;i<length;i++)
 			if(array[i][temp->Index]==value && array[i][noOfAttributes] == "<=50K")
 				count++;
-
 	}
 	else
 	{
 		for(int i=1;i<length;i++)
 			if(array[i][noOfAttributes] == "<=50K")
 				count++;
-
-
 	}
 	return count;
 }
 
+
+/*
+ * Function to get count of rows which are discrete and which are having ">50K".
+ */
 int getGreaterThan(struct AtttributeMetadata *temp,string value,string **array,int length)
 {
 	int count=0;
@@ -112,22 +213,21 @@ int getGreaterThan(struct AtttributeMetadata *temp,string value,string **array,i
 			for(int i=1;i<length;i++)
 				if(array[i][temp->Index]==value && array[i][noOfAttributes] == ">50K")
 					count++;
-
 		}
 		else
 		{
 			for(int i=1;i<length;i++)
 				if(array[i][noOfAttributes] == ">50K")
 					count++;
-
-
 		}
 	return count;
 
 }
 
 
-
+/*
+ * Function to get count of rows which are Continous and which are having "<=50K".
+ */
 int getLessThanRange(struct AtttributeMetadata *temp,double lessValue,double highValue,string **array,int length)
 {
 	int count=0;
@@ -143,19 +243,20 @@ int getLessThanRange(struct AtttributeMetadata *temp,double lessValue,double hig
 		for(int i=1;i<length;i++)
 			if(atoi(array[i][temp->Index].c_str())>lessValue && atoi(array[i][temp->Index].c_str()) && array[i][noOfAttributes] == "<=50K")
 				count++;
-
 	}
 	else
 	{
 		for(int i=1;i<length;i++)
 			if(array[i][noOfAttributes] == "<=50K")
 				count++;
-
-
 	}
 	return count;
 }
 
+
+/*
+ * Function to get count of rows which are continous and which are having ">50K".
+ */
 int getGreaterThanRange(struct AtttributeMetadata *temp,double lessValue,double highValue,string **array,int length)
 {
 	int count=0;
@@ -171,20 +272,20 @@ int getGreaterThanRange(struct AtttributeMetadata *temp,double lessValue,double 
 			for(int i=1;i<length;i++)
 				if(atoi(array[i][temp->Index].c_str())>lessValue && atoi(array[i][temp->Index].c_str())<highValue && array[i][noOfAttributes] == ">50K")
 					count++;
-
 		}
 		else
 		{
 			for(int i=1;i<length;i++)
 				if(array[i][noOfAttributes] == ">50K")
 					count++;
-
-
 		}
 	return count;
 
 }
 
+/*
+ * Function to calculate entropy.
+ */
 double calculateEntropyWithRespectToAttr(double a,double b,double total)
 {
 		double part1 = (double)a/(double)total;
@@ -206,20 +307,18 @@ double calculateEntropyWithRespectToAttr(double a,double b,double total)
 		{
 			entropy =  (-(part1 * log(part1))-(part2 * log(part2))) / log(2);
 		}
-
-		//cout << "float is " << entropy << "\n";
 		return entropy;
-
 }
 
-
+/*
+ * Function to calculate Information gain based on entropy returned by above function.
+ */
 double calculateInformationGain(struct AtttributeMetadata *attr,string **array,int count)
 {
 
 	float globala = getLessThan(NULL,"",array,count);
 	float globalb = getGreaterThan(NULL,"",array,count);
 	float globalTotal = globala + globalb;
-	//cout << globala << "---" << globalb << "\n";
 	float locala,localb,localTotal;
 	double globalEntropy = calculateEntropyWithRespectToAttr(globala,globalb,globalTotal);
 	if(globalEntropy == 0)
@@ -231,7 +330,6 @@ double calculateInformationGain(struct AtttributeMetadata *attr,string **array,i
 			locala = getLessThan(attr,attr->DistinctValues[i],array,count);
 			localb = getGreaterThan(attr,attr->DistinctValues[i],array,count);
 			localTotal = locala + localb;
-			//cout << locala << "---" << localb << "\n";
 			globalEntropy -= (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
 		}
 		return globalEntropy;
@@ -240,22 +338,21 @@ double calculateInformationGain(struct AtttributeMetadata *attr,string **array,i
 	{
 		for(int i=1;i<attr->NoOfdistinctValues;i++)
 		{
-			//TO-DO//
 			locala = getLessThanRange(attr,attr->Range[i][1],attr->Range[i][2],array,count);
 			localb = getGreaterThanRange(attr,attr->Range[i][1],attr->Range[i][2],array,count);
 			localTotal = locala + localb;
-			//cout << locala << "---" << localb << "\n";
 			globalEntropy -= (localTotal/globalTotal)*calculateEntropyWithRespectToAttr(locala,localb,localTotal);
 			return globalEntropy;
-
 		}
 	}
 	return 0;
 }
 
+/*
+ * Function to check whether algorithm has ended or not.
+ */
 int checkForAlgoCompletion()
 {
-	//cout << "done" << "\n";
 	struct AtttributeMetadata *check = headOfMetadata;
 	int noOfAttributesDone = 0;
 	while(check)
@@ -270,31 +367,29 @@ int checkForAlgoCompletion()
 		return 0;
 }
 
-
+/*
+ * Traverse Tree in Depth First Search Fashion.
+ */
 void traverseTree(struct DTreeNode *temp)
 {
 	if(temp == NULL)
 		return;
 	if(temp->isLeaf == 1)
 	{
-		//cout << "leaf node and value is  " << temp->PtrToNextValue[1]->Value << endl;
 		return;
 	}
 	else
 	{
-			cout << "name is  " << temp->Name  << " and pruning is " << temp->isPruned << endl;
 			for(int i=1;i<temp->NoOfDistinctValues;i++)
 			{
-				//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
-				//cout << "child " << i << " is " << temp->PtrToNextValue[i] << endl;
 				traverseTree(temp->PtrToNextValue[i]->ptrToNextNode);
-
 			}
-
 	}
-
 }
 
+/*
+ * Function to Build leaf nodes after entire tree is built based on <=50K or <50K.
+ */
 struct DTreeNode *BuildLeafNode(string **oldArray,int oldCount)
 {
 	int noOfLessThan50K = getLessThan(NULL,"",oldArray,oldCount);
@@ -319,15 +414,14 @@ struct DTreeNode *BuildLeafNode(string **oldArray,int oldCount)
 		newValueNode->Value = ">50K";
 	}
 	return newDtreeNode;
-
 }
 
+
+/*
+ * Function to build Decision Tree based on Information Gain and Entropy.
+ */
 struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int child)
 {
-
-
-	//cout << "\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
-	//cout << "Parent is " << name << " and child id is " << child << endl;
 	if(checkForAlgoCompletion())
 		return NULL;
 	else
@@ -338,35 +432,24 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 		double newGain = -1;
 		double max = -1;
 		int index;
-
-		//printTData(oldArray,oldCount);
 		while(temp)
 		{
 			if(temp->IsDone != 1)
 			{
 				newGain = calculateInformationGain(temp,oldArray,oldCount);
-				//cout << temp->Name << " information gain is : " << newGain << "\n";
 			}
-
 			if(max < newGain)
 			{
 				max = newGain;
 				finalOne = temp;
 			}
-
 			temp = temp->PtrToNextAttr;
 		}
 		if(max == 0)
 		{
-			//cout << "No Max so Null Returned\n";
 			struct DTreeNode *leafNode = BuildLeafNode(oldArray,oldCount);
 			return leafNode;
 		}
-		else
-		{
-			//cout << "\nmax is " << finalOne->Name << " and information gain is : " << max << "\n";
-		}
-
 		struct DTreeNode *newDtreeNode = new DTreeNode();
 		newDtreeNode->Name = finalOne->Name;
 		newDtreeNode->NoOfDistinctValues = finalOne->NoOfdistinctValues;
@@ -397,21 +480,14 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 
 		}
 		finalOne->IsDone = 1;
-
-
-
 		for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
 		{
-
-			// dynamic allocation
 			string** newArray = new string*[oldCount];
 			for(int rk = 0; rk <= oldCount; ++rk)
 				newArray[rk] = new string[20];
 			int newCount = 1;
 			if(newDtreeNode->isContinous == 1)
 			{
-				//cout << "came inside if " << i << " and " << newDtreeNode->Name << endl;
-
 				if(newDtreeNode->PtrToNextValue[i]->range[1][2] == -100)
 				{
 					for(int k=1;k<oldCount;k++)
@@ -431,7 +507,6 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 				{
 					for(int k=1;k<oldCount;k++)
 					{
-
 						if(atoi((oldArray[k][newDtreeNode->PtrToNextValue[i]->Index]).c_str()) > newDtreeNode->PtrToNextValue[i]->range[1][1]
 							   && atoi((oldArray[k][newDtreeNode->PtrToNextValue[i]->Index]).c_str()) < newDtreeNode->PtrToNextValue[i]->range[1][2])
 						{
@@ -443,17 +518,10 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 							newCount++;
 						}
 					}
-
-
 				}
-				//cout <<"\n";
-				//cout << "calling with count : " << newCount << " and value : " << newDtreeNode->PtrToNextValue[i]->range[1][1] << " & "<< newDtreeNode->PtrToNextValue[i]->range[1][2] << endl;
-
-
 			}
 			else
 			{
-				//cout << "came inside else " << i << " and " << newDtreeNode->Name << endl;
 				for(int k=1;k<oldCount;k++)
 				{
 					if(oldArray[k][newDtreeNode->PtrToNextValue[i]->Index] == newDtreeNode->PtrToNextValue[i]->Value)
@@ -461,35 +529,22 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 						for(int j=1;j<=noOfAttributes;j++)
 						{
 							newArray[newCount][j] = oldArray[k][j];
-
 						}
 						newCount++;
 					}
-
 				}
-				//cout <<"\n";
-				//cout << "calling with count : " << newCount << " and value : " << newDtreeNode->PtrToNextValue[i]->Value << "\n";
-
-
 			}
-
 			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = BuildDTree(newArray,newCount,newDtreeNode->Name,i);
-			//delete(newArray);
-
-
 		}
-
-
-
 	return newDtreeNode;
 	}
-
 }
 
 
 
-
-
+/*
+ * Function to Insert Metadata into Linked List Structure.
+ */
 struct AtttributeMetadata* insertMetadata()
 {
 	struct AtttributeMetadata *temp = headOfMetadata;
@@ -510,10 +565,12 @@ struct AtttributeMetadata* insertMetadata()
 	return newnode;
 }
 
-
+/*
+ * Function to Read Metadata from file and create a structure for it.
+ */
 void ReadMetadata()
 {
-	ifstream infile("attrmetadata.txt");
+	ifstream infile("AttributeMetaData.txt");
 	string line;
 	string temporary[100];
 	int index = 1;
@@ -526,8 +583,8 @@ void ReadMetadata()
 		newnode->Index = index;
 		newnode->IsDone = 0;
 		int i=1;
-		while(std::getline(ss1, token, ':')) {
-			//cout << i << "---" << token  << "\n";
+		while(std::getline(ss1, token, ':'))
+		{
 			temporary[i]=token;
 			i++;
 		}
@@ -537,9 +594,9 @@ void ReadMetadata()
 			newnode->IsContinous = 0;
 			istringstream ss2(temporary[2]);
 			newnode->NoOfdistinctValues = 1;
-			while(std::getline(ss2, token, ',')) {
+			while(std::getline(ss2, token, ','))
+			{
 				newnode->DistinctValues[newnode->NoOfdistinctValues] = token;
-				//cout << newnode->DistinctValues[newnode->NoOfdistinctValues] << "\n";
 				(newnode->NoOfdistinctValues)++;
 			}
 		}
@@ -549,13 +606,16 @@ void ReadMetadata()
 			newnode->IsContinous = 1;
 		}
 		index++;
-
 	}
 }
 
+
+
+/*
+ * Function to get count of rows which are having same value as value(compare) passed to function.
+ */
 unsigned long long int findCount(int index,unsigned long long int value,string compare)
 {
-	//cout << index << "--" << value << "--" << compare << "\n";
 	unsigned long long int count = 0;
 	for(int i=1;i<noOfInstances;i++)
 		if(atoi(tData[i][index].c_str()) == value && tData[i][noOfAttributes]==compare)
@@ -563,7 +623,9 @@ unsigned long long int findCount(int index,unsigned long long int value,string c
 	return count;
 }
 
-
+/*
+ * Function to Print Array passed to it.
+ */
 void printArray(unsigned long long int (&array)[3][35000],int length)
 {
 	for(int i=1;i<length;i++)
@@ -572,130 +634,84 @@ void printArray(unsigned long long int (&array)[3][35000],int length)
 	}
 }
 
-
+/*
+ * Function to calculate discrete values for continous range.
+ * Comes as a handy function in handling continous values.
+ */
 void makeItDiscreteValues(struct AtttributeMetadata* temp)
 {
+	sa.clear();
+	if(temp->Index == 3)
+	{
+		temp->NoOfdistinctValues = 4;
+		temp->Range[1][1] = -1;
+		temp->Range[1][2] = 133366.5;
 
+		temp->Range[2][1] = 133366.5;
+		temp->Range[2][2] = 201111.5;
 
-		sa.clear();
-
-		if(temp->Index == 3)
-		{
-			temp->NoOfdistinctValues = 4;
-			temp->Range[1][1] = -1;
-			temp->Range[1][2] = 133366.5;
-
-			temp->Range[2][1] = 133366.5;
-			temp->Range[2][2] = 201111.5;
-
-			temp->Range[3][1] = 201111.5;
-			temp->Range[3][2] = -100;
-			return;
-		}
-
-
-	    for(unsigned long long int i=1;i<noOfInstances;i++)
-		{
-			//cout << "copying to set " << i << "\n";
-			sa.insert(atoi(tData[i][temp->Index].c_str()));
-			//temparray[2][i] = tData[i][noOfAttributes];
-		}
-	    //cout << sa.size() << std::endl;
-	    set <unsigned long long int, greater <unsigned long long int> > :: iterator itr;
-	    int noOfDistinctValues = 1;
-	    for (itr = sa.begin(); itr != sa.end(); ++itr)
-	        {
-	    		temparray[1][noOfDistinctValues] = *itr;
-	            noOfDistinctValues++;
-	        }
-
-	    /*
-	    if(temp->Index == 3)
-		{
-	    	temp->NoOfdistinctValues = 1;
-			temp->Range[1][1] = 0;
-			temp->Range[1][2] = temparray[1][200]+0.5;
-			double prev = temparray[1][200]-0.5;
-			int i=2;
-			for(i=2;i<100;i++)
+		temp->Range[3][1] = 201111.5;
+		temp->Range[3][2] = -100;
+		return;
+	}
+	for(unsigned long long int i=1;i<noOfInstances;i++)
+	{
+		sa.insert(atoi(tData[i][temp->Index].c_str()));
+	}
+	set <unsigned long long int, greater <unsigned long long int> > :: iterator itr;
+	int noOfDistinctValues = 1;
+	for (itr = sa.begin(); itr != sa.end(); ++itr)
+	{
+		temparray[1][noOfDistinctValues] = *itr;
+		noOfDistinctValues++;
+	}
+	for(int i=1;i<noOfDistinctValues;i++)
+	{
+		unsigned long long int lessThanCount = findCount(temp->Index,temparray[1][i],"<=50K");
+		unsigned long long int greaterThanCount = findCount(temp->Index,temparray[1][i],">50K");
+		if(lessThanCount <= greaterThanCount)
+			temparray[2][i] = 1; // 1 indicates >50K
+		else
+			temparray[2][i] = 0; // 0 indicates <=50K
+	}
+	int count = 0;
+	for(int i=1;i<noOfDistinctValues-1;i++)
+	{
+		if(temparray[2][i] == temparray[2][i+1])
+			count++;
+		else
+			break;
+	}
+	temp->NoOfdistinctValues = 1;
+	if(count+2 == noOfDistinctValues)
+	{
+		temp->Range[temp->NoOfdistinctValues][1] = -1;
+		temp->Range[temp->NoOfdistinctValues][2] = temparray[1][noOfDistinctValues-1]+1;
+		temp->NoOfdistinctValues ++;
+		return;
+	}
+	double previousRange = -1;
+	int prev = temparray[2][1];
+	for(int i=2;i<noOfDistinctValues;i++)
+	{
+		if(prev != temparray[2][i])
 			{
-				temp->Range[i][1] = prev;
-				temp->Range[i][2] = temparray[1][200*i]+0.5;
-				prev = temparray[1][200*i]+0.5;
-
+				double average = ((double)temparray[1][i-1] + (double)temparray[1][i])/2;
+				prev = temparray[2][i];
+				temp->Range[temp->NoOfdistinctValues][1] = previousRange;
+				temp->Range[temp->NoOfdistinctValues][2] = average;
+				previousRange = average;
+				temp->NoOfdistinctValues ++;
 			}
-
-			temp->Range[temp->NoOfdistinctValues][1] = prev;
-			temp->Range[temp->NoOfdistinctValues][2] = -1;
-			temp->NoOfdistinctValues++;
-			return;
-		}
-	    */
-
-	    for(int i=1;i<noOfDistinctValues;i++)
-	    {
-	    	//unsigned long long int value = temparray[1][i];
-	    	unsigned long long int lessThanCount = findCount(temp->Index,temparray[1][i],"<=50K");
-			unsigned long long int greaterThanCount = findCount(temp->Index,temparray[1][i],">50K");
-			if(lessThanCount <= greaterThanCount)
-				temparray[2][i] = 1; // 1 indicates >50K
-			else
-				temparray[2][i] = 0; // 0 indicates <=50K
-			/*cout << "less than count is " << lessThanCount << "\n";
-			cout << "greater than count is " << greaterThanCount << "\n";
-			cout << "-----------------------\n";*/
-	    }
-	    //printArray(temparray,noOfDistinctValues);
-
-	    int count = 0;
-	    for(int i=1;i<noOfDistinctValues-1;i++)
-	    {
-	    	if(temparray[2][i] == temparray[2][i+1])
-	    		count++;
-	    	else
-	    		break;
-	    }
-	    //cout << "count is "<< count <<"\n";
-	    //cout << "No of distinct values " << noOfDistinctValues << "\n";
-	    temp->NoOfdistinctValues = 1;
-	    if(count+2 == noOfDistinctValues)
-	    {
-	    	//cout << "inside 1\n";
-			//cout << "average is " << temparray[1][noOfDistinctValues]+1 << "\n";
-	    	temp->Range[temp->NoOfdistinctValues][1] = -1;
-			temp->Range[temp->NoOfdistinctValues][2] = temparray[1][noOfDistinctValues-1]+1;
-			temp->NoOfdistinctValues ++;
-			return;
-	    }
-	    double previousRange = -1;
-	    int prev = temparray[2][1];
-	    //cout << "inside 2\n";
-	    for(int i=2;i<noOfDistinctValues;i++)
-	    {
-	    	//cout << "previous one is " << prev << " and current is " << temparray[2][i] << "\n";
-	    	if(prev != temparray[2][i])
-	    		{
-	    			double average = ((double)temparray[1][i-1] + (double)temparray[1][i])/2;
-	    			//cout << "average is " << average << "\n";
-	    			prev = temparray[2][i];
-	    			temp->Range[temp->NoOfdistinctValues][1] = previousRange;
-	    			temp->Range[temp->NoOfdistinctValues][2] = average;
-	    			previousRange = average;
-	    			//temp->DistinctValues[noOfDistinctValues] = average;
-	    			temp->NoOfdistinctValues ++;
-
-	    		}
-	    }
-	    temp->Range[temp->NoOfdistinctValues][1] = previousRange;
-	    temp->Range[temp->NoOfdistinctValues][2] = -100; // To indicate last filter
-	    temp->NoOfdistinctValues ++;
-
-
-
-
-
+	}
+	temp->Range[temp->NoOfdistinctValues][1] = previousRange;
+	temp->Range[temp->NoOfdistinctValues][2] = -100; // To indicate last filter
+	temp->NoOfdistinctValues ++;
 }
 
+/*
+ * Function to Print continous values after the have been converted.
+ */
 void printContinousValues(struct AtttributeMetadata *temp)
 {
 	cout << "+++++++++++++++++++++++++++++++++\n";
@@ -706,7 +722,9 @@ void printContinousValues(struct AtttributeMetadata *temp)
 	}
 }
 
-
+/*
+ * Function to handle continous values.
+ */
 void handleContinousValues()
 {
 	struct AtttributeMetadata* temp = headOfMetadata;
@@ -723,57 +741,64 @@ void handleContinousValues()
 }
 
 
-
+/*
+ * Function to read Validation Data from File.
+ */
 void ReadVDataFrmFile()
 {
-
-	std::ifstream infile("validation.txt");
-		std::string line;
-		while (std::getline(infile, line))
+	std::ifstream infile("ValidationData.txt");
+	std::string line;
+	while (std::getline(infile, line))
+	{
+		std::istringstream ss(line);
+		std::string token;
+		int i=1;
+		while(std::getline(ss, token, ','))
 		{
-			std::istringstream ss(line);
-			std::string token;
-			int i=1;
-			while(std::getline(ss, token, ',')) {
-			    //std::cout << token << '\n';
-			    vData[countOfVData][i] = token;
-			    i++;
-			}
-			countOfVData++;
+			vData[countOfVData][i] = token;
+			i++;
 		}
+		countOfVData++;
+	}
 }
 
-
+/*
+ * Function to read Training Data from File.
+ */
 void ReadTDataFrmFile()
 {
-
-	std::ifstream infile("training.txt");
-		std::string line;
-		while (std::getline(infile, line))
+	std::ifstream infile("TrainingData.txt");
+	std::string line;
+	while (std::getline(infile, line))
+	{
+		std::istringstream ss(line);
+		std::string token;
+		int i=1;
+		while(std::getline(ss, token, ','))
 		{
-			std::istringstream ss(line);
-			std::string token;
-			int i=1;
-			while(std::getline(ss, token, ',')) {
-			    //std::cout << token << '\n';
-			    tData[noOfInstances][i] = token;
-			    i++;
-			}
-			noOfInstances++;
+			//std::cout << token << '\n';
+			tData[noOfInstances][i] = token;
+			i++;
 		}
+		noOfInstances++;
+	}
 }
 
+
+/*
+ * Function to get the final value of a row based on the tree built.
+ */
 void getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
 {
+	if(temp == NULL)
+		return;
 	if(temp->isLeaf == 1)
 	{
 		result = temp->PtrToNextValue[1]->Value;
 	}
-
 	string value = dataArray[i][temp->index];
 	if(temp->isContinous == 1)
 	{
-
 		for(int i=1;i<temp->NoOfDistinctValues;i++)
 		{
 			if(temp->PtrToNextValue[i]->range[1][2] == -100)
@@ -805,7 +830,9 @@ void getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
 	}
 }
 
-
+/*
+ * Function to calculate Accuracy of the data from the tree built.
+ */
 void checkForAccuracy(struct DTreeNode *temp,string **data,int length,string dataName)
 {
 	int actualDataCount = 0,wrongData = 0;
@@ -813,7 +840,6 @@ void checkForAccuracy(struct DTreeNode *temp,string **data,int length,string dat
 	{
 		result = '0';
 		getFinalResult(temp,data,i);
-		//cout << result << endl;
 		if(result == "AcceptAny")
 		{
 			actualDataCount++;
@@ -827,13 +853,15 @@ void checkForAccuracy(struct DTreeNode *temp,string **data,int length,string dat
 			wrongData++;
 		}
 	}
-
 	float accuracyPercentage = ((float)actualDataCount/(float)(length-1))*100;
-	//cout << "actual data count is " << actualDataCount << " and wrong data count is "<< wrongData << endl;
 	cout << "Accuracy Percentage for "<< dataName << " is " << accuracyPercentage << endl;
 }
 
 
+/*
+ * Function to pick Random Value for attribute.
+ * Comes handy when handling missing attributes.
+ */
 string pickRandomValueFromAttribute(int index,string **data,int length)
 {
 	struct AtttributeMetadata *temp = headOfMetadata;
@@ -847,23 +875,22 @@ string pickRandomValueFromAttribute(int index,string **data,int length)
 				//cout << randNumber << endl;
 				return data[randNumber][index];
 			}
-
 			else
 			{
 				int randNumber = rand() % (temp->NoOfdistinctValues-1) + 1;
 				//cout << randNumber << endl;
 				return temp->DistinctValues[randNumber];
 			}
-
 		}
 		temp = temp->PtrToNextAttr;
 	}
 	return "hello";
-
 }
 
 
-
+/*
+ * Function to handle missing values.
+ */
 void handleMissingValues(string **data,int length)
 {
 	for(int i=1;i<length;i++)
@@ -872,14 +899,16 @@ void handleMissingValues(string **data,int length)
 		{
 			if(data[i][j] == "?")
 			{
-				//cout << "? found " << endl;
 				data[i][j] = pickRandomValueFromAttribute(j,data,length);
-				//cout << "replaced with " << data[i][j]<< endl;
 			}
 		}
 	}
 }
 
+/*
+ * Function to make copy of Decision tree.
+ * Comes handy for pruning trees.
+ */
 struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
 {
 	if(temp->isLeaf == 1)
@@ -907,7 +936,6 @@ struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
 		newDtreeNode->isContinous = temp->isContinous;
 		newDtreeNode->isLeaf = temp->isLeaf;
 		newDtreeNode->isPruned = temp->isPruned;
-		//cout << "name is  " << temp->Name << endl;
 		for(int i=1;i<temp->NoOfDistinctValues;i++)
 		{
 			struct DTreeValue *newValueNode = new DTreeValue();
@@ -917,13 +945,14 @@ struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
 			newValueNode->range[1][2] = temp->PtrToNextValue[i]->range[1][2];
 			newDtreeNode->PtrToNextValue[i] = newValueNode;
 			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = MakeCopyOfTree(temp->PtrToNextValue[i]->ptrToNextNode);
-
 		}
 		return newDtreeNode;
 	}
 }
 
-
+/*
+ * Function to Allocate Dynamic Memory from heap to all data arrays.
+ */
 void AllocateMemoryForDatas()
 {
 	tData = new string*[35000];
@@ -937,13 +966,13 @@ void AllocateMemoryForDatas()
 	}
 }
 
-
+/*
+ * Function to select node to be pruned.
+ */
 void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
 {
-
 	if(temp == NULL)
 			return;
-	//cout << temp->Name << "and" << temp->isLeaf << endl;
 	if(temp->isLeaf != 1 && temp->isPruned != 1)
 	{
 		if(nodeToBePruned == NULL)
@@ -952,27 +981,21 @@ void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
 			cout << "Attribute selected for pruning is  " << temp->Name << endl;
 			nodeToBePruned = temp;
 		}
-
-		//cout << "leaf node and value is  " << temp->PtrToNextValue[1]->Value << endl;
 		return;
 	}
 	else
 	{
-			//cout << "name is  " << temp->Name  << "and pruning is " << temp->isPruned << endl;
 			for(int i=1;i<temp->NoOfDistinctValues;i++)
 			{
-				//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
-				//cout << "child " << i << " is " << temp->PtrToNextValue[i] << endl;
 				SelectedNodeToBePruned(temp->PtrToNextValue[i]->ptrToNextNode,root);
-
 			}
-
 	}
-
-
 }
 
 
+/*
+ * Function to get count of final result for the data row from D-Tree.
+ */
 int getCountOfFinalFromTree(struct DTreeNode* root,string value)
 {
 	if(root == NULL)
@@ -981,18 +1004,20 @@ int getCountOfFinalFromTree(struct DTreeNode* root,string value)
 	{
 		if(root->PtrToNextValue[1]->Value == value)
 		{
-			//cout << "came" << endl;
 			countOfValues++;
 		}
 	}
 	for(int i=1;i<root->NoOfDistinctValues;i++)
 	{
-		//cout << root->Name << endl;
 		getCountOfFinalFromTree(root->PtrToNextValue[i]->ptrToNextNode,value);
 	}
 	return 0;
 }
 
+
+/*
+ * Function to Build a tree after pruning selected attribute.
+ */
 void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
 {
 	countOfValues = 0;
@@ -1001,7 +1026,6 @@ void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
 	countOfValues = 0;
 	getCountOfFinalFromTree(nodeToBePruned,">50K");
 	int greaterThanCount = countOfValues;
-	//cout << "less than count is " << lessThanCount <<" and greater than count "<< greaterThanCount << endl;
 	nodeToBePruned->Name = "LeafNode";
 	nodeToBePruned->isLeaf = 1;
 	nodeToBePruned->NoOfDistinctValues = 2;
@@ -1022,6 +1046,10 @@ void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
 	}
 }
 
+
+/*
+ * Updating attribute parameter "isDone" to 0 for building new trees.
+ */
 void updateAttributeParametersToOriginalAsNotDone()
 {
 	struct AtttributeMetadata *check = headOfMetadata;
@@ -1032,13 +1060,16 @@ void updateAttributeParametersToOriginalAsNotDone()
 	}
 }
 
+/*
+ * Function to update main tree parameter "isPruned" to 1 to avoid
+ * selecting same attribute again.
+ */
 void updateMainTreeAfterPruning(struct DTreeNode *root,int index)
 {
 	if(root == NULL)
 		return;
 	if(root->index == index)
 	{
-		//cout << "came" << endl;;
 		root->isPruned = 1;
 	}
 	for(int i=1;i<root->NoOfDistinctValues;i++)
@@ -1047,6 +1078,10 @@ void updateMainTreeAfterPruning(struct DTreeNode *root,int index)
 	}
 }
 
+
+/*
+ * Function to check whether all attributes are selected for pruning.
+ */
 bool areAllAttributesDoneForPruning(struct DTreeNode *temp)
 {
 	if(temp == NULL)
@@ -1062,6 +1097,28 @@ bool areAllAttributesDoneForPruning(struct DTreeNode *temp)
 	return true;
 }
 
+
+/*
+ * Function to free D-Tree memory.
+ */
+void FreeTreeMemory(struct DTreeNode *temp)
+{
+	if(temp == NULL)
+		return;
+
+	for(int i=1;i<temp->NoOfDistinctValues;i++)
+	{
+		FreeTreeMemory(temp->PtrToNextValue[i]->ptrToNextNode);
+		delete temp->PtrToNextValue[i];
+	}
+	if(temp!=NULL)
+		delete temp;
+}
+
+
+/*
+ * Function to Perform Reduced Error Pruning.
+ */
 void DoReducedErrorPruning()
 {
 	int i=1;
@@ -1069,102 +1126,49 @@ void DoReducedErrorPruning()
 	{
 		cout << "-----------------------------------------------" << endl;
 		nodeToBePruned = NULL;
-		//cout << "+++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
 		struct DTreeNode *copyOfTree = MakeCopyOfTree(headOfDTree);
 		SelectedNodeToBePruned(copyOfTree,copyOfTree);
 		struct DTreeNode *nodeSelectedForPruning = nodeToBePruned;
-		//cout << nodeToBePruned << endl;
-		//cout << "index is " << nodeSelectedForPruning->index << endl;
 		updateMainTreeAfterPruning(headOfDTree,nodeToBePruned->index);
 		cout << "Building new tree After pruning selected Attribute.." << endl;
 		BuildNewTreeWithPruning(nodeToBePruned);
-		//traverseTree(copyOfTree);
 		cout << "Done!!" << endl;
-		//cout << "----" << endl;
 		cout << "Calculating Accuracy.." << endl;
 		checkForAccuracy(copyOfTree,tData,noOfInstances,"Training Data");
 		checkForAccuracy(copyOfTree,vData,countOfVData,"Validation Data");
-		//if(areAllAttributesDoneForPruning(headOfDTree))*/
+		cout << "Deleting Tree and freeing up memory..." << endl;
+		FreeTreeMemory(copyOfTree);
+		cout << "Done!!" <<endl;
 		copyOfTree = NULL;
 		if(i==12)
-		//if(areAllAttributesDoneForPruning(headOfDTree))
 			break;
 		i++;
 	}
 }
 
+
+
+/*
+ * Function in Building Random Forests.
+ */
 void RandomForest()
 {
-	//srand(time(NULL));
-	for(int noOfTrees = 1;noOfTrees<=10;noOfTrees++)
+	for(int noOfTrees = 1;noOfTrees<=3;noOfTrees++)
 	{
 		trimmedDataCount = 1;
 		unsigned long long int randomNumber = 0;
-
 		for(int i=1;i<=15000;i++)
 		{
 			randomNumber = rand() % (32000-1) + 1;
-			//cout << randomNumber << endl;
 			for(int j=1;j<=noOfAttributes;j++)
 				trimmedData[trimmedDataCount][j] = tData[randomNumber][j];
 			trimmedDataCount++;
 		}
-		//printTData(trimmedData,trimmedDataCount);
 		cout << "For Random Tree - " << noOfTrees << " : "<< endl;
 		randomTree[noOfTrees] = BuildDTree(trimmedData,trimmedDataCount,"Root",1);
 		checkForAccuracy(randomTree[noOfTrees],vData,countOfVData,"Validation Data");
 		updateAttributeParametersToOriginalAsNotDone();
-		//traverseTree(randomTree[noOfTrees]);
-		//cout << "+++++++++++++++++" << endl;
+		cout << "Deleting Tree and freeing up memory..." << endl;
+		cout << "Done!!" << endl;
 	}
-}
-
-
-int main()
-{
-	cout << "\n++++++++++++++++ Start Of Phase - 1 ++++++++++++++++++++++" << endl;
-	AllocateMemoryForDatas();
-	cout << "Reading Metadata From file.." << endl;
-	ReadMetadata();
-	cout << "Metadata File successfully read!!" << endl;
-	cout << "Reading Training data From file.." << endl;
-	ReadTDataFrmFile();
-	cout << "Training data successfully read!!" << endl;
-	//printTData(tData,noOfInstances);
-	cout << "Handling Continous Values for Training Data" << endl;
-	handleContinousValues();
-	cout << "Done!!" << endl;
-	cout << "Handling Missing Values for Training Data" << endl;
-	handleMissingValues(tData,noOfInstances);
-	cout << "Done" << endl;
-	//printTData(tData,noOfInstances);
-	cout << "Building Decision Tree for Training Data.." << endl;
-	headOfDTree = BuildDTree(tData,noOfInstances,"Root",1);
-	//traverseTree(headOfDTree);
-	cout << "Decision Tree Successfully built" << endl;
-	//traverseTree(headOfDTree);
-	cout << "Reading Validation data From file.." << endl;
-	ReadVDataFrmFile();
-	cout << "Validation data successfully read!!" << endl;
-	//printTData(tData,noOfInstances);
-	cout << "Handling Missing Values for Validation Data" << endl;
-	handleMissingValues(vData,countOfVData);
-	cout << "Done" << endl;
-	//printTData(vData,countOfVData);
-	cout << "Checking Accuracy of Validation Data on Built Decision Tree.." << endl;
-	checkForAccuracy(headOfDTree,vData,countOfVData,"Validation Data");
-	cout << "Checking Accuracy of Training Data on Built Decision Tree.." << endl;
-	checkForAccuracy(headOfDTree,tData,noOfInstances,"Training Data");
-	headOfDTree->isPruned = 1; // Marking root as already pruned to avoid actual pruning
-	cout << "++++++++++++++++ End Of Phase - 1 ++++++++++++++++++++++" << endl;
-	cout << "++++++++++++++++ Start Of Phase - 2 ++++++++++++++++++++++" << endl;
-	cout << "Using Method : Reduced Error Pruning" << endl;
-	DoReducedErrorPruning();
-	cout << "++++++++++++++++ End Of Phase - 2 ++++++++++++++++++++++" << endl;
-	cout << "++++++++++++++++ Start Of Phase - 3 ++++++++++++++++++++++" << endl;
-	cout << "Building Random Forests.."<< endl;
-	RandomForest();
-	cout << "++++++++++++++++ End Of Phase - 3 ++++++++++++++++++++++" << endl;
-	return 1;
-
 }
