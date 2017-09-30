@@ -2,16 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="end" key="selection"/>
+		<item value="cout" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="cout"/>
+			<item value=" "/>
 			<item value="end"/>
 			<item value="printing data"/>
 			<item value="vector"/>
-			<item value=" "/>
 			<item value=" United-States"/>
 			<item value="Outlying-US(Guam-USVI-etc)"/>
 			<item value=" Outlying-US(Guam-USVI-etc)"/>
@@ -22,7 +23,6 @@
 			<item value="Trial 1"/>
 			<item value="11372"/>
 			<item value="937        3466"/>
-			<item value="3466&#x09;937"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

@@ -1,0 +1,121 @@
+
+++++++++++++++++ Start Of Phase - 1 ++++++++++++++++++++++
+Reading Metadata From file..
+Metadata File successfully read!!
+Reading Training data From file..
+Training data successfully read!!
+Handling Continous Values for Training Data
+Done!!
+Handling Missing Values for Training Data
+Done
+Building Decision Tree for Training Data..
+Decision Tree Successfully built
+Reading Validation data From file..
+Validation data successfully read!!
+Handling Missing Values for Validation Data
+Done
+Checking Accuracy of Validation Data on Built Decision Tree..
+Accuracy Percentage for Validation Data is 78.478
+Checking Accuracy of Training Data on Built Decision Tree..
+Accuracy Percentage for Training Data is 78.1211
+++++++++++++++++ End Of Phase - 1 ++++++++++++++++++++++
+++++++++++++++++ Start Of Phase - 2 ++++++++++++++++++++++
+Using Method : Reduced Error Pruning
+-----------------------------------------------
+Attribute selected for pruning is  capital-gain
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  fnlwgt
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  relationship
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  occupation
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  education
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  workclass
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  race
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  native-country
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  marital-status
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  hours-per-week
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  sex
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+-----------------------------------------------
+Attribute selected for pruning is  education-num
+Building new tree After pruning selected Attribute..
+Done!!
+Calculating Accuracy..
+Accuracy Percentage for Training Data is 78.1211
+Accuracy Percentage for Validation Data is 78.478
+++++++++++++++++ End Of Phase - 2 ++++++++++++++++++++++
+++++++++++++++++ Start Of Phase - 3 ++++++++++++++++++++++
+Building Random Forests..
+For Random Tree - 1 : 
+Accuracy Percentage for Validation Data is 76.3774
+For Random Tree - 2 : 
+Accuracy Percentage for Validation Data is 78.521
+For Random Tree - 3 : 
+Accuracy Percentage for Validation Data is 78.478
+For Random Tree - 4 : 
+Accuracy Percentage for Validation Data is 78.5148
+For Random Tree - 5 : 
+Accuracy Percentage for Validation Data is 78.4841
+For Random Tree - 6 : 

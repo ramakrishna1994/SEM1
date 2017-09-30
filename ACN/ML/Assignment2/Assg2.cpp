@@ -50,6 +50,11 @@ struct AtttributeMetadata *headOfMetadata = NULL;
 set<unsigned long long int> sa;
 struct DTreeNode * headOfDTree = NULL;
 int countOfValues = 0;
+string **trimmedData;
+int trimmedDataCount = 1;
+struct DTreeNode *randomTree[10] = {NULL};
+string result;
+struct DTreeNode *nodeToBePruned = NULL;
 
 /*
 void ReadTDataFrmFile();
@@ -277,7 +282,7 @@ void traverseTree(struct DTreeNode *temp)
 	}
 	else
 	{
-			//cout << "name is  " << temp->Name  << "and pruning is " << temp->isPruned << endl;
+			cout << "name is  " << temp->Name  << " and pruning is " << temp->isPruned << endl;
 			for(int i=1;i<temp->NoOfDistinctValues;i++)
 			{
 				//cout << temp->PtrToNextValue[i]->range[1][1] << " & " << temp->PtrToNextValue[i]->range[1][1] << endl;
@@ -758,11 +763,11 @@ void ReadTDataFrmFile()
 		}
 }
 
-string getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
+void getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
 {
 	if(temp->isLeaf == 1)
 	{
-		return temp->PtrToNextValue[1]->Value;
+		result = temp->PtrToNextValue[1]->Value;
 	}
 
 	string value = dataArray[i][temp->index];
@@ -771,11 +776,11 @@ string getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
 
 		for(int i=1;i<temp->NoOfDistinctValues;i++)
 		{
-			if(temp->PtrToNextValue[i]->range[1][2] == -1)
+			if(temp->PtrToNextValue[i]->range[1][2] == -100)
 			{
 				if(atoi(value.c_str()) > temp->PtrToNextValue[i]->range[1][1])
 				{
-					return getFinalResult(temp->PtrToNextValue[i]->ptrToNextNode,dataArray,i);
+					getFinalResult(temp->PtrToNextValue[i]->ptrToNextNode,dataArray,i);
 				}
 			}
 			else
@@ -783,7 +788,7 @@ string getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
 				if(atoi(value.c_str()) > temp->PtrToNextValue[i]->range[1][1] &&
 						atoi(value.c_str()) < temp->PtrToNextValue[i]->range[1][2])
 				{
-					return getFinalResult(temp->PtrToNextValue[i]->ptrToNextNode,dataArray,i);
+					getFinalResult(temp->PtrToNextValue[i]->ptrToNextNode,dataArray,i);
 				}
 			}
 		}
@@ -794,11 +799,10 @@ string getFinalResult(struct DTreeNode *temp,string **dataArray,int i)
 		{
 			if(temp->PtrToNextValue[i]->Value == value)
 			{
-				return getFinalResult(temp->PtrToNextValue[i]->ptrToNextNode,dataArray,i);
+				getFinalResult(temp->PtrToNextValue[i]->ptrToNextNode,dataArray,i);
 			}
 		}
 	}
-	return "hello";
 }
 
 
@@ -807,7 +811,9 @@ void checkForAccuracy(struct DTreeNode *temp,string **data,int length,string dat
 	int actualDataCount = 0,wrongData = 0;
 	for(int i=1;i<length;i++)
 	{
-		string result = getFinalResult(temp,data,i);
+		result = '0';
+		getFinalResult(temp,data,i);
+		//cout << result << endl;
 		if(result == "AcceptAny")
 		{
 			actualDataCount++;
@@ -922,14 +928,16 @@ void AllocateMemoryForDatas()
 {
 	tData = new string*[35000];
 	vData = new string*[35000];
+	trimmedData = new string*[100001];
 	for(int i = 0; i < 35000; ++i)
 	{
 		 tData[i] = new string[20];
 		 vData[i] = new string[20];
+		 trimmedData[i] = new string[20];
 	}
 }
 
-struct DTreeNode *nodeToBePruned = NULL;
+
 void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
 {
 
@@ -1014,6 +1022,16 @@ void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned)
 	}
 }
 
+void updateAttributeParametersToOriginalAsNotDone()
+{
+	struct AtttributeMetadata *check = headOfMetadata;
+	while(check)
+	{
+		check->IsDone = 0;
+		check = check->PtrToNextAttr;
+	}
+}
+
 void updateMainTreeAfterPruning(struct DTreeNode *root,int index)
 {
 	if(root == NULL)
@@ -1060,6 +1078,7 @@ void DoReducedErrorPruning()
 		updateMainTreeAfterPruning(headOfDTree,nodeToBePruned->index);
 		cout << "Building new tree After pruning selected Attribute.." << endl;
 		BuildNewTreeWithPruning(nodeToBePruned);
+		//traverseTree(copyOfTree);
 		cout << "Done!!" << endl;
 		//cout << "----" << endl;
 		cout << "Calculating Accuracy.." << endl;
@@ -1073,6 +1092,33 @@ void DoReducedErrorPruning()
 		i++;
 	}
 }
+
+void RandomForest()
+{
+	//srand(time(NULL));
+	for(int noOfTrees = 1;noOfTrees<=10;noOfTrees++)
+	{
+		trimmedDataCount = 1;
+		unsigned long long int randomNumber = 0;
+
+		for(int i=1;i<=15000;i++)
+		{
+			randomNumber = rand() % (32000-1) + 1;
+			//cout << randomNumber << endl;
+			for(int j=1;j<=noOfAttributes;j++)
+				trimmedData[trimmedDataCount][j] = tData[randomNumber][j];
+			trimmedDataCount++;
+		}
+		//printTData(trimmedData,trimmedDataCount);
+		cout << "For Random Tree - " << noOfTrees << " : "<< endl;
+		randomTree[noOfTrees] = BuildDTree(trimmedData,trimmedDataCount,"Root",1);
+		checkForAccuracy(randomTree[noOfTrees],vData,countOfVData,"Validation Data");
+		updateAttributeParametersToOriginalAsNotDone();
+		//traverseTree(randomTree[noOfTrees]);
+		//cout << "+++++++++++++++++" << endl;
+	}
+}
+
 
 int main()
 {
@@ -1094,6 +1140,7 @@ int main()
 	//printTData(tData,noOfInstances);
 	cout << "Building Decision Tree for Training Data.." << endl;
 	headOfDTree = BuildDTree(tData,noOfInstances,"Root",1);
+	//traverseTree(headOfDTree);
 	cout << "Decision Tree Successfully built" << endl;
 	//traverseTree(headOfDTree);
 	cout << "Reading Validation data From file.." << endl;
@@ -1114,6 +1161,10 @@ int main()
 	cout << "Using Method : Reduced Error Pruning" << endl;
 	DoReducedErrorPruning();
 	cout << "++++++++++++++++ End Of Phase - 2 ++++++++++++++++++++++" << endl;
+	cout << "++++++++++++++++ Start Of Phase - 3 ++++++++++++++++++++++" << endl;
+	cout << "Building Random Forests.."<< endl;
+	RandomForest();
+	cout << "++++++++++++++++ End Of Phase - 3 ++++++++++++++++++++++" << endl;
 	return 1;
 
 }
