@@ -61,13 +61,14 @@ struct DTreeNode
 	int isLeaf;
 	int index;
 	int isPruned;
-	struct DTreeValue *PtrToNextValue[200];
+	struct DTreeValue *PtrToNextValue[50];
 };
 
 
 string **tData = NULL; // [No_of_instances][No_of_atributes]
 string **vData = NULL; // [No_of_instances][No_of_atributes]
-unsigned long long int temparray[3][35000];
+string **trimmedData = NULL;
+unsigned long long int temparray[3][22000];
 unsigned long long int noOfInstances = 1;
 unsigned long long int countOfVData = 1;
 int noOfAttributes = 15;
@@ -75,7 +76,6 @@ struct AtttributeMetadata *headOfMetadata = NULL;
 set<unsigned long long int> sa;
 struct DTreeNode * headOfDTree = NULL;
 int countOfValues = 0;
-string **trimmedData;
 int trimmedDataCount = 1;
 struct DTreeNode *randomTree[10] = {NULL};
 string result;
@@ -91,7 +91,7 @@ double calculateInformationGain(struct AtttributeMetadata *attr,string **array,i
 int checkForAlgoCompletion();
 void traverseTree(struct DTreeNode *temp);
 struct DTreeNode *BuildLeafNode(string **oldArray,int oldCount);
-struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int child);
+struct DTreeNode *BuildDTree(string **oldArray,int oldCount,string name,int child);
 struct AtttributeMetadata* insertMetadata();
 void ReadMetadata();
 unsigned long long int findCount(int index,unsigned long long int value,string compare);
@@ -107,7 +107,7 @@ string pickRandomValueFromAttribute(int index,string **data,int length);
 void handleMissingValues(string **data,int length);
 struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp);
 void AllocateMemoryForDatas();
-void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root);
+void SelectedNodeToBePruned(struct DTreeNode *temp);
 int getCountOfFinalFromTree(struct DTreeNode* root,string value);
 void BuildNewTreeWithPruning(struct DTreeNode *nodeToBePruned);
 void updateAttributeParametersToOriginalAsNotDone();
@@ -116,6 +116,8 @@ bool areAllAttributesDoneForPruning(struct DTreeNode *temp);
 void FreeTreeMemory(struct DTreeNode *temp);
 void DoReducedErrorPruning();
 void RandomForest();
+void printNoOfChildsForAttributes();
+void printRange();
 
 /*
  * Processing Starts From here.
@@ -160,7 +162,7 @@ int main()
 	cout << "Building Random Forests.."<< endl;
 	RandomForest();
 	cout << "++++++++++++++++ End Of Phase - 3 ++++++++++++++++++++++" << endl;
-	return 0;
+	return 1;
 }
 
 /*
@@ -374,16 +376,18 @@ void traverseTree(struct DTreeNode *temp)
 {
 	if(temp == NULL)
 		return;
+
 	if(temp->isLeaf == 1)
 	{
 		return;
 	}
 	else
 	{
-			for(int i=1;i<temp->NoOfDistinctValues;i++)
-			{
-				traverseTree(temp->PtrToNextValue[i]->ptrToNextNode);
-			}
+		//cout << "name is "<< temp->Name <<" and pruned is " << temp->isPruned << endl;
+		for(int i=1;i<temp->NoOfDistinctValues;i++)
+		{
+			traverseTree(temp->PtrToNextValue[i]->ptrToNextNode);
+		}
 	}
 }
 
@@ -394,6 +398,8 @@ struct DTreeNode *BuildLeafNode(string **oldArray,int oldCount)
 {
 	int noOfLessThan50K = getLessThan(NULL,"",oldArray,oldCount);
 	int noOfGreaterThan50K = getGreaterThan(NULL,"",oldArray,oldCount);
+	//cout << "less than count is " << noOfLessThan50K << endl;
+	//cout << "greate than count is " << noOfGreaterThan50K << endl;
 	struct DTreeNode *newDtreeNode = new DTreeNode();
 	newDtreeNode->Name = "LeafNode";
 	newDtreeNode->isLeaf = 1;
@@ -422,10 +428,6 @@ struct DTreeNode *BuildLeafNode(string **oldArray,int oldCount)
  */
 struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int child)
 {
-	if(checkForAlgoCompletion())
-		return NULL;
-	else
-	{
 		struct AtttributeMetadata *temp = headOfMetadata;
 		struct AtttributeMetadata *finalOne = NULL;
 		float prev = 0;
@@ -437,12 +439,14 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 			if(temp->IsDone != 1)
 			{
 				newGain = calculateInformationGain(temp,oldArray,oldCount);
+				//cout << "new gain is " << newGain << " and name is " << temp->Name << endl;
 			}
 			if(max < newGain)
 			{
 				max = newGain;
 				finalOne = temp;
 			}
+
 			temp = temp->PtrToNextAttr;
 		}
 		if(max == 0)
@@ -450,6 +454,7 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 			struct DTreeNode *leafNode = BuildLeafNode(oldArray,oldCount);
 			return leafNode;
 		}
+		finalOne->IsDone = 1;
 		struct DTreeNode *newDtreeNode = new DTreeNode();
 		newDtreeNode->Name = finalOne->Name;
 		newDtreeNode->NoOfDistinctValues = finalOne->NoOfdistinctValues;
@@ -479,7 +484,6 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 			}
 
 		}
-		finalOne->IsDone = 1;
 		for(int i=1;i<newDtreeNode->NoOfDistinctValues;i++)
 		{
 			string** newArray = new string*[oldCount];
@@ -537,10 +541,32 @@ struct DTreeNode* BuildDTree(string **oldArray,int oldCount,string name,int chil
 			newDtreeNode->PtrToNextValue[i]->ptrToNextNode = BuildDTree(newArray,newCount,newDtreeNode->Name,i);
 		}
 	return newDtreeNode;
-	}
 }
 
 
+void printNoOfChildsForAttributes()
+{
+	struct AtttributeMetadata *temp = headOfMetadata;
+	while(temp)
+	{
+		cout << "name is " << temp->Name << "and distinct values are " << temp->NoOfdistinctValues << endl;
+		temp = temp->PtrToNextAttr;
+	}
+}
+
+void printRange()
+{
+	struct AtttributeMetadata *temp = headOfMetadata;
+	while(temp)
+	{
+		if(temp->Index == 3)
+		{
+			for(int i=1;i<temp->NoOfdistinctValues;i++)
+				cout << temp->Range[i][1] << "\t" << temp->Range[i][2] << endl;
+		}
+		temp = temp->PtrToNextAttr;
+	}
+}
 
 /*
  * Function to Insert Metadata into Linked List Structure.
@@ -641,19 +667,7 @@ void printArray(unsigned long long int (&array)[3][35000],int length)
 void makeItDiscreteValues(struct AtttributeMetadata* temp)
 {
 	sa.clear();
-	if(temp->Index == 3)
-	{
-		temp->NoOfdistinctValues = 4;
-		temp->Range[1][1] = -1;
-		temp->Range[1][2] = 133366.5;
 
-		temp->Range[2][1] = 133366.5;
-		temp->Range[2][2] = 201111.5;
-
-		temp->Range[3][1] = 201111.5;
-		temp->Range[3][2] = -100;
-		return;
-	}
 	for(unsigned long long int i=1;i<noOfInstances;i++)
 	{
 		sa.insert(atoi(tData[i][temp->Index].c_str()));
@@ -664,6 +678,26 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	{
 		temparray[1][noOfDistinctValues] = *itr;
 		noOfDistinctValues++;
+	}
+	//cout << "No of distinct " << noOfDistinctValues << endl;
+	if(temp->Index == 3)
+	{
+		long long int prev = -1;
+		int ml = 1;
+		for(ml = 1;ml<30;ml++)
+		{
+			temp->Range[ml][1] = prev;
+			temp->Range[ml][2] = temparray[1][600*ml]+0.5;
+			prev = temp->Range[ml][2];
+
+		}
+
+		temp->Range[ml][1] = prev;
+		temp->Range[ml][2] = -100;
+		ml++;
+		temp->NoOfdistinctValues = ml;
+		//cout << "ML is " << ml << endl;
+		return;
 	}
 	for(int i=1;i<noOfDistinctValues;i++)
 	{
@@ -707,6 +741,7 @@ void makeItDiscreteValues(struct AtttributeMetadata* temp)
 	temp->Range[temp->NoOfdistinctValues][1] = previousRange;
 	temp->Range[temp->NoOfdistinctValues][2] = -100; // To indicate last filter
 	temp->NoOfdistinctValues ++;
+	sa.clear();
 }
 
 /*
@@ -955,21 +990,22 @@ struct DTreeNode *MakeCopyOfTree(struct DTreeNode *temp)
  */
 void AllocateMemoryForDatas()
 {
-	tData = new string*[35000];
-	vData = new string*[35000];
-	trimmedData = new string*[100001];
-	for(int i = 0; i < 35000; ++i)
+	tData = new string*[33000];
+	vData = new string*[33000];
+	for(int i = 0; i < 33000; ++i)
 	{
 		 tData[i] = new string[20];
 		 vData[i] = new string[20];
-		 trimmedData[i] = new string[20];
 	}
+	trimmedData = new string*[15002];
+	for(int i=0;i<15002;i++)
+		trimmedData[i] = new string[20];
 }
 
 /*
  * Function to select node to be pruned.
  */
-void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
+void SelectedNodeToBePruned(struct DTreeNode *temp)
 {
 	if(temp == NULL)
 			return;
@@ -980,15 +1016,16 @@ void SelectedNodeToBePruned(struct DTreeNode *temp,struct DTreeNode *root)
 			temp->isPruned = 1;
 			cout << "Attribute selected for pruning is  " << temp->Name << endl;
 			nodeToBePruned = temp;
+			return;
 		}
-		return;
+
 	}
 	else
 	{
-			for(int i=1;i<temp->NoOfDistinctValues;i++)
-			{
-				SelectedNodeToBePruned(temp->PtrToNextValue[i]->ptrToNextNode,root);
-			}
+		for(int i=1;i<temp->NoOfDistinctValues;i++)
+		{
+			SelectedNodeToBePruned(temp->PtrToNextValue[i]->ptrToNextNode);
+		}
 	}
 }
 
@@ -1111,8 +1148,7 @@ void FreeTreeMemory(struct DTreeNode *temp)
 		FreeTreeMemory(temp->PtrToNextValue[i]->ptrToNextNode);
 		delete temp->PtrToNextValue[i];
 	}
-	if(temp!=NULL)
-		delete temp;
+	delete temp;
 }
 
 
@@ -1127,11 +1163,12 @@ void DoReducedErrorPruning()
 		cout << "-----------------------------------------------" << endl;
 		nodeToBePruned = NULL;
 		struct DTreeNode *copyOfTree = MakeCopyOfTree(headOfDTree);
-		SelectedNodeToBePruned(copyOfTree,copyOfTree);
+		SelectedNodeToBePruned(copyOfTree);
 		struct DTreeNode *nodeSelectedForPruning = nodeToBePruned;
 		updateMainTreeAfterPruning(headOfDTree,nodeToBePruned->index);
 		cout << "Building new tree After pruning selected Attribute.." << endl;
 		BuildNewTreeWithPruning(nodeToBePruned);
+		traverseTree(copyOfTree);
 		cout << "Done!!" << endl;
 		cout << "Calculating Accuracy.." << endl;
 		checkForAccuracy(copyOfTree,tData,noOfInstances,"Training Data");
@@ -1153,7 +1190,7 @@ void DoReducedErrorPruning()
  */
 void RandomForest()
 {
-	for(int noOfTrees = 1;noOfTrees<=3;noOfTrees++)
+	for(int noOfTrees = 1;noOfTrees<=4;noOfTrees++)
 	{
 		trimmedDataCount = 1;
 		unsigned long long int randomNumber = 0;
@@ -1169,6 +1206,7 @@ void RandomForest()
 		checkForAccuracy(randomTree[noOfTrees],vData,countOfVData,"Validation Data");
 		updateAttributeParametersToOriginalAsNotDone();
 		cout << "Deleting Tree and freeing up memory..." << endl;
+		//FreeTreeMemory(randomTree[noOfTrees]);
 		cout << "Done!!" << endl;
 	}
 }

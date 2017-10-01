@@ -1,0 +1,92 @@
+Documentation about the program :
+
+Training data count is 32561
+Validation data count is 16281
+
+Based on the training data , We've built the Decision tree and root
+found to be "fnlwgt". Most of the training data found to be biased
+towards the other children of the root node.
+
+------------------------------------------------------------------------
+Phase -1 :
+Building Decision tree.
+From the tree built below are the accuracy values.
+
+Training Data		75.919%
+Validation Data		76.3774%
+
+-------------------------------------------------------------------------
+Phase - 2 :
+Reduced error pruning.
+In this step we consider each node other than root node and will replace
+that node with the most common value found from its children.
+Below are the accuracy values.
+
+Pruning Attribute : capital-loss
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : capital-gain
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : marital-status
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : occupation
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : workclass
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : education
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : relationship
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : education-num
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : hours-per-week
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : race
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : sex
+Training Data		75.919%
+Validation Data		76.3774%
+
+Pruning Attribute : native-country
+Training Data		75.919%
+Validation Data		76.3774%
+
+-------------------------------------------------------------------------
+Phase - 3 :
+Building Random forests.
+Random forests is a concept of building random trees with subset of attributes
+or subset of dataset. Here we are considering all attributes but only subset of
+data. We are randomly picking 15000 data points from the training data set and
+building the Decision trees. We've built 4 trees and below are the accuracy details
+
+For Random Tree - 1 :
+Validation Data		76.3774%
+
+For Random Tree - 2 :
+Validation Data		77.0469%
+
+For Random Tree - 3 :
+Validation Data		76.3774%
+
+For Random Tree - 4 :
+Validation Data		76.3774%
+
