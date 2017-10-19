@@ -1,0 +1,24 @@
+### Install JAVA 1.7 ###
+sudo yum install java-1.7.0-openjdk-devel
+
+### To Transfer files from local to AWS ec2 instance ###
+scp -i krishna_hdfs.pem /home/wordcount.java ec2-user@13.126.199.251:/home/ec2-user
+
+### Execute put command ###
+HADOOP_USER_NAME=hdfs hdfs fs -put /home/ec2-user/inp.txt /new_usr/
+
+### Compile Java file ###
+javac -classpath /opt/cloudera/parcels/CDH/lib/hadoop/hadoop-common-2.6.0-cdh5.12.1.jar:/opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-client-core-2.6.0-cdh5.12.1.jar WordCount.java
+
+
+### Execute ###
+HADOOP_USER_NAME=hdfs hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples-2.6.0-cdh5.12.1.jar wordcount /new_usr/ /new_output
+
+########select which version of java######################
+https://forums.aws.amazon.com/thread.jspa?messageID=449325
+
+
+########## Set these values in yarn ####################
+yarn.scheduler.maximum-allocation-mb = 8 GiB
+mapreduce.map.memory.mb  = 4 GiB
+mapreduce.reduce.memory.mb = 4 GiB
