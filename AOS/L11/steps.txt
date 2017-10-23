@@ -1,11 +1,16 @@
 ### Install JAVA 1.7 ###
 sudo yum install java-1.7.0-openjdk-devel
 
+### Connect to AWS instance ###
+ssh -i krishna_hdfs.pem ec2-user@13.126.199.251
+
 ### To Transfer files from local to AWS ec2 instance ###
 scp -i krishna_hdfs.pem /home/wordcount.java ec2-user@13.126.199.251:/home/ec2-user
 
 ### Execute put command ###
 HADOOP_USER_NAME=hdfs hdfs fs -put /home/ec2-user/inp.txt /new_usr/
+
+hadoop fs -get /output/part-r-00000 /home/ec2-user/
 
 ### Compile Java file ###
 javac -classpath /opt/cloudera/parcels/CDH/lib/hadoop/hadoop-common-2.6.0-cdh5.12.1.jar:/opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-client-core-2.6.0-cdh5.12.1.jar WordCount.java
@@ -22,3 +27,24 @@ https://forums.aws.amazon.com/thread.jspa?messageID=449325
 yarn.scheduler.maximum-allocation-mb = 8 GiB
 mapreduce.map.memory.mb  = 4 GiB
 mapreduce.reduce.memory.mb = 4 GiB
+
+############# installationof docker in RHEL ############################
+export DOCKERURL='https://storebits.docker.com/ee/rhel/sub-0cfb709d-e4ab-476e-8301-079615444328'
+follow steps from here
+https://docs.docker.com/engine/installation/linux/docker-ee/rhel/#install-using-the-repository
+
+
+########### Docker run command ####################
+docker run -d --name=hadoopserver --net=host -p 8030:8030 -p 8040:8040 -p 8042:8042 -p 8088:8088 -p 19888:19888 -p 49707:49707 -p 50010:50010 -p 50020:50020 -p 50070:50070 -p 50075:50075 -p 50090:50090 -p 9000:9000 sequenceiq/hadoop-docker:latest /etc/bootstrap.sh -d
+
+############# Docker sample commands ##############
+docker ps -aq
+docker stop container
+docker rm container
+docker start container
+docker attach container
+
+javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/lib/hadoop-annotations-2.7.0.jar WordCount.java
+
+
+bin/hadoop jar jarFiles/wc.jar WordCount /user/input.txt /output
