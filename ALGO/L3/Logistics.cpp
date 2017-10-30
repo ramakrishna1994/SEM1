@@ -27,14 +27,35 @@ int customerOrdersLocation[10001][3];
 int quantityOrderedByCustomer[10001][10001];
 int stockInCustomerLocation[10001][10001];
 int quantityOfSpecificCustomerOrder[10001];
+bool isCustomerOrderCompleted[10001] = {false};
 
 int dronesLocation[10001][3];
-int stockInDrone[10001];
+int stockInDrone[10001][10001];
+int currentDroneWeight[10001] = {0};
 
 int calculateDistance(int x1,int y1,int x2,int y2)
 {
 	int roundedOfDistance = round(sqrt( ((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1)) ));
 	return roundedOfDistance;
+}
+
+int getLeastDistanceCustomerForSpecificDrone(int droneId)
+{
+	int leastDistance = 32000;
+	int customerSelected = 0;
+	for(int i=1;i<=noOfCustomerOrders;i++)
+	{
+		if(isCustomerOrderCompleted[i] != true)
+		{
+			int getDIstance = calculateDistance(dronesLocation[droneId][1],dronesLocation[droneId][2],customerOrdersLocation[i][1],customerOrdersLocation[i][2]);
+			if(leastDistance >= getDIstance)
+			{
+				leastDistance = getDIstance;
+				customerSelected = i;
+			}
+		}
+	}
+	return customerSelected;
 }
 
 void readInputsFromFile()
@@ -141,11 +162,15 @@ void readInputsFromFile()
 		}
 		lineNo++;
 	}
+	for(int i=1;i<=noOfDrones;i++)
+	{
+		dronesLocation[i][1] = wareHousesLocation[1][1];
+		dronesLocation[i][2] = wareHousesLocation[1][2];
+	}
 }
 
-int main()
+void printData()
 {
-	readInputsFromFile();
 	cout << noOfRowsInMap << " " << noOfColumnsInMap << " " << noOfDrones << " " << noOfMaxTurns << " " << maxPayloadDroneCanCarry << endl;
 	cout << noOfProductTypes << endl;
 	for(int i=1;i<=noOfProductTypes;i++)
@@ -171,6 +196,36 @@ int main()
 		}
 		cout << endl;
 	}
+}
+
+int main()
+{
+	readInputsFromFile();
+	int customerSelected = getLeastDistanceCustomerForSpecificDrone(1) ;
+	for(int i=1;i<=noOfProductTypes;i++)
+	{
+		for(int j=1;j<=quantityOrderedByCustomer[customerSelected][i];j++)
+		{
+			currentDroneWeight[1] += productTypeWeights[i];
+			if(currentDroneWeight[1] > maxPayloadDroneCanCarry)
+			{
+				currentDroneWeight[1] -= productTypeWeights[i];
+				break;
+			}
+			stockInDrone[1][i]++;
+		}
+	}
+	dronesLocation[1][1] = customerOrdersLocation[customerSelected][1];
+	dronesLocation[1][2] = customerOrdersLocation[customerSelected][2];
+	for(int i=1;i<=noOfProductTypes;i++)
+	{
+
+	}
+	for(int i=1;i<=noOfProductTypes;i++)
+		cout << stockInDrone[1][i] << " ";
+	cout << endl;
+	cout << currentDroneWeight[1] << endl;
+
 }
 
 

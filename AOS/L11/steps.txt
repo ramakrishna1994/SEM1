@@ -6,6 +6,13 @@ ssh -i krishna_hdfs.pem ec2-user@13.126.199.251
 
 ### To Transfer files from local to AWS ec2 instance ###
 scp -i krishna_hdfs.pem /home/wordcount.java ec2-user@13.126.199.251:/home/ec2-user
+scp -i krishna_hdfs.pem /home/saradhi/Sem/AOS_HADOOP/src/AOS_ASSIGNMENT_PART_1/aadharMain.java ec2-user@13.126.199.251:/home/ec2-user/A1
+scp -i krishna_hdfs.pem /home/saradhi/Sem/AOS_HADOOP/src/AOS_ASSIGNMENT_PART_1/aadharMapper.java ec2-user@13.126.199.251:/home/ec2-user/A1
+scp -i krishna_hdfs.pem /home/saradhi/Sem/AOS_HADOOP/src/AOS_ASSIGNMENT_PART_1/aadharReducer.java ec2-user@13.126.199.251:/home/ec2-user/A1
+
+sudo docker cp /home/ec2-user/A1/aadharMain.java 3a405dceed91:/usr/local/hadoop/A1/AOS_ASSIGNMENT_PART_1
+sudo docker cp /home/ec2-user/A1/aadharMapper.java 3a405dceed91:/usr/local/hadoop/A1/AOS_ASSIGNMENT_PART_1
+sudo docker cp /home/ec2-user/A1/aadharReducer.java 3a405dceed91:/usr/local/hadoop/A1/AOS_ASSIGNMENT_PART_1
 
 ### Execute put command ###
 HADOOP_USER_NAME=hdfs hdfs fs -put /home/ec2-user/inp.txt /new_usr/
@@ -48,7 +55,28 @@ docker rm container
 docker start container
 docker attach container
 
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/lib/hadoop-annotations-2.7.0.jar WordCount.java
+sudo service docker start
+sudo docker start 3a405dceed91
+sudo docker attach 3a405dceed91
+cd $HADOOP_PREFIX
 
+cd A1
+rm *.class
+rm aadhar.jar
+rm AadharFrequencyCountByGenderInState.java
+vi AadharFrequencyCountByGenderInState.java
 
-bin/hadoop jar jarFiles/wc.jar WordCount /user/input.txt /output
+javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/lib/hadoop-annotations-2.7.0.jar AadharFrequencyCountByGenderInState.java
+
+jar -cvf aadhar.jar *.class 
+
+javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/lib/hadoop-annotations-2.7.0.jar aadharMapper.java
+javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/lib/hadoop-annotations-2.7.0.jar aadharReducer.java
+javac -classpath /usr/local/hadoop/A1/AOS_ASSIGNMENT_PART_1/aadharMapper.class:/usr/local/hadoop/A1/AOS_ASSIGNMENT_PART_1/aadharReducer.class:/usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/lib/hadoop-annotations-2.7.0.jar aadharMain.java
+
+cd ..
+sudo bin/hadoop fs -rm -r /benj
+bin/hadoop jar A1/aadhar.jar AadharFrequencyCountByGenderInState /hadoop/UIDAI-ENR-DETAIL-20171029.csv /benj
+
+bin/hadoop fs -cat /benj/part-r-00000
+
