@@ -23,7 +23,8 @@ public class AadharFrequencyCountByGenderInState {
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			String valueString = value.toString();
 			String[] aadharData = valueString.split(",");
-			context.write(new Text(aadharData[2] + "," + aadharData[6]), one);
+			Text Key = new Text(aadharData[2] + "," + aadharData[6]);
+			context.write(Key, one);
 		}
 	}
 

@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="AOS_ASSIGNMENT_PART_1.aadharMapper"/>
+<fullyQualifiedTypeName name="AOS_ASSIGNMENT_PART_1.aadharReducer"/>
+<fullyQualifiedTypeName name="AOS_ASSIGNMENT_PART_1.aadharMain"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.io.Text"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.io.IntWritable"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.mapred.MapReduceBase"/>
+</qualifiedTypeNameHistroy>
