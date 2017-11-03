@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="Start Of Phase - 3" key="selection"/>
+		<item value="double" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="float"/>
+			<item value="remove"/>
 			<item value="Start Of Phase - 3"/>
 			<item value="pickRandomValueFromAttribute"/>
 			<item value="TData"/>
@@ -21,10 +23,9 @@
 			<item value=" Outlying-US(Guam-USVI-etc)"/>
 			<item value="\n"/>
 			<item value="Length of Dom set is"/>
-			<item value="Trial 3"/>
-			<item value="Trial 2"/>
 		</list>
 		<list key="replacehistory">
+			<item value="double"/>
 			<item value="TrainingData"/>
 			<item value=""/>
 		</list>

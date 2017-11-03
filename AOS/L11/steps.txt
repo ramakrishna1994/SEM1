@@ -75,8 +75,11 @@ javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/
 javac -classpath /usr/local/hadoop/A1/AOS_ASSIGNMENT_PART_1/aadharMapper.class:/usr/local/hadoop/A1/AOS_ASSIGNMENT_PART_1/aadharReducer.class:/usr/local/hadoop/share/hadoop/common/hadoop-common-2.7.0.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-2.7.0.jar:/usr/local/hadoop/share/hadoop/common/lib/hadoop-annotations-2.7.0.jar aadharMain.java
 
 cd ..
-sudo bin/hadoop fs -rm -r /benj
-bin/hadoop jar A1/aadhar.jar AadharFrequencyCountByGenderInState /hadoop/UIDAI-ENR-DETAIL-20171029.csv /benj
+sudo bin/hadoop fs -rm -r -skipTrash /benj
+bin/hadoop jar latest/aadhar.jar FindGenderCountPerState /hadoop/UIDAI-ENR-DETAIL-20171029.csv /latest
 
-bin/hadoop fs -cat /benj/part-r-00000
+bin/hadoop fs -cat /latest/part-r-00000
+
+scp -i /home/saradhi/Desktop/krishna_hdfs.pem /home/saradhi/Sem/ML_ASSIGNMENT3/src/SentimentAnalysis.java  ec2-user@13.126.199.251:/home/ec2-user/ML
+
 
