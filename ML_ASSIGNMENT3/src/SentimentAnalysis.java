@@ -16,14 +16,16 @@ public class SentimentAnalysis {
 	public static HashMap<String, Integer> stopWordsList = new HashMap<>();
 	public static BigDecimal probabilityOfPositive = BigDecimal.valueOf(0);
 	public static BigDecimal probabilityOfnegative = BigDecimal.valueOf(0);
-	public static int countOfCorrectlyClassifiedPositiveTestReviews = 0;
-	public static int countOfCorrectlyClassifiedNegativeTestReviews = 0;
-
+	public static int truePositives = 0;
+	public static int trueNegatives = 0;
+	public static int totalNoOfPositiveReviews = 0;
+	public static int totalNoOfNegativeReviews = 0;
 	public static String postiveTrainingReviewsDirectory = "actualtrainingdata/pos";
 	public static String negativeTrainingTrReviewsDirectory = "actualtrainingdata/neg";
 	public static String postiveTestReviewsDirectory = "actualtestdata/pos";
 	public static String negativeTestReviewsDirectory = "actualtestdata/neg";
 	public static String stopWordsListFileName = "stopwords.txt";
+	public static Boolean isBinaryNaiveBayes = false;
 
 	/*
 	 * public static String postiveTrainingReviewsDirectory = "train/pos"; public
@@ -77,11 +79,11 @@ public class SentimentAnalysis {
 							considerStopWords);
 					if (probabilityOfPositiveGivenReview.compareTo(probabilityOfNegativeGivenReview) > 0) {
 						if (whichClass.equals(POSITIVE))
-							countOfCorrectlyClassifiedPositiveTestReviews++;
+							truePositives++;
 					}
 					if (probabilityOfPositiveGivenReview.compareTo(probabilityOfNegativeGivenReview) < 0) {
 						if (whichClass.equals(NEGATIVE))
-							countOfCorrectlyClassifiedNegativeTestReviews++;
+							trueNegatives++;
 					}
 
 					i++;
@@ -184,6 +186,7 @@ public class SentimentAnalysis {
 	public static void readDataFromFileAndSplitToWords(String filePath, HashMap<String, Integer[]> wordMap,
 			String whichClass) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(filePath));
+		HashMap<String, Integer> tempMap = new HashMap<>();
 		try {
 			String line = br.readLine();
 
@@ -194,10 +197,19 @@ public class SentimentAnalysis {
 					String modifiedString = result[x].toLowerCase()
 							.replaceAll("[-\\\\[\\\\]^/,'*:;,_.!><~@#$%+=?|\\\"\\\\\\\\()]+", "");
 					if (!modifiedString.isEmpty())
-						insertIntoWordMap(modifiedString, wordMap, whichClass);
+						if (isBinaryNaiveBayes) {
+							if (!tempMap.containsKey(modifiedString)) {
+								insertIntoWordMap(modifiedString, wordMap, whichClass);
+								tempMap.put(modifiedString, 1);
+							}
+						} else {
+							insertIntoWordMap(modifiedString, wordMap, whichClass);
+						}
+
 				}
 				line = br.readLine();
 			}
+			tempMap.clear();
 		} finally {
 			br.close();
 		}
@@ -277,36 +289,86 @@ public class SentimentAnalysis {
 		System.out.println("Probability of Positive class P(-) : " + probabilityOfnegative);
 		System.out.println();
 		ReadStopWordsAndStoreThemInMap(stopWordsListFileName);
+		if (isBinaryNaiveBayes)
+			System.out.println(
+					"==================== BINARY NAIVE BAYES WITHOUT STOP WORDS =============================");
+		else
+			System.out.println(
+					"==================== NORMAL NAIVE BAYES WITHOUT STOP WORDS =============================");
 		ClassifyTestExamplesBasedOnTrainingDataWithStopWords(false);
+		printConfusionMatrix();
+		if (isBinaryNaiveBayes)
+			System.out.println(
+					"==================== BINARY NAIVE BAYES WITH STOP WORDS ================================");
+		else
+			System.out.println(
+					"==================== NORMAL NAIVE BAYES WITH STOP WORDS ================================");
 		ClassifyTestExamplesBasedOnTrainingDataWithStopWords(true);
+		printConfusionMatrix();
 	}
 
-	private static void ClassifyTestExamplesBasedOnTrainingDataWithStopWords(boolean considerStopWords) {
-
-		countOfCorrectlyClassifiedNegativeTestReviews = 0;
-		countOfCorrectlyClassifiedPositiveTestReviews = 0;
-		int totalNoOfPositiveReviews = GetNoOfReviewsOfSpecificClass(new File(postiveTestReviewsDirectory));
-		int totalNoOfNegativeReviews = GetNoOfReviewsOfSpecificClass(new File(negativeTestReviewsDirectory));
-		listTestFilesForFolder(new File(postiveTestReviewsDirectory), POSITIVE, considerStopWords);
-		listTestFilesForFolder(new File(negativeTestReviewsDirectory), NEGATIVE, considerStopWords);
-		System.out.println("Considering StopWords : " + considerStopWords);
-		System.out.println("Correctly classified positive Test Reviews are : "
-				+ countOfCorrectlyClassifiedPositiveTestReviews + " out of total " + totalNoOfPositiveReviews);
-		System.out.println("Correctly classified negative Test Reviews are : "
-				+ countOfCorrectlyClassifiedNegativeTestReviews + " out of total " + totalNoOfNegativeReviews);
-		float accuracyPercentageForPositive = ((float)countOfCorrectlyClassifiedPositiveTestReviews/(float)totalNoOfPositiveReviews)*100;
-		float accuracyPercentageForNegative = ((float)countOfCorrectlyClassifiedNegativeTestReviews/(float)totalNoOfNegativeReviews)*100;
-		System.out.println("Percentage of Accuracy For positive results : " + accuracyPercentageForPositive);
-		System.out.println("Percentage of Accuracy For positive results : " + accuracyPercentageForNegative);
+	public static void printConfusionMatrix() {
+		float tp = truePositives;
+		float fn = totalNoOfPositiveReviews - truePositives;
+		float fp = totalNoOfNegativeReviews - trueNegatives;
+		float tn = trueNegatives;
+		System.out.println("       CONFUSION MATRIX        ");
+		System.out.println("-----------     ---------------");
+		System.out.println("| tp | fn |     | " + (int) tp + " | " + (int) fn + " |");
+		System.out.println("----------- ==>	---------------");
+		System.out.println("| fp | tn |     | " + (int) fp + " | " + (int) tn + " |");
+		System.out.println("-----------     ---------------");
+		float precision = tp / (tp + fp);
+		float recall = tp / (tp + fn);
+		System.out.println("Error Rate  : " + (fp + fn) / (tp + fn + fp + tn));
+		System.out.println("Accuracy    : " + (tp + tn) / (tp + fn + fp + tn));
+		System.out.println("Recall      : " + tp / (tp + fn));
+		System.out.println("Precision   : " + tp / (tp + fp));
+		System.out.println("F-1 measure : " + (2 * precision * recall) / (precision + recall));
 		System.out.println();
 	}
 
+	public static void ClassifyTestExamplesBasedOnTrainingDataWithStopWords(boolean considerStopWords) {
+
+		trueNegatives = 0;
+		truePositives = 0;
+		totalNoOfPositiveReviews = GetNoOfReviewsOfSpecificClass(new File(postiveTestReviewsDirectory));
+		totalNoOfNegativeReviews = GetNoOfReviewsOfSpecificClass(new File(negativeTestReviewsDirectory));
+		listTestFilesForFolder(new File(postiveTestReviewsDirectory), POSITIVE, considerStopWords);
+		listTestFilesForFolder(new File(negativeTestReviewsDirectory), NEGATIVE, considerStopWords);
+		System.out.println("Considering StopWords : " + considerStopWords);
+		/*System.out.println("Correctly classified positive Test Reviews are : " + truePositives + " out of total "
+				+ totalNoOfPositiveReviews);
+		System.out.println("Correctly classified negative Test Reviews are : " + trueNegatives + " out of total "
+				+ totalNoOfNegativeReviews);
+		float accuracyPercentageForPositive = ((float) truePositives / (float) totalNoOfPositiveReviews) * 100;
+		float accuracyPercentageForNegative = ((float) trueNegatives / (float) totalNoOfNegativeReviews) * 100;
+		System.out.println("Percentage of Accuracy For positive results : " + accuracyPercentageForPositive);
+		System.out.println("Percentage of Accuracy For positive results : " + accuracyPercentageForNegative);*/
+		System.out.println();
+	}
+
+	public static void resetAllParams() {
+		isBinaryNaiveBayes = true;
+		ProbabilitesOfAllUniqueWordsMap.clear();
+		allUniqueWordsMap.clear();
+		probabilityOfPositive = BigDecimal.valueOf(0);
+		probabilityOfnegative = BigDecimal.valueOf(0);
+		truePositives = 0;
+		trueNegatives = 0;
+		totalNoOfPositiveReviews = 0;
+		totalNoOfNegativeReviews = 0;
+	}
+
 	public static void main(String[] args) throws IOException {
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		StartAlgo();
+		System.out.println("+++++++++++++++++++++++++++ NORMAL NAIVE BAYES +++++++++++++++++++++++++++++++++++++++++");
+		StartAlgo(); // Normal Naive Bayes
+		resetAllParams();
+		System.out.println("+++++++++++++++++++++++++++ BINARY NAIVE BAYES +++++++++++++++++++++++++++++++++++++++++");
+		StartAlgo(); // Binary Naive Bayes
 		// printCountsMap(allUniqueWordsMap);
 		// printProbabilitiesMap(ProbabilitesOfAllUniqueWordsMap);
-		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println("+++++++++++++++++++++++++++ END OF PROGRAM +++++++++++++++++++++++++++++++++++++++++++++");
 
 	}
 

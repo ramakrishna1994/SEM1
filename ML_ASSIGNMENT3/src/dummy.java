@@ -18,16 +18,13 @@ public class dummy {
 			System.out.print(i/1000 + "%\r");
 		System.out.println();
 		
-		double rk = 1.294881398575501E-6;
-		double rk1 = 4.228784980240717E-263;
 		
-		BigDecimal a1 = new BigDecimal(rk);
-		BigDecimal a2 = new BigDecimal(rk1);
-		System.out.println(a2);
-		if(a1.compareTo(a2) == 1)
-			System.out.println(true);
-		if(a1.compareTo(a2) == -1)
-			System.out.println(false);
+			System.out.println("---------------");
+			System.out.println("| 10450 | 3450  |");
+			System.out.println("---------------");
+			System.out.println("| 2188  | 10312 |");
+			System.out.println("----------------");
+		
 		
 	}
 }

@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="double" key="selection"/>
+		<item value="WordMap" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="wordmap"/>
 			<item value="float"/>
 			<item value="remove"/>
 			<item value="Start Of Phase - 3"/>
@@ -22,7 +23,6 @@
 			<item value="Outlying-US(Guam-USVI-etc)"/>
 			<item value=" Outlying-US(Guam-USVI-etc)"/>
 			<item value="\n"/>
-			<item value="Length of Dom set is"/>
 		</list>
 		<list key="replacehistory">
 			<item value="double"/>
