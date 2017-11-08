@@ -9,6 +9,8 @@
 
 using namespace std;
 
+char fileName[] = "sampleinput.in";
+
 int noOfRowsInMap = 0;
 int noOfColumnsInMap = 0;
 int noOfDrones = 0;
@@ -26,7 +28,7 @@ int noOfCustomerOrders = 0;
 int customerOrdersLocation[10001][3];
 int quantityOrderedByCustomer[10001][10001];
 int stockInCustomerLocation[10001][10001];
-int quantityOfSpecificCustomerOrder[10001];
+int totalQuantityOfSpecificCustomerOrder[10001];
 bool isCustomerOrderCompleted[10001] = {false};
 
 int dronesLocation[10001][3];
@@ -147,11 +149,11 @@ void readInputsFromFile()
 			}
 			else if(count2%3 == 2)
 			{
-				quantityOfSpecificCustomerOrder[currentCustomerOrder] = atoi(line.c_str());
+				totalQuantityOfSpecificCustomerOrder[currentCustomerOrder] = atoi(line.c_str());
 			}
 			else
 			{
-				for(int i=1;i<=quantityOfSpecificCustomerOrder[currentCustomerOrder];i++)
+				for(int i=1;i<=totalQuantityOfSpecificCustomerOrder[currentCustomerOrder];i++)
 				{
 					int productType = atoi(arr[i].c_str()) + 1;
 					(quantityOrderedByCustomer[currentCustomerOrder][productType])++;
@@ -188,7 +190,7 @@ void printData()
 	for(int i=1;i<=noOfCustomerOrders;i++)
 	{
 		cout << customerOrdersLocation[i][1] << " " << customerOrdersLocation[i][2] << endl;
-		cout << quantityOfSpecificCustomerOrder[i] << endl;
+		cout << totalQuantityOfSpecificCustomerOrder[i] << endl;
 		for(int j=1;j<=noOfProductTypes;j++)
 		{
 			if(quantityOrderedByCustomer[i][j] > 0)
@@ -227,23 +229,3 @@ int main()
 	cout << currentDroneWeight[1] << endl;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

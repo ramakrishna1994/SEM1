@@ -83,3 +83,18 @@ bin/hadoop fs -cat /latest/part-r-00000
 scp -i /home/saradhi/Desktop/krishna_hdfs.pem /home/saradhi/Sem/ML_ASSIGNMENT3/src/SentimentAnalysis.java  ec2-user@13.126.199.251:/home/ec2-user/ML
 
 
+***************************** HBase commands ******************************
+docker pull dajobe/hbase
+id=$(sudo docker run --name=hbase-docker -h hbase-docker -d -v $PWD/data:/data dajobe/hbase)
+docker run --rm -it --link $id:hbase-docker dajobe/hbase bash
+
+hbase shell
+apt-get update
+apt-get install default-jdk
+
+javac -classpath `hbase classpath` CreateTable.java 
+java -classpath `hbase classpath` CreateTable
+
+******************************************************************************
+
+
