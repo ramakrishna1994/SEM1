@@ -1,0 +1,3 @@
+Network;NetType;ESSID;BSSID;Info;Channel;Cloaked;Encryption;Decrypted;MaxRate;MaxSeenRate;Beacon;LLC;Data;Crypt;Weak;Total;Carrier;Encoding;FirstTime;LastTime;BestQuality;BestSignal;BestNoise;GPSMinLat;GPSMinLon;GPSMinAlt;GPSMinSpd;GPSMaxLat;GPSMaxLon;GPSMaxAlt;GPSMaxSpd;GPSBestLat;GPSBestLon;GPSBestAlt;DataSize;IPType;IP;
+1;infrastructure;Xiaomi_ACN;78:11:DC:17:EC:D0;;7;No;WPA2,AES-CCM,TKIP;No;54.0;0;841;0;228;0;0;228;;;Sun Nov 12 15:35:26 2017;Sun Nov 12 15:36:56 2017;-41;0;0;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0.000000;0;0;192.168.31.1;
+

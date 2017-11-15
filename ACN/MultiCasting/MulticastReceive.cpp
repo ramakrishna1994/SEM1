@@ -8,28 +8,32 @@
 
 int main()
 {
-	int sockfd,portno;
-	char mip[32],buf[256];
+	int sockfd,portno=54235;
+	char mip[32] = "239.30.30.30";
+	char buf[256];
 	struct sockaddr_in mcast;
 	struct ip_mreq mreq;
 	printf("Enter Multicast IP address to listen to : ");
-	scanf("%s",mip);
+	//scanf("%s",mip);
 	printf("Enter Port No :");
-	scanf("%d",&portno);
+	//scanf("%d",&portno);
+
 	sockfd = socket(AF_INET,SOCK_DGRAM,0);
+
 	if(sockfd < 0)
 	{
 		perror("Error in Socket Connection ");
 		exit(1);
 	}
+	printf("coming\n");
 	memset(&mcast,'\0',sizeof(mcast));
 	mcast.sin_family = AF_INET;
-	mcast.sin_addr.s_addr = inet_addr(INADDR_ANY);;
+	mcast.sin_addr.s_addr = inet_addr(INADDR_ANY);
 	mcast.sin_port = htons(portno);
 	unsigned int addrlen = sizeof(mcast);
 	mreq.imr_multiaddr.s_addr = inet_addr(mip);
 	mreq.imr_interface.s_addr = htonl(INADDR_ANY);
-
+	printf("coming\n");
 
 	/*
 	 * SO_REUSEADDR sets the address to be reused if the same application

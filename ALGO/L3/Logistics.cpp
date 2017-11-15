@@ -6,6 +6,7 @@
 #include <set>
 #include <cmath>
 #include <string>
+#define MAX 32000;
 
 using namespace std;
 
@@ -41,24 +42,6 @@ int calculateDistance(int x1,int y1,int x2,int y2)
 	return roundedOfDistance;
 }
 
-int getLeastDistanceCustomerForSpecificDrone(int droneId)
-{
-	int leastDistance = 32000;
-	int customerSelected = 0;
-	for(int i=1;i<=noOfCustomerOrders;i++)
-	{
-		if(isCustomerOrderCompleted[i] != true)
-		{
-			int getDIstance = calculateDistance(dronesLocation[droneId][1],dronesLocation[droneId][2],customerOrdersLocation[i][1],customerOrdersLocation[i][2]);
-			if(leastDistance >= getDIstance)
-			{
-				leastDistance = getDIstance;
-				customerSelected = i;
-			}
-		}
-	}
-	return customerSelected;
-}
 
 void readInputsFromFile()
 {
@@ -200,32 +183,85 @@ void printData()
 	}
 }
 
+int findWarehouseCloseToSpecificCustomer(int customerOrderId)
+{
+	int min = MAX;
+	int selectedWareHouseId = -1;
+	int x1 = customerOrdersLocation[customerOrderId][1];
+	int y1 = customerOrdersLocation[customerOrderId][2];
+	int x2,y2,distance;
+	for(int warehouseId=1;warehouseId <= noOfWareHouses;warehouseId++)
+	{
+		x2 = wareHousesLocation[warehouseId][1];
+		y2 = wareHousesLocation[warehouseId][2];
+		distance = calculateDistance(x1,y1,x2,y2);
+		if(min > distance)
+		{
+			min = distance;
+			selectedWareHouseId = warehouseId;
+		}
+	}
+	return selectedWareHouseId;
+}
+
+int findDroneCloseToSpecificWarehouse(int warehouseId)
+{
+	int min = MAX;
+	int selectedDroneId = -1;
+	int x1 = wareHousesLocation[warehouseId][1];
+	int y1 = wareHousesLocation[warehouseId][2];
+	int x2,y2,distance;
+	for(int droneId = 1;droneId<=noOfDrones;droneId++)
+	{
+		x2 = dronesLocation[droneId][1];
+		y2 = dronesLocation[droneId][2];
+		distance = calculateDistance(x1,y1,x2,y2);
+		if(min > distance)
+		{
+			min = distance;
+			selectedDroneId = droneId;
+		}
+	}
+	return selectedDroneId;
+}
+
+
+void serviceCustomerOrder(int customerOrderId,int wareHouseId,int droneId)
+{
+	int remainingRequiredForCustomer = 0;
+	for(int i=1;i<=noOfProductTypes;i++)
+	{
+		remainingRequiredForCustomer = stockInCustomerLocation[customerOrderId][i] - stockInDrone[droneId][i];
+		if(remainingRequiredForCustomer <= stockInWareHouses[wareHouseId][i])
+		{
+			stockInDrone[droneId][i] += remainingRequiredForCustomer;
+
+		}
+		else
+		{
+			stockInDrone[droneId][i] += stockInWareHouses[wareHouseId][i];
+		}
+	}
+}
+
+void startAlgo()
+{
+	for(int customerOrderId=1;customerOrderId<=noOfCustomerOrders;customerOrderId++)
+	{
+		int warehouseIDCloseToCustomer = findWarehouseCloseToSpecificCustomer(customerOrderId);
+		cout << "WareHouse close to customer:" << customerOrderId << " is warehouse:" << warehouseIDCloseToCustomer << endl;
+		int droneCloseToWarehouse = findDroneCloseToSpecificWarehouse(warehouseIDCloseToCustomer);
+		cout << "Drone Close to Warehouse:" << warehouseIDCloseToCustomer << " is drone:" << droneCloseToWarehouse << endl;
+		serviceCustomerOrder(customerOrderId,warehouseIDCloseToCustomer,droneCloseToWarehouse);
+
+	}
+}
+
+
 int main()
 {
 	readInputsFromFile();
-	int customerSelected = getLeastDistanceCustomerForSpecificDrone(1) ;
-	for(int i=1;i<=noOfProductTypes;i++)
-	{
-		for(int j=1;j<=quantityOrderedByCustomer[customerSelected][i];j++)
-		{
-			currentDroneWeight[1] += productTypeWeights[i];
-			if(currentDroneWeight[1] > maxPayloadDroneCanCarry)
-			{
-				currentDroneWeight[1] -= productTypeWeights[i];
-				break;
-			}
-			stockInDrone[1][i]++;
-		}
-	}
-	dronesLocation[1][1] = customerOrdersLocation[customerSelected][1];
-	dronesLocation[1][2] = customerOrdersLocation[customerSelected][2];
-	for(int i=1;i<=noOfProductTypes;i++)
-	{
-
-	}
-	for(int i=1;i<=noOfProductTypes;i++)
-		cout << stockInDrone[1][i] << " ";
-	cout << endl;
-	cout << currentDroneWeight[1] << endl;
+	//printData();
+	startAlgo();
 
 }

