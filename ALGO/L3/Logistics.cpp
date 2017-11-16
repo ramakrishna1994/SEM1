@@ -1,3 +1,26 @@
+/*
+ * Author : Saradhi Ramakrishna (2017H1030081H)
+ * Practical implementation of Google Hashcode Qualification problem
+ * 1. Select Nearest warehouse to customer.
+ * 2. Select Nearest drone to warehouse.
+ * 3. Check if distance covered by drone to warehouse and customer will exceed maxturns a drone can take.
+ * 4. If yes, repeat 1 and 2.
+ * 5. If No, then go to warehouse and load the products in drone.
+ * 6. Then go to customer and deliver the products.
+ * 7. Update drone location and drone distance.
+ * 8. Repeat it until the customer order is satisfied.
+ * 9. Repeat the entire process again for all customers.
+ * Note : 	1. Drone will load partial customer orders from warehouse.
+ * 			2. Drone will always contain not more than what a customer wants.
+ *
+ * Tests run and results :
+ * 			1. redundancy.in 				--- 	508 out of total 1000
+ * 			2. mother_of_all_warehouses.in	---		16  out of total 800
+ * 			3. busy_day.in					---		108 out of total 1250
+ * 			4. sampleinput.in				---		3   out of total 3
+ */
+
+
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
@@ -42,8 +65,8 @@ void readInputsFromFile()
 {
 	//ifstream infile("mother_of_all_warehouses.in");
 	//ifstream infile("busy_day.in");
-	ifstream infile("redundancy.in");
-	//ifstream infile("sampleinput.in");
+	//ifstream infile("redundancy.in");
+	ifstream infile("sampleinput.in");
 	string line;
 	int lineNo=1;
 	int count1 = 1;
