@@ -30,11 +30,10 @@
 #include <cmath>
 #include <string>
 #include <limits>
-#define MAX 32000;
 
 using namespace std;
 
-
+const int MAX = numeric_limits<int>::max();
 int noOfRowsInMap = 0;
 int noOfColumnsInMap = 0;
 int noOfDrones = 0;
@@ -481,14 +480,12 @@ void printDistancesOfDrones()
 
 int main()
 {
-	/*int imin = std::numeric_limits<int>::min(); // minimum value
-	int imax = std::numeric_limits<int>::max();
-	cout << imin << "\t" << imax << endl;*/
 	readInputsFromFile();
 	//printData();
 	startAlgo();
 	cout << "==============================================================================" << endl;
 	cout << "No of customer Orders satisfied are " << noOfCustomerOrdersSatisfied() << " out of total " << noOfCustomerOrders << endl;
+	cout << "==============================================================================" << endl;
 	printDistancesOfDrones();
 
 }
