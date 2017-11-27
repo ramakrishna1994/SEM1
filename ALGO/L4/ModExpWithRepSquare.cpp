@@ -38,7 +38,7 @@ void doModularExponentiation(int b,int e,int n)
 	for(int i=1;i<length;i++)
 	{
 		if(binary[1][i]==1)
-			final *= binary[2][i];
+			final = ( (final*binary[2][i]) % n );
 	}
 	cout << "Modular Exponentiation using Repeated Squaring for " << b << "^" << e << " (mod " << n <<") is " << final % n << endl;
 }

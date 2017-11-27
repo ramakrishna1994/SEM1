@@ -64,8 +64,8 @@ void readInputsFromFile()
 {
 	//ifstream infile("mother_of_all_warehouses.in");
 	//ifstream infile("busy_day.in");
-	//ifstream infile("redundancy.in");
-	ifstream infile("sampleinput.in");
+	ifstream infile("redundancy.in");
+	//ifstream infile("sampleinput.in");
 	string line;
 	int lineNo=1;
 	int count1 = 1;
@@ -474,8 +474,16 @@ int noOfCustomerOrdersSatisfied()
 
 void printDistancesOfDrones()
 {
+	int max = -1;
 	for(int i=1;i<=noOfDrones;i++)
+	{
 		cout << " Distance of drone " << i << " is " << distanceTravelledByDrone[i] << endl;
+		if(max < distanceTravelledByDrone[i])
+			max = distanceTravelledByDrone[i];
+	}
+	cout << "==============================================================================" << endl;
+	cout << "Total Time or Turns taken to complete the orders is " << max << endl;
+
 }
 
 int main()
@@ -484,7 +492,7 @@ int main()
 	//printData();
 	startAlgo();
 	cout << "==============================================================================" << endl;
-	cout << "No of customer Orders satisfied are " << noOfCustomerOrdersSatisfied() << " out of total " << noOfCustomerOrders << endl;
+	//cout << "No of customer Orders satisfied are " << noOfCustomerOrdersSatisfied() << " out of total " << noOfCustomerOrders << endl;
 	cout << "==============================================================================" << endl;
 	printDistancesOfDrones();
 

@@ -1,0 +1,54 @@
+=============================running for customer: 1===============================================
+WareHouse close to customer:1 is warehouse:1
+Drone Close to Warehouse:1 is drone:1
+remaining for product type 1 is 1
+remaining required in drone to satisfy customer for product type 1 is 1
+Stock in warehouse of product type 1 is 5
+total weight in drone : 1 is 100
+remaining for product type 3 is 1
+remaining required in drone to satisfy customer for product type 3 is 1
+Stock in warehouse of product type 3 is 0
+total weight in drone : 1 is 100
+delivering product type 1 is 1
+drone : 1 location updated to  customer : 1
+Updating Distance Travelled by drone : 1
+----------
+WareHouse close to customer:1 is warehouse:2
+Drone Close to Warehouse:2 is drone:1
+remaining for product type 3 is 1
+remaining required in drone to satisfy customer for product type 3 is 1
+Stock in warehouse of product type 3 is 2
+total weight in drone : 1 is 450
+delivering product type 3 is 1
+customer order completed
+drone : 1 location updated to  customer : 1
+Updating Distance Travelled by drone : 1
+=============================running for customer: 2===============================================
+WareHouse close to customer:2 is warehouse:1
+Drone Close to Warehouse:1 is drone:2
+remaining for product type 1 is 1
+remaining required in drone to satisfy customer for product type 1 is 1
+Stock in warehouse of product type 1 is 4
+total weight in drone : 2 is 100
+delivering product type 1 is 1
+customer order completed
+drone : 2 location updated to  customer : 2
+Updating Distance Travelled by drone : 2
+=============================running for customer: 3===============================================
+WareHouse close to customer:3 is warehouse:2
+Drone Close to Warehouse:2 is drone:2
+remaining for product type 3 is 1
+remaining required in drone to satisfy customer for product type 3 is 1
+Stock in warehouse of product type 3 is 1
+total weight in drone : 2 is 450
+delivering product type 3 is 1
+customer order completed
+drone : 2 location updated to  customer : 3
+Updating Distance Travelled by drone : 2
+==============================================================================
+No of customer Orders satisfied are 3 out of total 3
+==============================================================================
+ Distance of drone 1 is 14
+ Distance of drone 2 is 10
+ Distance of drone 3 is 0
+Total Time or Turns taken to complete the orders is 14
